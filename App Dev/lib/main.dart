@@ -1,34 +1,34 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_one/login.dart';
 import 'package:project_one/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'theme.dart' as Theme;
 import 'bubble_indication_painter.dart';
-void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return MyAppState();
-  }
-}
-class MyApp1 extends StatelessWidget {
+void main() => runApp(MaterialApp(
+      home: MyApp(),
+    ));
+
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'TheGorgeousLogin',
-      theme: new ThemeData(
-
-        primarySwatch: Colors.blue,
+//    const PrimaryColor = const Color(0xFF151026);
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(200, 194, 43, 23),
+        title: Text(
+          "Project Visudh - प्रोजेक्ट विशुद्ध",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.hind(),
+        ),
       ),
-      home: new LoginPage(),
+      body: new LoginPage(),
     );
   }
 }
+
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
 
@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage>
   TextEditingController signupNameController = new TextEditingController();
   TextEditingController signupPasswordController = new TextEditingController();
   TextEditingController signupConfirmPasswordController =
-  new TextEditingController();
+      new TextEditingController();
 
   PageController _pageController;
 
@@ -176,7 +176,7 @@ class _LoginPageState extends State<LoginPage>
             fontFamily: "WorkSansSemiBold"),
       ),
       backgroundColor: Colors.blue,
-      duration: Duration(seconds: 3),
+      duration: Duration(seconds: 2),
     ));
   }
 
@@ -199,7 +199,7 @@ class _LoginPageState extends State<LoginPage>
                 highlightColor: Colors.transparent,
                 onPressed: _onSignInButtonPress,
                 child: Text(
-                  "Existing",
+                  "Existing User",
                   style: TextStyle(
                       color: left,
                       fontSize: 16.0,
@@ -214,7 +214,7 @@ class _LoginPageState extends State<LoginPage>
                 highlightColor: Colors.transparent,
                 onPressed: _onSignUpButtonPress,
                 child: Text(
-                  "New",
+                  "New User",
                   style: TextStyle(
                       color: right,
                       fontSize: 16.0,
@@ -266,9 +266,9 @@ class _LoginPageState extends State<LoginPage>
                               color: Colors.black,
                               size: 22.0,
                             ),
-                            hintText: "Email Address",
+                            hintText: "Enter your Username",
                             hintStyle: TextStyle(
-                                fontFamily: "WorkSansSemiBold", fontSize: 17.0),
+                                fontFamily: "WorkSansSemiBold", fontSize: 12.0),
                           ),
                         ),
                       ),
@@ -295,9 +295,9 @@ class _LoginPageState extends State<LoginPage>
                               size: 22.0,
                               color: Colors.black,
                             ),
-                            hintText: "Password",
+                            hintText: "Enter your Password",
                             hintStyle: TextStyle(
-                                fontFamily: "WorkSansSemiBold", fontSize: 17.0),
+                                fontFamily: "WorkSansSemiBold", fontSize: 12.0),
                             suffixIcon: GestureDetector(
                               onTap: _toggleLogin,
                               child: Icon(
@@ -470,6 +470,7 @@ class _LoginPageState extends State<LoginPage>
       padding: EdgeInsets.only(top: 23.0),
       child: Column(
         children: <Widget>[
+          new Text("Your E-Mail is Your Username"),
           Stack(
             alignment: Alignment.topCenter,
             overflow: Overflow.visible,
@@ -503,7 +504,7 @@ class _LoginPageState extends State<LoginPage>
                               FontAwesomeIcons.user,
                               color: Colors.black,
                             ),
-                            hintText: "Name",
+                            hintText: "Enter your Name",
                             hintStyle: TextStyle(
                                 fontFamily: "WorkSansSemiBold", fontSize: 16.0),
                           ),
@@ -531,9 +532,9 @@ class _LoginPageState extends State<LoginPage>
                               FontAwesomeIcons.envelope,
                               color: Colors.black,
                             ),
-                            hintText: "Email Address",
+                            hintText: "Enter your Email Address",
                             hintStyle: TextStyle(
-                                fontFamily: "WorkSansSemiBold", fontSize: 16.0),
+                                fontFamily: "WorkSansSemiBold", fontSize: 14.0),
                           ),
                         ),
                       ),
@@ -643,27 +644,31 @@ class _LoginPageState extends State<LoginPage>
                       tileMode: TileMode.clamp),
                 ),
                 child: MaterialButton(
-                    highlightColor: Colors.transparent,
-                    splashColor: Theme.Colors.loginGradientEnd,
-                    //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 42.0),
-                      child: Text(
-                        "SIGN UP",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25.0,
-                            fontFamily: "WorkSansBold"),
-                      ),
+                  highlightColor: Colors.transparent,
+                  splashColor: Theme.Colors.loginGradientEnd,
+                  //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 42.0),
+                    child: Text(
+                      "SIGN UP",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25.0,
+                          fontFamily: "WorkSansBold"),
                     ),
-                    onPressed: () => showInSnackBar("SignUp button pressed")),
+                  ),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) {
+                    return MyApp1();
+                  })),
+                ),
+              ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
-    );
+      );
   }
 
   void _onSignInButtonPress() {
@@ -694,7 +699,8 @@ class _LoginPageState extends State<LoginPage>
     });
   }
 }
-class MyAppState extends State<MyApp> {
+
+class MyApp1 extends StatelessWidget {
   void callCamera() {
     print('Camera Called...');
   }
@@ -707,114 +713,209 @@ class MyAppState extends State<MyApp> {
     print('Contribution Page Called...');
   }
 
-  void changeToLoginScreen(BuildContext ctx) {
-    //print("hello");
-    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-      return MyApp1();
-    }));
-  }
+//  void changeToLoginScreen(context) {
+//    print("hello");
+//    Navigator.push(context, MaterialPageRoute(builder: (context) {
+//      return MyApp1();
+//    }));
+//  }
 
   Widget build(BuildContext context) {
-    return MaterialApp(
-//      width: double.infinity,
-      home: Scaffold(
+    return new Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromARGB(200, 194, 43, 23),
           title: Text(
-            "प्रोजेक्ट विशुद्ध",
+            "Project Visudh - प्रोजेक्ट विशुद्ध",
             textAlign: TextAlign.center,
             style: GoogleFonts.hind(),
           ),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            RaisedButton(
-              child: Text('LOGIN/SIGNUP'),
-              onPressed: () => changeToLoginScreen(context),
+        body: new Stack(
+          children: <Widget>[
+            new Container(
+              decoration: new BoxDecoration(
+                image: new DecorationImage(
+                  image: new AssetImage("assets/bg.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-            new Expanded(
-              child: Container(),
-            ),
-            Container(
+            new Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(),
+                  ),
+                  Container(
 //              constraints: BoxConstraints.expand(height: 100.0, width: 600.0),
-              margin: EdgeInsets.all(0.0),
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(width: 0.0, color: Colors.white),
-                  bottom: BorderSide(width: 0.0, color: Colors.white),
-                  left: BorderSide(width: 0.0, color: Colors.white),
-                  right: BorderSide(width: 0.0, color: Colors.white),
-                ),
+                    margin: EdgeInsets.all(0.0),
+                    child: new GarbageImage(),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 0.0),
+                    decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                          color: Theme.Colors.loginGradientStart,
+                          offset: Offset(1.0, 6.0),
+                          blurRadius: 20.0,
+                        ),
+                        BoxShadow(
+                          color: Theme.Colors.loginGradientEnd,
+                          offset: Offset(1.0, 6.0),
+                          blurRadius: 20.0,
+                        ),
+                      ],
+                      gradient: new LinearGradient(
+                          colors: [
+                            Theme.Colors.loginGradientEnd,
+                            Theme.Colors.loginGradientStart
+                          ],
+                          begin: const FractionalOffset(0.2, 0.2),
+                          end: const FractionalOffset(1.0, 1.0),
+                          stops: [0.0, 1.0],
+                          tileMode: TileMode.clamp),
+                    ),
+                    child: MaterialButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Theme.Colors.loginGradientEnd,
+                      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 5.0, horizontal: 5.0),
+                        child: Text(
+                          "Capture Garbage Image",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontFamily: "WorkSansBold"),
+                        ),
+                      ),
+                      onPressed: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return MyApp1();
+                      })),
+                    ),
+                  ),
+                  new Expanded(
+                    child: Container(),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(0.0),
+                    child: new NGOImage(),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 0.0),
+                    decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                          color: Theme.Colors.loginGradientStart,
+                          offset: Offset(1.0, 6.0),
+                          blurRadius: 20.0,
+                        ),
+                        BoxShadow(
+                          color: Theme.Colors.loginGradientEnd,
+                          offset: Offset(1.0, 6.0),
+                          blurRadius: 20.0,
+                        ),
+                      ],
+                      gradient: new LinearGradient(
+                          colors: [
+                            Theme.Colors.loginGradientEnd,
+                            Theme.Colors.loginGradientStart
+                          ],
+                          begin: const FractionalOffset(0.2, 0.2),
+                          end: const FractionalOffset(1.0, 1.0),
+                          stops: [0.0, 1.0],
+                          tileMode: TileMode.clamp),
+                    ),
+                    child: MaterialButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Theme.Colors.loginGradientEnd,
+                      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 5.0, horizontal: 5.0),
+                        child: Text(
+                          "Rate the NGOs",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontFamily: "WorkSansBold"),
+                        ),
+                      ),
+                      onPressed: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return MyApp1();
+                      })),
+                    ),
+                  ),
+                  new Expanded(
+                    child: Container(),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(0.0),
+                    child: new PastImage(),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 0.0),
+                    decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                          color: Theme.Colors.loginGradientStart,
+                          offset: Offset(1.0, 6.0),
+                          blurRadius: 20.0,
+                        ),
+                        BoxShadow(
+                          color: Theme.Colors.loginGradientEnd,
+                          offset: Offset(1.0, 6.0),
+                          blurRadius: 20.0,
+                        ),
+                      ],
+                      gradient: new LinearGradient(
+                          colors: [
+                            Theme.Colors.loginGradientEnd,
+                            Theme.Colors.loginGradientStart
+                          ],
+                          begin: const FractionalOffset(0.2, 0.2),
+                          end: const FractionalOffset(1.0, 1.0),
+                          stops: [0.0, 1.0],
+                          tileMode: TileMode.clamp),
+                    ),
+                    child: MaterialButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Theme.Colors.loginGradientEnd,
+                      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 5.0, horizontal: 5.0),
+                        child: Text(
+                          "See Your Previous Contributions",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontFamily: "WorkSansBold"),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      onPressed: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return MyApp1();
+                      })),
+                    ),
+                  ),
+                  new Expanded(
+                    child: Container(),
+                  ),
+                ],
               ),
-              child: new GarbageImage(),
-            ),
-            RaisedButton(
-              child: Text(
-                'Capture Garbage Image to send..',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.seymourOne(
-                  textStyle: TextStyle(fontSize: 10.0),
-                ),
-              ),
-              onPressed: callCamera,
-            ),
-            new Expanded(
-              child: Container(),
-            ),
-            Container(
-              padding: EdgeInsets.all(0.0),
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(width: 0.0, color: Colors.white),
-                  bottom: BorderSide(width: 0.0, color: Colors.white),
-                  left: BorderSide(width: 0.0, color: Colors.white),
-                  right: BorderSide(width: 0.0, color: Colors.white),
-                ),
-              ),
-              child: new NGOImage(),
-            ),
-            RaisedButton(
-              child: Text(
-                'Rate the NGOs near your area...',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.balooBhai(
-                  textStyle: TextStyle(fontSize: 10.0),
-                ),
-              ),
-              onPressed: callRating,
-            ),
-            new Expanded(
-              child: Container(),
-            ),
-            Container(
-              padding: EdgeInsets.all(0.0),
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(width: 0.0, color: Colors.white),
-                  bottom: BorderSide(width: 0.0, color: Colors.white),
-                  left: BorderSide(width: 0.0, color: Colors.white),
-                  right: BorderSide(width: 0.0, color: Colors.white),
-                ),
-              ),
-              child: new PastImage(),
-            ),
-            RaisedButton(
-              child: Text(
-                'See your Past Contribution.....',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.righteous(
-                  textStyle: TextStyle(fontSize: 10.0),
-                ),
-              ),
-              onPressed: callContribution,
-            ),
-            new Expanded(
-              child: Container(),
-            ),
+            )
           ],
-        ),
-      ),
-    );
+        ));
   }
 }

@@ -52,6 +52,7 @@ flutter:
     - assets/ngo_building.png
     - assets/past.png
     - assets/img/login_logo.png
+    - assets/bg.png
 
   fonts:
       - family: WorkSansSemiBold
