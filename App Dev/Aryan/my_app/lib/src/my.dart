@@ -7,14 +7,14 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:location/location.dart';
+import '../main.dart';
 
 String FileName = "";
 String Base64EncodeFile = "";
-void main() => runApp(MyApp());
+void main() => runApp(MyApp1());
 
 class Screen3 extends StatelessWidget {
-  var defimg =
-      "https://camo.githubusercontent.com/f8ea5eab7494f955e90f60abc1d13f2ce2c2e540/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f323037383234352f3235393331332f35653833313336322d386362612d313165322d383435332d6536626439353663383961342e706e67";
+  var defimg = "https://ajwtu.nl/wp-content/uploads/2018/06/Stockperson.jpg";
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -26,14 +26,14 @@ class Screen3 extends StatelessWidget {
                 title: Text("Multiple Tabs"),
                 bottom: TabBar(
                   labelPadding: EdgeInsets.all(10.0),
-                  indicatorColor: Colors.blueGrey,
+                  indicatorColor: Colors.pink,
                   //indicatorPadding: EdgeInsets.all(30.0),
                   tabs: <Widget>[Text("Trending News"), Text("Contact Us")],
                 )),
             body: TabBarView(
               children: <Widget>[
                 Container(
-                    color: Colors.greenAccent,
+                    color: Color.fromARGB(255, 194, 175, 206),
                     child: Center(
                         child: Text(
                       "Some Trending News Here",
@@ -44,7 +44,7 @@ class Screen3 extends StatelessWidget {
                     ))),
                 SingleChildScrollView(
                   child: Container(
-                      color: Colors.greenAccent,
+                      color: Color.fromARGB(255, 194, 175, 206),
                       padding: EdgeInsets.only(left: 150, top: 20),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -60,7 +60,7 @@ class Screen3 extends StatelessWidget {
                                     CircleAvatar(
                                       radius: 40,
                                       backgroundImage: NetworkImage(
-                                          "https://avatars3.githubusercontent.com/u/43298145?s=460&v=4"),
+                                          "https://qphs.fs.quoracdn.net/main-thumb-372975505-200-edfzxjdkfphnftaxkrmcxpkaakopplja.jpeg"),
                                     ),
                                     Text("Aryan Khandelwal"),
                                     Text("Web Development"),
@@ -247,14 +247,12 @@ class Screen1 extends StatelessWidget {
   }
 }
 
-class MyApp extends StatelessWidget {
+class MyApp1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Upload Page',
-      theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
-      ),
+      theme: ThemeData(primaryColor: Colors.redAccent),
       home: MyHomePage(title: 'Select Image'),
     );
   }
@@ -339,15 +337,15 @@ class _MyHomePageState extends State<MyHomePage> {
         //     .map((i) => MyModel.fromJson(i))
         //     .toList();
         Map<String, dynamic> user = jsonDecode(result.body);
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return Screen1(user['check']);
-            }));
-
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return Screen1(user['check']);
+        }));
       });
     } on PlatformException catch (e) {
       print(e.code);
     }
   }
+
   Widget _buildButtons() {
     return ConstrainedBox(
         constraints: BoxConstraints.expand(height: 80.0),
@@ -379,7 +377,7 @@ class _MyHomePageState extends State<MyHomePage> {
           key: key,
           child: Text(text, style: TextStyle(fontSize: 20.0)),
           shape: RoundedRectangleBorder(),
-          color: Colors.black54,
+          color: Colors.black87,
           textColor: Colors.white,
           onPressed: onPressed),
     );
@@ -387,10 +385,8 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class MyDrawer extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     return Container(
         child: Drawer(
       child: ListView(
@@ -398,31 +394,44 @@ class MyDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             child: Text('Navigate'),
-            decoration: BoxDecoration(color: Colors.blue),
+            decoration: BoxDecoration(color: Colors.redAccent),
           ),
-          ListTile(title: Text('Trending News'), onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return Screen3();
-            }));
-          }),
           ListTile(
-            title: Text('Contact Us'),
-            onTap:() {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return Screen3();
-            }));
-  }
-          ),
+              title: Text('Trending News'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Screen3();
+                }));
+              }),
+          ListTile(
+              title: Text('Contact Us'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Screen3();
+                }));
+              }),
           ListTile(
             title: Text('Home Page'),
-            onTap: () {},
-          ),
-          ListTile(title: Text('Login/Signup'), onTap: () {}),
-          ListTile(title: Text('Upload Image'), onTap: () {
+            onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return MyApp();
+            return MyApp2();
             }));
-          })
+            },
+          ),
+          ListTile(
+              title: Text('Login/Signup'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return MyApp();
+                }));
+              }),
+          ListTile(
+              title: Text('Upload Image'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return MyApp1();
+                }));
+              })
         ],
       ),
     ));
