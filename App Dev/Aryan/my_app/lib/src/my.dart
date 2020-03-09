@@ -328,14 +328,12 @@ class _MyHomePageState extends State<MyHomePage> {
       } catch (e) {
         exist[0]['contributions'] = 1;
       }
-    await coll.save(exist[0]);
-    await db.close();
+      await coll.save(exist[0]);
+      await db.close();
     }
   }
 
   myfunction() async {
-    //Use Base64EncodedImage to Check if Contributions should be updated or not
-    uploadcontributions();
     final String url = "http://aryan29.pythonanywhere.com/webserver/";
     var location = new Location();
     try {
@@ -349,6 +347,9 @@ class _MyHomePageState extends State<MyHomePage> {
         "img": Base64EncodeFile,
         "imgname": FileName
       }).then((result) {
+        //Result should also contain whether Image contains garbage or not
+        uploadcontributions();
+        //if Garbage is detected in image
         print(result.statusCode);
         Map<String, dynamic> user = jsonDecode(result.body);
         Navigator.push(context, MaterialPageRoute(builder: (context) {
