@@ -1,13 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mongo_dart/mongo_dart.dart' as mongo;
 import 'package:google_fonts/google_fonts.dart';
 import 'src/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'src/theme.dart' as Theme;
 import 'src/bubble_indication_painter.dart';
 import 'src/my.dart';
+import 'src/user.dart';
 
+final String ip = "192.168.0.105";
 void main() => runApp(MaterialApp(
       home: MyApp(),
     ));
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
           style: GoogleFonts.hind(),
         ),
       ),
-      drawer:MyDrawer(),
+      drawer: MyDrawer(),
       body: new LoginPage(),
     );
   }
@@ -318,32 +321,32 @@ class _LoginPageState extends State<LoginPage>
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 170.0),
-                decoration: new BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      color: Theme.Colors.loginGradientStart,
-                      offset: Offset(1.0, 6.0),
-                      blurRadius: 20.0,
-                    ),
-                    BoxShadow(
-                      color: Theme.Colors.loginGradientEnd,
-                      offset: Offset(1.0, 6.0),
-                      blurRadius: 20.0,
-                    ),
-                  ],
-                  gradient: new LinearGradient(
-                      colors: [
-                        Theme.Colors.loginGradientEnd,
-                        Theme.Colors.loginGradientStart
-                      ],
-                      begin: const FractionalOffset(0.2, 0.2),
-                      end: const FractionalOffset(1.0, 1.0),
-                      stops: [0.0, 1.0],
-                      tileMode: TileMode.clamp),
-                ),
-                child: MaterialButton(
+                  margin: EdgeInsets.only(top: 170.0),
+                  decoration: new BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                        color: Theme.Colors.loginGradientStart,
+                        offset: Offset(1.0, 6.0),
+                        blurRadius: 20.0,
+                      ),
+                      BoxShadow(
+                        color: Theme.Colors.loginGradientEnd,
+                        offset: Offset(1.0, 6.0),
+                        blurRadius: 20.0,
+                      ),
+                    ],
+                    gradient: new LinearGradient(
+                        colors: [
+                          Theme.Colors.loginGradientEnd,
+                          Theme.Colors.loginGradientStart
+                        ],
+                        begin: const FractionalOffset(0.2, 0.2),
+                        end: const FractionalOffset(1.0, 1.0),
+                        stops: [0.0, 1.0],
+                        tileMode: TileMode.clamp),
+                  ),
+                  child: MaterialButton(
                     highlightColor: Colors.transparent,
                     splashColor: Theme.Colors.loginGradientEnd,
                     //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
@@ -358,8 +361,25 @@ class _LoginPageState extends State<LoginPage>
                             fontFamily: "WorkSansBold"),
                       ),
                     ),
-                    onPressed: () => showInSnackBar("Login button pressed")),
-              ),
+                    onPressed: () {
+                      var email = loginEmailController.text;
+                      var pass = loginPasswordController.text;
+                      mongologin(email, pass).then((val) {
+                        if (val == 1) {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return UserData(email, pass);
+                          }));
+                        } else if (val == 2) {
+                          return showInSnackBar(
+                              "Password seems to be incorrect try forgettting password");
+                        } else {
+                          return showInSnackBar(
+                              "No such User exist try registering");
+                        }
+                      });
+                    },
+                  )),
             ],
           ),
           Padding(
@@ -620,57 +640,109 @@ class _LoginPageState extends State<LoginPage>
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 340.0),
-                decoration: new BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      color: Theme.Colors.loginGradientStart,
-                      offset: Offset(1.0, 6.0),
-                      blurRadius: 20.0,
-                    ),
-                    BoxShadow(
-                      color: Theme.Colors.loginGradientEnd,
-                      offset: Offset(1.0, 6.0),
-                      blurRadius: 20.0,
-                    ),
-                  ],
-                  gradient: new LinearGradient(
-                      colors: [
-                        Theme.Colors.loginGradientEnd,
-                        Theme.Colors.loginGradientStart
-                      ],
-                      begin: const FractionalOffset(0.2, 0.2),
-                      end: const FractionalOffset(1.0, 1.0),
-                      stops: [0.0, 1.0],
-                      tileMode: TileMode.clamp),
-                ),
-                child: MaterialButton(
-                  highlightColor: Colors.transparent,
-                  splashColor: Theme.Colors.loginGradientEnd,
-                  //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10.0, horizontal: 42.0),
-                    child: Text(
-                      "SIGN UP",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25.0,
-                          fontFamily: "WorkSansBold"),
-                    ),
+                  margin: EdgeInsets.only(top: 340.0),
+                  decoration: new BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                        color: Theme.Colors.loginGradientStart,
+                        offset: Offset(1.0, 6.0),
+                        blurRadius: 20.0,
+                      ),
+                      BoxShadow(
+                        color: Theme.Colors.loginGradientEnd,
+                        offset: Offset(1.0, 6.0),
+                        blurRadius: 20.0,
+                      ),
+                    ],
+                    gradient: new LinearGradient(
+                        colors: [
+                          Theme.Colors.loginGradientEnd,
+                          Theme.Colors.loginGradientStart
+                        ],
+                        begin: const FractionalOffset(0.2, 0.2),
+                        end: const FractionalOffset(1.0, 1.0),
+                        stops: [0.0, 1.0],
+                        tileMode: TileMode.clamp),
                   ),
-                  onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) {
-                    return MyApp2();
-                  })),
-                ),
-              ),
+                  child: MaterialButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Theme.Colors.loginGradientEnd,
+                      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 42.0),
+                        child: Text(
+                          "SIGN UP",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25.0,
+                              fontFamily: "WorkSansBold"),
+                        ),
+                      ),
+                      onPressed: () {
+                        // signupEmailController.text = "hello";
+                        print(signupEmailController.text);
+                        print(signupPasswordController.text);
+                        mongosignup(signupEmailController.text,
+                                signupPasswordController.text)
+                            .then((val) {
+                          if (val == 1) {
+                            return showInSnackBar(
+                                "You have been successfully registered");
+                          } else {
+                            return showInSnackBar(
+                                "Same email exist in our database");
+                          }
+                        });
+                      })),
             ],
           ),
         ],
       ),
     );
+  }
+
+  Future<int> mongosignup(email, pass) async {
+    print("Coming to Mongo Signup Page");
+    mongo.Db db = new mongo.Db("mongodb://$ip/registered");
+    await db.open();
+    print("success ---------------------------------");
+    mongo.DbCollection coll = db.collection("credentials");
+    var exist = await coll.find({"username": email}).toList();
+    if (exist.length == 0) {
+      coll.insert({"username": email, "password": pass});
+      var people = await coll.find().toList();
+      print(people);
+      await db.close();
+      return 1;
+    } else {
+      await db.close();
+      return 0;
+    }
+  }
+
+  Future<int> mongologin(email, pass) async {
+    print("Coming to Mongo Login Page");
+    mongo.Db db = new mongo.Db("mongodb://$ip/registered");
+    await db.open();
+    print("success ---------------------------------");
+    mongo.DbCollection coll = db.collection("credentials");
+    var exist = await coll.find({"username": email, "password": pass}).toList();
+    var exist1 = await coll.find({"username": email}).toList();
+    if (exist.length == 1) {
+      print("Successfully Logged in " + email + " " + pass);
+      await db.close();
+      return 1;
+    } else if (exist1.length == 1) {
+      print("Password is incorrect for the user " + email);
+      await db.close();
+      return 2;
+    } else {
+      print("Not able to login with credentials " + email + " " + pass);
+      await db.close();
+      return 0;
+    }
   }
 
   void _onSignInButtonPress() {
@@ -732,7 +804,7 @@ class MyApp2 extends StatelessWidget {
             style: GoogleFonts.hind(),
           ),
         ),
-        drawer:MyDrawer(),
+        drawer: MyDrawer(),
         body: new Stack(
           children: <Widget>[
             new Container(

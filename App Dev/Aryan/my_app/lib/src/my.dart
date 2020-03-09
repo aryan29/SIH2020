@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:location/location.dart';
+import 'package:my_app/src/user.dart';
 import '../main.dart';
 
 String FileName = "";
@@ -386,6 +387,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class MyDrawer extends StatelessWidget {
   @override
+  Image getimg()
+  {
+    if(UserData.defimg=="")
+    return Image.network("https://picsum.photos/250?image=9",fit: BoxFit.cover,height: 80,width: 80,);
+    else
+    return Image.file(File(UserData.defimg),fit: BoxFit.cover,height: 80,width: 80,);
+  }
   Widget build(BuildContext context) {
     return Container(
         child: Drawer(
@@ -393,7 +401,14 @@ class MyDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: Text('Navigate'),
+            child: Center(
+              child:CircleAvatar(
+                radius:40,
+                child:ClipOval(
+                  child:getimg()
+                )
+              )
+            ),
             decoration: BoxDecoration(color: Colors.redAccent),
           ),
           ListTile(
@@ -411,11 +426,22 @@ class MyDrawer extends StatelessWidget {
                 }));
               }),
           ListTile(
+              title: Text('My Profile'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  if (UserData.email != "") {
+                    return UserData(UserData.email, UserData.pass);
+                  } else {
+                    return MyApp();
+                  }
+                }));
+              }),
+          ListTile(
             title: Text('Home Page'),
             onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return MyApp2();
-            }));
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return MyApp2();
+              }));
             },
           ),
           ListTile(
