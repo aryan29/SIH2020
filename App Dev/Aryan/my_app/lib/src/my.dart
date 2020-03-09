@@ -8,8 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:location/location.dart';
 import 'package:my_app/src/user.dart';
+import 'package:mongo_dart/mongo_dart.dart' as mongo;
 import '../main.dart';
+import 'user.dart';
 
+final String ip = "192.168.0.105";
 String FileName = "";
 String Base64EncodeFile = "";
 void main() => runApp(MyApp1());
@@ -312,19 +315,34 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  uploadcontributions() async {
+    if (UserData.email != "") {
+      print("Coming to Uploading Contributions");
+      mongo.Db db = new mongo.Db("mongodb://$ip/registered");
+      await db.open();
+      print("success ---------------------------------");
+      mongo.DbCollection coll = db.collection("credentials");
+      var exist = await coll.find({"username": UserData.email}).toList();
+      try {
+        exist[0]['contributions'] += 1;
+      } catch (e) {
+        exist[0]['contributions'] = 1;
+      }
+    await coll.save(exist[0]);
+    await db.close();
+    }
+  }
+
   myfunction() async {
+    //Use Base64EncodedImage to Check if Contributions should be updated or not
+    uploadcontributions();
     final String url = "http://aryan29.pythonanywhere.com/webserver/";
-    //print("Hello World");
-    // var response = await http.get(url);
-    // print('Response status: ${response.body}');
     var location = new Location();
     try {
       var cl = await location.getLocation();
       print(cl.latitude);
       print(cl.longitude);
       await http.post(url, body: {
-        // "image": Base64EncodeFile,
-        // "image_name": FileName,
         "name": "aryan",
         "lat": cl.latitude.toString(),
         "lon": cl.longitude.toString(),
@@ -332,11 +350,6 @@ class _MyHomePageState extends State<MyHomePage> {
         "imgname": FileName
       }).then((result) {
         print(result.statusCode);
-        // print(result.body);
-        // List<Item> myModels;
-        // myModels = (json.decode(result.body) as List)
-        //     .map((i) => MyModel.fromJson(i))
-        //     .toList();
         Map<String, dynamic> user = jsonDecode(result.body);
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return Screen1(user['check']);
@@ -387,13 +400,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class MyDrawer extends StatelessWidget {
   @override
-  Image getimg()
-  {
-    if(UserData.defimg=="")
-    return Image.network("https://picsum.photos/250?image=9",fit: BoxFit.cover,height: 80,width: 80,);
+  Image getimg() {
+    if (UserData.defimg == "")
+      return Image.network(
+        "https://picsum.photos/250?image=9",
+        fit: BoxFit.cover,
+        height: 80,
+        width: 80,
+      );
     else
-    return Image.file(File(UserData.defimg),fit: BoxFit.cover,height: 80,width: 80,);
+      return Image.file(
+        File(UserData.defimg),
+        fit: BoxFit.cover,
+        height: 80,
+        width: 80,
+      );
   }
+
   Widget build(BuildContext context) {
     return Container(
         child: Drawer(
@@ -402,13 +425,8 @@ class MyDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             child: Center(
-              child:CircleAvatar(
-                radius:40,
-                child:ClipOval(
-                  child:getimg()
-                )
-              )
-            ),
+                child:
+                    CircleAvatar(radius: 40, child: ClipOval(child: getimg()))),
             decoration: BoxDecoration(color: Colors.redAccent),
           ),
           ListTile(
