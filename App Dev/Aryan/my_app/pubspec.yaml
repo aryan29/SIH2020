@@ -31,6 +31,7 @@ dependencies:
   google_fonts: ^0.3.2
   mongo_dart: ^0.3.6
   path_provider: ^1.6.5
+  flutter_rating_bar: ^3.0.1+1
 
 dev_dependencies:
   flutter_test:

@@ -9,6 +9,7 @@ import 'src/theme.dart' as Theme;
 import 'src/bubble_indication_painter.dart';
 import 'src/my.dart';
 import 'src/user.dart';
+import 'src/ngo.dart';
 
 final String ip = "192.168.0.105";
 void main() => runApp(MaterialApp(
@@ -925,7 +926,7 @@ class MyApp2 extends StatelessWidget {
                       ),
                       onPressed: () => Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return MyApp2();
+                        return NgoRate();
                       })),
                     ),
                   ),

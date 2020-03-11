@@ -400,7 +400,6 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class MyDrawer extends StatelessWidget {
-  @override
   Image getimg() {
     if (UserData.defimg == "")
       return Image.network(
