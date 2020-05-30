@@ -1,7 +1,12 @@
+{% load static %}
 <html>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 <form method="POST">
 {% csrf_token %}
-{{form}}
+<div>
+{{form.as_p}}
+{% comment %} Add form css here {% endcomment %}
+</div>
 <button type="submit">Submit</button>
 </form>
 </html>

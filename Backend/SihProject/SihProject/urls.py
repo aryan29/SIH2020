@@ -18,10 +18,15 @@ from django.urls import path, include
 from .router import router
 from rest_framework.authtoken import views
 from django.contrib.auth.views import LoginView
+from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api-token-auth/', views.obtain_auth_token, name='api-auth-token'),
-    path('login/', LoginView.as_view(), name='login')
+    path('login/', LoginView.as_view(), name='login'),
+    path('register/', UserRegister, name='register'),
+    path('gov/', CheckOnlyGovernMentView, name='gov-view'),
+    path('ngo/', CheckOnlyNgoView, name='ngo-view')
+    # path('register/', LoginView.as_view(), name='login')
 ]

@@ -13,3 +13,4 @@ class MyViewSet(viewsets.ModelViewSet):
     serializer_class = AppUserSerializer
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
+    

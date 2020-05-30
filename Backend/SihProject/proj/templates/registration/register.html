@@ -1,0 +1,9 @@
+<html>
+<h1>Register</h1>
+<form method="POST">
+{% csrf_token %}
+{{form1.as_p}}
+{{form2.as_p}}
+<button type="submit">Submit</button>
+</form>
+</html>
