@@ -41,3 +41,5 @@ def CheckOnlyGovernMentView(request):
 def CheckOnlyNgoView(request):
     return render(request, 'ngo.html')
     pass
+
+
