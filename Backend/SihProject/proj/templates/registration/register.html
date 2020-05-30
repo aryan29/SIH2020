@@ -4,6 +4,11 @@
 {% csrf_token %}
 {{form1.as_p}}
 {{form2.as_p}}
+<select name="choice">
+  <option value="Government">Government</option>
+  <option value="NGO">NGO</option>
+  <option value="AppUsers">AppUser</option>
+</select>
 <button type="submit">Submit</button>
 </form>
 </html>

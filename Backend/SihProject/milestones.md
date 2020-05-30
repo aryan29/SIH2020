@@ -2,7 +2,7 @@
 - [x] Adding Static for CSS
 - [x] Extended Registration Screen
 - [x] Different User Roles for Website
-- [ ] Adding Group while registering User
+- [x] Adding Group while registering User
 - [ ] Different User Roles for App
 - [ ] Splitting model into multiple Models(User,NGO,Governement and each having different permissions)
 - [ ] Making Structure of our website and giving different permissions to different views(Gov,Ngo and user will be making use of only Api to get data)
