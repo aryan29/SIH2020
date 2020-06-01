@@ -5,6 +5,8 @@ from rest_framework.authentication import TokenAuthentication, SessionAuthentica
 from rest_framework.permissions import IsAuthenticated
 from ..decorators import allowed_users
 from django.contrib.auth.models import User
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 # Token Authentication for Our Mobile App
 # Session Authentication for Our Website
@@ -30,4 +32,23 @@ class MyViewSet2(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
+# Returning List of Nearby NGO for User
+
+
+class getNGOList(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        content = {
+            "ngolist": ["nerby ngos list"]
+        }
+        return Response(content)
+class CheckImage(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self, request):
+        #This request will be getting a photo
+        #and based on if photo contains grabage or not
+        #we will generate a response
+        pass
+#Some More API Views Here
 

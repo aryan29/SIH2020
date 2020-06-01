@@ -6,7 +6,7 @@ from .forms import AppUserForm, ExtendedUserForm
 from .decorators import allowed_users
 # Create your views here.
 
-
+#All Views which user can see
 def UserRegister(request):
     if (request.method == 'POST'):
         form1 = ExtendedUserForm(request.POST)
