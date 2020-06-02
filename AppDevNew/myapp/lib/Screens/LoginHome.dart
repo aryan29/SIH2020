@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'UserProfile.dart';
+import 'uploadImage.dart';
 
 class LoginHome extends StatefulWidget {
   LoginHome({Key key}) : super(key: key);
@@ -70,7 +71,7 @@ class _LoginHomeState extends State<LoginHome> {
           controller: controller,
           children: <Widget>[
             UserProfile1(),
-            Container(color: Colors.green),
+           Upload(),
             Container(color: Colors.red),
             Container(color: Colors.blue),
           ],
