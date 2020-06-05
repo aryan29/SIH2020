@@ -284,8 +284,6 @@ class _MyHomePageState extends State<MyHomePage> {
       });
       FileName = _imageFile.path.split('/').last;
       Base64EncodeFile = base64Encode(_imageFile.readAsBytesSync());
-      // print(FileName);
-      // print(Base64EncodeFile);
     } catch (e) {
       print(e);
     }

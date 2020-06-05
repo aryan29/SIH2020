@@ -10,6 +10,7 @@ getUserInformation() async {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   final SharedPreferences prefs = await _prefs;
   String token = await storage.read(key: "token");
+  print(token);
   var dio = Dio();
   dio.options.headers["Authorization"] = "Token $token";
   var res1 = await dio.get("http://192.168.0.107:8000/api/users2/");

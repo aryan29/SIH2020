@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'dart:async';
+import '../GettingData/sendingImage.dart';
 
 class Upload extends StatefulWidget {
   @override
@@ -52,32 +53,29 @@ class _UploadState extends State<Upload> {
           ],
         ),
         Container(
-          width:MediaQuery.of(context).size.width*.6,
-          height:50,
+          width: MediaQuery.of(context).size.width * .6,
+          height: 50,
           child: FlatButton(
-           shape: RoundedRectangleBorder(
-               borderRadius: BorderRadius.circular(18.0),
-               ),
-
-                    color:  Color.fromRGBO(48, 154, 187, .4),
-                     child: Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text("Upload",
-                  style: TextStyle(
-                  color: Color.fromRGBO(48, 154, 187, 1),
-                 fontWeight: FontWeight.bold,
-                     fontSize: 20)),
-                 Icon(Icons.chevron_right,
-                      color:  Color.fromRGBO(48, 154, 187, 1))
-              ],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
               ),
-                    onPressed: () {
-
-                    }),
+              color: Color.fromRGBO(48, 154, 187, .4),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text("Upload",
+                      style: TextStyle(
+                          color: Color.fromRGBO(48, 154, 187, 1),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20)),
+                  Icon(Icons.chevron_right,
+                      color: Color.fromRGBO(48, 154, 187, 1))
+                ],
+              ),
+              onPressed: () async{
+                await sendingImage(_imageFile);
+              }),
         ),
-
       ],
     ));
   }

@@ -19,10 +19,11 @@ from .router import router
 from rest_framework.authtoken import views
 from django.contrib.auth.views import LoginView
 from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView
-from proj.api.viewsets import getNGOList
+from proj.api.viewsets import getNGOList, CheckImage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/checkimage/', CheckImage.as_view(), name='check-image'),
     path('api/ngoslist/', getNGOList.as_view(), name='ngo-list'),
     path('api/', include(router.urls)),
     path('api-token-auth/', views.obtain_auth_token, name='api-auth-token'),
