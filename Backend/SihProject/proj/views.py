@@ -4,20 +4,26 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 from .forms import AppUserForm, ExtendedUserForm
 from .decorators import allowed_users
+from .models import UserContributionModel
 # Create your views here.
 
-#All Views which user can see
+# All Views which user can see
+
+
 def UserRegister(request):
     if (request.method == 'POST'):
         form1 = ExtendedUserForm(request.POST)
         form2 = AppUserForm(request.POST)
+        print(form1.is_valid())
+        print(form1.errors)
+        print(form2.is_valid())
         choice = request.POST['choice']
-        if (form1.is_valid and form2.is_valid):
+        if (form1.is_valid() and form2.is_valid()):
             user = form1.save()
             profile = form2.save(commit=False)
             profile.user = user
             profile.save()
-            print(choice)
+            UserContributionModel.objects.create(user=user)
             group = Group.objects.get(name=choice)
             group.user_set.add(user)
 
@@ -41,6 +47,3 @@ def CheckOnlyGovernMentView(request):
 def CheckOnlyNgoView(request):
     return render(request, 'ngo.html')
     pass
-
-
-

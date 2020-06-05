@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from proj.MLModel.Detector_class.garbage_detector import GarbageDetector
+from proj.models import UserContributionModel
 
 # Token Authentication for Our Mobile App
 # Session Authentication for Our Website
@@ -38,6 +39,14 @@ class MyViewSet2(viewsets.ModelViewSet):
 
 
 # Returning List of Nearby NGO for User
+class GetContributions(APIView):
+    def get(self, request):
+        obj = UserContributionModel.objects.get(user=self.request.user)
+        print(obj.contribution)
+        return Response(obj.contribution)
+
+    authentication_classes = [TokenAuthentication, SessionAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class getNGOList(APIView):
@@ -64,7 +73,10 @@ class CheckImage(APIView):
             for chunks in upfile.chunks():
                 f1.write(chunks)
         print(GarbageDetector().detect(upfile.name))
-        return Response("Image saved successfull checkin occuring")
+        # Now Change User Contributions
+        obj = UserContributionModel.objects.get(user=self.request.user)
+        obj.contribution = obj.contribution + 1
+        obj.save()
+        return Response(GarbageDetector().detect(upfile.name))
 
-
-#Some More API Views Here
+# Some More API Views Here
