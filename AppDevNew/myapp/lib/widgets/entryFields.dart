@@ -27,6 +27,7 @@ class _EntryFieldState extends State<EntryField> {
       decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: Colors.grey[300]))),
       child: TextField(
+        obscureText:(widget.text=="Password")?true:false,
         controller: titleController,
         decoration: InputDecoration(
             border: InputBorder.none,

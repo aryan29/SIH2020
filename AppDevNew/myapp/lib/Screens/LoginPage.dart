@@ -57,7 +57,6 @@ class LoginPage extends StatelessWidget {
                           print("Tapped");
                           int res = await getAuthToken(
                               store.get("Username"), store.get("Password"));
-                          print("First Executed");
                           if (res == 1) {
                             Navigator.pushReplacement(
                                 context,

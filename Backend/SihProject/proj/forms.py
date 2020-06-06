@@ -7,8 +7,8 @@ from django.forms import ModelForm
 
 class ExtendedUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    first_name = forms.CharField(max_length=30)
-    last_name = forms.CharField(max_length=50)
+    first_name = forms.CharField(max_length=30,required=False)
+    last_name = forms.CharField(max_length=50,required=False)
 
     class Meta:
         model = User

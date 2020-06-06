@@ -15,12 +15,14 @@ sendingImage(File file) async {
   dio.options.headers['content-type'] = "multipart/form-dataitem";
   dio.options.headers["Authorization"] = "Token $token";
   String filename = file.path.split('/').last;
-  print(filename);
-
   FormData formData = FormData.fromMap(
       {"file": await MultipartFile.fromFile(file.path, filename: filename)});
-  // print(formData);
-  // print(await MultipartFile.fromFile(file.path));
-  var res1 = await dio.post("http://192.168.0.107:8000/api/checkimage/",
-      data: formData);
+  try {
+    var res1 = await dio.post("http://192.168.0.107:8000/api/checkimage/",
+        data: formData);
+    return res1.data;
+  } on DioError catch (e) {
+    print("Something went wrong");
+    return -1;
+  }
 }

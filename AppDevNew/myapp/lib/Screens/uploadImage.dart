@@ -11,6 +11,7 @@ class Upload extends StatefulWidget {
 
 class _UploadState extends State<Upload> {
   File _imageFile;
+  bool sending = false;
   final picker = ImagePicker();
   Future<void> captureImage(ImageSource imageSource) async {
     try {
@@ -22,6 +23,23 @@ class _UploadState extends State<Upload> {
     } catch (e) {
       print(e);
     }
+  }
+
+  sendImage() async {
+    setState(() {
+      sending = true;
+    });
+    var res = await sendingImage(_imageFile);
+    setState(() {
+      sending = false;
+    });
+    if(res==-1)
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text("Something Went Wrong")));
+    else if(res==0)
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text("We cant't find Grabage in your image")));
+    else
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text("Thanks for contributing")));
+    return res;
   }
 
   @override
@@ -60,7 +78,7 @@ class _UploadState extends State<Upload> {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               color: Color.fromRGBO(48, 154, 187, .4),
-              child: Row(
+              child: (sending)?Center(child:CircularProgressIndicator()):Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text("Upload",
@@ -72,9 +90,7 @@ class _UploadState extends State<Upload> {
                       color: Color.fromRGBO(48, 154, 187, 1))
                 ],
               ),
-              onPressed: () async{
-                await sendingImage(_imageFile);
-              }),
+              onPressed: () => sendImage()),
         ),
       ],
     ));

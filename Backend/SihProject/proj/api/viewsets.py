@@ -77,6 +77,9 @@ class CheckImage(APIView):
         obj = UserContributionModel.objects.get(user=self.request.user)
         obj.contribution = obj.contribution + 1
         obj.save()
+        #Will be getting lat and long too
+        #and if already lat and long is present in databse then no contribution
+        #increase orless point increase
         return Response(GarbageDetector().detect(upfile.name))
 
 # Some More API Views Here

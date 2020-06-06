@@ -15,7 +15,7 @@ class _UserProfile1State extends State<UserProfile1> {
   getDataFromSharedPref() async {
     await getUserInformation();
     final SharedPreferences prefs = await _prefs;
-    return prefs.get("username");
+    return {"username": prefs.get("username"),"contribution":prefs.get("contribution")};
   }
 
   @override
@@ -35,13 +35,13 @@ class _UserProfile1State extends State<UserProfile1> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              Text(snapshot.data,
+                              Text(snapshot.data["username"],
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold)),
                               SizedBox(height: 10),
-                              Text("57 Points",
+                              Text(snapshot.data["contribution"].toString(),
                                   style: TextStyle(color: Colors.grey[500])),
                               SizedBox(height: 120),
                               Container(
