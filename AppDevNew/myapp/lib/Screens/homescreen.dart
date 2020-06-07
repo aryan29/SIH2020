@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   FadeAnimation(
                       1,
                       Text(
-                        "Welcome",
+                        "Project ...",
                         style: TextStyle(color: Colors.white, fontSize: 50),
                       )),
                   SizedBox(
