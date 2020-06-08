@@ -10,6 +10,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from proj.MLModel.Detector_class.garbage_detector import GarbageDetector
 from proj.models import UserContributionModel
+from proj.maps_api import nearbyngo
 
 # Token Authentication for Our Mobile App
 # Session Authentication for Our Website
@@ -48,13 +49,13 @@ class GetContributions(APIView):
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
-
+#getting nearby ngos list
 class getNGOList(APIView):
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        content = {"ngolist": ["nerby ngos list"]}
+        content = nearbyngo.get_list(25, 50)
         return Response(content)
 
 
@@ -77,9 +78,9 @@ class CheckImage(APIView):
         obj = UserContributionModel.objects.get(user=self.request.user)
         obj.contribution = obj.contribution + 1
         obj.save()
-        #Will be getting lat and long too
-        #and if already lat and long is present in databse then no contribution
-        #increase orless point increase
+        # Will be getting lat and long too
+        # and if already lat and long is present in databse then no contribution
+        # increase orless point increase
         return Response(GarbageDetector().detect(upfile.name))
 
 # Some More API Views Here

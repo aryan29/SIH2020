@@ -7,18 +7,18 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.forms import UserCreationForm
 
 
-
 class AppUser(models.Model):
-    user = models.OneToOneField(
-        User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     mob = PhoneNumberField()
     address = models.CharField(blank=True, null=True, max_length=100)
+
     def __str__(self):
         return self.user.username
 
+
 class UserContributionModel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    contribution=models.PositiveSmallIntegerField(default=0)
+    contribution = models.PositiveSmallIntegerField(default=0)
 
 
 class NGOUser(models.Model):
@@ -31,4 +31,3 @@ class NGOUser(models.Model):
 
     def __str__(self):
         return self.name
-
