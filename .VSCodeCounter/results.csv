@@ -1,0 +1,151 @@
+"filename", "language", "HTML", "CSS", "Django txt", "Markdown", "Python", "YAML", "Groovy", "Jupyter", "Properties", "Dart", "C++", "PHP", "Swift", "XML", "JSON", "JavaScript", "Kotlin", "comment", "blank", "total"
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/README.md", "Markdown", 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 17
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/app/build.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 53, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 12, 68
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/app/src/debug/AndroidManifest.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, 1, 8
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/app/src/main/AndroidManifest.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 7, 1, 32
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/app/src/main/kotlin/com/example/my_app/MainActivity.kt", "Kotlin", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 3, 13
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/app/src/main/res/drawable/launch_background.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 7, 2, 13
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/app/src/main/res/values/styles.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 2, 1, 9
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/app/src/profile/AndroidManifest.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, 1, 8
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/build.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 33
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/gradle.properties", "Properties", 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/gradle/wrapper/gradle-wrapper.properties", "Properties", 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 7
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/settings.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 16
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/android/settings_aar.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/ios/Runner/AppDelegate.swift", "Swift", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 2, 14
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 122, 0, 0, 0, 1, 123
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 1, 24
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md", "Markdown", 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/ios/Runner/Base.lproj/LaunchScreen.storyboard", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 0, 0, 1, 1, 38
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/ios/Runner/Base.lproj/Main.storyboard", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 0, 1, 1, 27
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/ios/Runner/Runner-Bridging-Header.h", "C++", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/lib/main.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 949, 0, 0, 0, 0, 0, 0, 0, 15, 34, 998
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/lib/server.php", "PHP", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 2, 2, 22
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/lib/src/bubble_indication_painter.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 11, 51
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/lib/src/my.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 451, 0, 0, 0, 0, 0, 0, 0, 10, 21, 482
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/lib/src/ngo.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 116, 0, 0, 0, 0, 0, 0, 0, 12, 8, 136
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/lib/src/theme.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 5, 18
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/lib/src/user.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 165, 0, 0, 0, 0, 0, 0, 0, 1, 7, 173
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/lib/src/widgets.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 4, 47
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/pubspec.yaml", "YAML", 0, 0, 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 16, 100
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/test/main.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 7, 2, 16
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Aryan/my_app/test/widget_test.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 10, 7, 31
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/README.md", "Markdown", 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 25
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/app/build.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 53, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 12, 68
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/app/src/debug/AndroidManifest.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, 1, 8
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/app/src/main/AndroidManifest.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 7, 1, 31
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/app/src/main/kotlin/com/example/project_one/MainActivity.kt", "Kotlin", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 3, 13
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/app/src/main/res/drawable/launch_background.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 7, 2, 13
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/app/src/main/res/values/styles.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 2, 1, 9
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/app/src/profile/AndroidManifest.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, 1, 8
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/build.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 32
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/gradle.properties", "Properties", 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/gradle/wrapper/gradle-wrapper.properties", "Properties", 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 7
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/settings.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 16
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/android/settings_aar.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/ios/Runner/AppDelegate.swift", "Swift", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 2, 14
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 122, 0, 0, 0, 1, 123
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 1, 24
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md", "Markdown", 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/ios/Runner/Base.lproj/LaunchScreen.storyboard", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 0, 0, 1, 1, 38
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/ios/Runner/Base.lproj/Main.storyboard", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 0, 1, 1, 27
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/ios/Runner/Runner-Bridging-Header.h", "C++", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/lib/bubble_indication_painter.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 11, 51
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/lib/main.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 876, 0, 0, 0, 0, 0, 0, 0, 14, 32, 922
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/lib/theme.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 5, 18
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/lib/widgets.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 4, 47
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/pubspec.yaml", "YAML", 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 16, 98
+"/home/aryan/Documents/newsih2020/sih2020/App Dev/Rohan Nishant/test/widget_test.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 10, 6, 30
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/README.md", "Markdown", 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 17
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/app/build.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 12, 64
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/app/src/debug/AndroidManifest.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, 1, 8
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/app/src/main/AndroidManifest.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 16, 1, 48
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/app/src/main/kotlin/com/example/myapp/MainActivity.kt", "Kotlin", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 7
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/app/src/main/res/drawable/launch_background.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 7, 2, 13
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/app/src/main/res/values/styles.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 9, 1, 19
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/app/src/profile/AndroidManifest.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, 1, 8
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/build.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 32
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/gradle.properties", "Properties", 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/gradle/wrapper/gradle-wrapper.properties", "Properties", 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 7
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/android/settings.gradle", "Groovy", 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 16
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/ios/Runner/AppDelegate.swift", "Swift", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 2, 14
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 122, 0, 0, 0, 1, 123
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 1, 24
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md", "Markdown", 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/ios/Runner/Base.lproj/LaunchScreen.storyboard", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 0, 0, 1, 1, 38
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/ios/Runner/Base.lproj/Main.storyboard", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 0, 1, 1, 27
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/ios/Runner/Runner-Bridging-Header.h", "C++", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Animations/FadeAnimation.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 5, 34
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Auth/service.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 4, 47
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/GettingData/getUserInformation.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 2, 28
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/GettingData/sendingImage.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 1, 2, 29
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Screens/LoginHome.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 0, 0, 0, 0, 0, 0, 0, 5, 82
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Screens/LoginPage.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 118, 0, 0, 0, 0, 0, 0, 0, 0, 2, 120
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Screens/Ngos.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 4, 26
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Screens/UserProfile.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 137, 0, 0, 0, 0, 0, 0, 0, 2, 5, 144
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Screens/contactus.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Screens/homescreen.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 212, 0, 0, 0, 0, 0, 0, 0, 1, 17, 230
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Screens/news.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Screens/signup.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 130, 0, 0, 0, 0, 0, 0, 0, 0, 3, 133
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/Screens/uploadImage.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 94, 0, 0, 0, 0, 0, 0, 0, 0, 5, 99
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/blocs/bloc1.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 3, 11
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/main.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 4, 19
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/model/UserModel.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 2, 17
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/widgets/ListCard.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 0, 0, 6, 48
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/widgets/drawer.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 1, 2, 16
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/lib/widgets/entryFields.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 2, 5, 40
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/pubspec.yaml", "YAML", 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 16, 86
+"/home/aryan/Documents/newsih2020/sih2020/AppDevNew/myapp/test/widget_test.dart", "Dart", 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 10, 7, 31
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/SihProject/__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/SihProject/asgi.py", "Python", 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 5, 17
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/SihProject/router.py", "Python", 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 6
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/SihProject/settings.py", "Python", 0, 0, 0, 0, 73, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 25, 123
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/SihProject/urls.py", "Python", 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 2, 37
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/SihProject/wsgi.py", "Python", 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 5, 17
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/api_check.py", "Python", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 4, 28
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/manage.py", "Python", 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5, 22
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/milestones.md", "Markdown", 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/MLModel/Detector_class/garbage_detector.py", "Python", 0, 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 42
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/MLModel/Detector_class/test.py", "Python", 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 8
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/MLModel/README.md", "Markdown", 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 7
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/MLModel/animal_detection/detect_animals.ipynb", "Jupyter", 0, 0, 0, 0, 0, 0, 0, 116, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 117
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/MLModel/animal_detection/detect_animals.py", "Python", 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 11, 55
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/MLModel/garbage_detection/garbage_detection.ipynb", "Jupyter", 0, 0, 0, 0, 0, 0, 0, 282, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 283
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/admin.py", "Python", 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 7
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/api/serializer.py", "Python", 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 22
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/api/viewsets.py", "Python", 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 20, 87
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/apps.py", "Python", 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 6
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/decorators.py", "Python", 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 18
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/forms.py", "Python", 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 38
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/maps_api/nearbyngo.py", "Python", 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 13
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/migrations/0001_initial.py", "Python", 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 48
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/migrations/__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/models.py", "Python", 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 35
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/static/css/style.css", "CSS", 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 6
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/static/js/script.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/templates/gov.html", "HTML", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/templates/ngo.html", "HTML", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/templates/registration/login.html", "HTML", 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/templates/registration/register.html", "HTML", 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/tests.py", "Python", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 4
+"/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/views.py", "Python", 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 9, 53
+"/home/aryan/Documents/newsih2020/sih2020/ML Project/Detector_class/garbage_detector.py", "Python", 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 41
+"/home/aryan/Documents/newsih2020/sih2020/ML Project/Detector_class/test.py", "Python", 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 8
+"/home/aryan/Documents/newsih2020/sih2020/ML Project/README.md", "Markdown", 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 7
+"/home/aryan/Documents/newsih2020/sih2020/ML Project/animal_detection/detect_animals.ipynb", "Jupyter", 0, 0, 0, 0, 0, 0, 0, 116, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 117
+"/home/aryan/Documents/newsih2020/sih2020/ML Project/animal_detection/detect_animals.py", "Python", 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 11, 55
+"/home/aryan/Documents/newsih2020/sih2020/ML Project/garbage_detection/garbage_detection.ipynb", "Jupyter", 0, 0, 0, 0, 0, 0, 0, 282, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 283
+"/home/aryan/Documents/newsih2020/sih2020/README.md", "Markdown", 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 7
+"/home/aryan/Documents/newsih2020/sih2020/Rough/coordinates.txt", "Django txt", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/aryan/Documents/newsih2020/sih2020/Rough/file.html", "HTML", 740, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 744
+"/home/aryan/Documents/newsih2020/sih2020/Rough/file2.html", "HTML", 235, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 257
+"/home/aryan/Documents/newsih2020/sih2020/Rough/heat_map.py", "Python", 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 11
+"/home/aryan/Documents/newsih2020/sih2020/Rough/heat_map2.py", "Python", 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 4, 26
+"/home/aryan/Documents/newsih2020/sih2020/Web Dev/README.md", "Markdown", 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 7
+"/home/aryan/Documents/newsih2020/sih2020/Web Dev/login_waste.html", "HTML", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 23
+"/home/aryan/Documents/newsih2020/sih2020/Web Dev/style2.css", "CSS", 0, 210, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 210
+"/home/aryan/Documents/newsih2020/sih2020/Web Dev/style3.css", "CSS", 0, 78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 107
+"/home/aryan/Documents/newsih2020/sih2020/Web Dev/waste.html", "HTML", 144, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 163
+"/home/aryan/Documents/newsih2020/sih2020/Web Dev/waste_dashboard.html", "HTML", 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 16, 84
+"Total", "-", 1238, 292, 0, 71, 544, 96, 275, 796, 27, 3838, 3, 18, 36, 318, 435, 0, 24, 460, 718, 9189
