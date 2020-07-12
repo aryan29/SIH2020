@@ -1,4 +1,4 @@
-# Idea
+# Clustering 
 
 loc = [] , list of all the lat and long which needs to be plotted
 
