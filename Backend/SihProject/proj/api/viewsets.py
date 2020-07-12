@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from proj.MLModel.Detector_class.garbage_detector import GarbageDetector
-from proj.models import UserContributionModel
+from proj.models import UserContributionModel, ActiveImages
 from proj.maps_api import nearbyngo
 
 # Token Authentication for Our Mobile App
@@ -49,13 +49,17 @@ class GetContributions(APIView):
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
-#getting nearby ngos list
+# getting nearby ngos list
+
+
 class getNGOList(APIView):
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def get(self, request):
-        content = nearbyngo.get_list(25, 50)
+    def post(self, request):
+        lat = request.data['lat']
+        lon = request.data['lon']
+        content = nearbyngo.get_list(lat,lon)
         return Response(content)
 
 
@@ -69,18 +73,26 @@ class CheckImage(APIView):
             return Response("File not received")
 
         upfile = request.FILES['file']
+        lat = request.data['lat']
+        lon = request.data['lon']
         print(upfile.name)
         with open(upfile.name, 'wb+') as f1:
             for chunks in upfile.chunks():
                 f1.write(chunks)
-        print(GarbageDetector().detect(upfile.name))
+
+        res = GarbageDetector().detect(upfile.name)
+        print(res)
         # Now Change User Contributions
-        obj = UserContributionModel.objects.get(user=self.request.user)
-        obj.contribution = obj.contribution + 1
-        obj.save()
+        if(res == 1):
+            obj = UserContributionModel.objects.get(user=self.request.user)
+            obj.contribution = obj.contribution + 1
+            obj.save()
+            # Now save the image in ActiveImages panel
+            imgModel = ActiveImages(name=upfile.name, lat=lat, lon=lon)
+            imgModel.save()
         # Will be getting lat and long too
         # and if already lat and long is present in databse then no contribution
         # increase orless point increase
-        return Response(GarbageDetector().detect(upfile.name))
+        return Response(res)
 
 # Some More API Views Here

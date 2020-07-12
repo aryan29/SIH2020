@@ -15,6 +15,7 @@ getAuthToken(String username, String password) async {
     return 1;
   } on DioError catch (e) {
     print("Something Went Wrong");
+    print(e);
     return 0;
   }
 }
@@ -34,13 +35,15 @@ registerUser(String username, String password1, String password2, String email,
     "choice": "AppUsers"
   });
   try {
-    var res = await dio.post("http://192.168.0.107:8000/register/", data:formData);
+    var res =
+        await dio.post("http://192.168.0.107:8000/register/", data: formData);
     if (res.statusCode == 200) {
       return 1;
     } else
       return 0;
   } on DioError catch (e) {
     print("Something Went Wrong");
+    print(e);
     return 0;
   }
 }

@@ -31,3 +31,16 @@ class NGOUser(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ActiveImages(models.Model):
+    # Remove after debugging
+    name = models.CharField(default="13232", max_length=50)
+    lat = models.FloatField(default=80.0)  # latitude
+    lon = models.FloatField(default=50.0)  # longitude
+    # If completed we will remove entry from this DB as this will be queried everyday and store it somewhere else
+    completed = models.BooleanField(default=False)
+    # Is reviewed by governement or not will show on govn dashboard (If not)
+    reviewed = models.BooleanField(default=False)
+
+    # otherwise on ngo dashboard

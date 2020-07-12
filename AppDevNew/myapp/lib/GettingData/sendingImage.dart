@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-sendingImage(File file) async {
+sendingImage(File file,var lat,var lon) async {
   print("Coming to get Sending Image");
   final storage = new FlutterSecureStorage();
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
@@ -16,7 +16,11 @@ sendingImage(File file) async {
   dio.options.headers["Authorization"] = "Token $token";
   String filename = file.path.split('/').last;
   FormData formData = FormData.fromMap(
-      {"file": await MultipartFile.fromFile(file.path, filename: filename)});
+      {
+        "file": await MultipartFile.fromFile(file.path, filename: filename),
+        "lat":lat,
+        "lon":lon
+        });
   try {
     var res1 = await dio.post("http://192.168.0.107:8000/api/checkimage/",
         data: formData);

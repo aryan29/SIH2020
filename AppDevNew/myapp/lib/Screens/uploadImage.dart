@@ -3,6 +3,7 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'dart:async';
 import '../GettingData/sendingImage.dart';
+import 'package:location/location.dart';
 
 class Upload extends StatefulWidget {
   @override
@@ -26,19 +27,45 @@ class _UploadState extends State<Upload> {
   }
 
   sendImage() async {
+    Location location = new Location();
+    bool _serviceEnabled;
+    PermissionStatus _pstatus;
+    LocationData _location_data;
+    _serviceEnabled = await location.serviceEnabled();
+    if (!_serviceEnabled) {
+      _serviceEnabled = await location.requestService();
+    }
+    if (!_serviceEnabled) {
+      return;
+    }
+    _pstatus = await location.hasPermission();
+
+    if (_pstatus == PermissionStatus.denied) {
+      _pstatus = await location.requestPermission();
+    }
+    if (_pstatus == PermissionStatus.denied) {
+      return;
+    }
+    _location_data = await location.getLocation();
+    double lat, lon;
+    lat = _location_data.latitude;
+    lon = _location_data.longitude;
     setState(() {
       sending = true;
     });
-    var res = await sendingImage(_imageFile);
+    var res = await sendingImage(_imageFile, lat, lon);
     setState(() {
       sending = false;
     });
-    if(res==-1)
-    Scaffold.of(context).showSnackBar(SnackBar(content: Text("Something Went Wrong")));
-    else if(res==0)
-    Scaffold.of(context).showSnackBar(SnackBar(content: Text("We cant't find Grabage in your image")));
+    if (res == -1)
+      Scaffold.of(context)
+          .showSnackBar(SnackBar(content: Text("Something Went Wrong")));
+    else if (res == 0)
+      Scaffold.of(context).showSnackBar(
+          SnackBar(content: Text("We cant't find Grabage in your image")));
     else
-    Scaffold.of(context).showSnackBar(SnackBar(content: Text("Thanks for contributing")));
+      Scaffold.of(context)
+          .showSnackBar(SnackBar(content: Text("Thanks for contributing")));
     return res;
   }
 
@@ -78,18 +105,20 @@ class _UploadState extends State<Upload> {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               color: Color.fromRGBO(48, 154, 187, .4),
-              child: (sending)?Center(child:CircularProgressIndicator()):Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text("Upload",
-                      style: TextStyle(
-                          color: Color.fromRGBO(48, 154, 187, 1),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20)),
-                  Icon(Icons.chevron_right,
-                      color: Color.fromRGBO(48, 154, 187, 1))
-                ],
-              ),
+              child: (sending)
+                  ? Center(child: CircularProgressIndicator())
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text("Upload",
+                            style: TextStyle(
+                                color: Color.fromRGBO(48, 154, 187, 1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20)),
+                        Icon(Icons.chevron_right,
+                            color: Color.fromRGBO(48, 154, 187, 1))
+                      ],
+                    ),
               onPressed: () => sendImage()),
         ),
       ],

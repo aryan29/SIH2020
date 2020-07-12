@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class MListCard extends StatefulWidget {
-  MListCard({Key key}) : super(key: key);
+  final String name;
+  final String address;
+  final rating;
+  MListCard(
+      {Key key,
+      @required this.name,
+      @required this.address,
+      @required this.rating})
+      : super(key: key);
 
   @override
   _MListCardState createState() => _MListCardState();
@@ -12,35 +20,44 @@ class _MListCardState extends State<MListCard> {
   Widget build(BuildContext context) {
     return Container(
       child: Card(
-        color:Colors.black,
-        shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+        color: Colors.black,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
         elevation: 2.0,
-        margin:EdgeInsets.symmetric(horizontal:5.0,vertical:7.0),
+        margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: 7.0),
         child: Container(
-          child:ListTile(
-            contentPadding: EdgeInsets.symmetric(horizontal:10.0,vertical:10.0),
-            leading: Container(
-              padding: EdgeInsets.only(right:5.0),
-              decoration:BoxDecoration(
-                border:Border(right:BorderSide(width:1.0,color: Colors.white)),
+            child: ListTile(
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+          leading: Container(
+            padding: EdgeInsets.only(right: 5.0),
+            decoration: BoxDecoration(
+              border:
+                  Border(right: BorderSide(width: 1.0, color: Colors.white)),
+            ),
+            child: Icon(Icons.android, color: Colors.white),
+          ),
+          title: Text(
+            widget.name,
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          subtitle: Row(
+            children: <Widget>[
+              Icon(Icons.linear_scale, color: Colors.yellow),
+              SizedBox(width: 10),
+              Flexible(
+                   child: Text(
+                  widget.address,
+                   overflow: TextOverflow.clip,
+                  softWrap: false,
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-              child:Icon(Icons.android,color:Colors.white),
-            ),
-            title:Text(
-              "something",
-              style:TextStyle(fontWeight:FontWeight.bold,color:Colors.white),
-            ),
-            subtitle: Row(
-              children: <Widget>[
-              Icon(Icons.linear_scale,color:Colors.yellow),
-              SizedBox(width:10),
-              Text("Sub heading here",style: TextStyle(color:Colors.white),),
-
-            ],),
-            trailing: Icon(Icons.keyboard_arrow_right,size:30.0,color:Colors.white),
-
-          )
-        ),
+            ],
+          ),
+          trailing:
+              Icon(Icons.keyboard_arrow_right, size: 30.0, color: Colors.white),
+        )),
       ),
     );
   }
