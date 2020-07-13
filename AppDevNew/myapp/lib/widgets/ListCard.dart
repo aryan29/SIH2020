@@ -4,11 +4,13 @@ class MListCard extends StatefulWidget {
   final String name;
   final String address;
   final rating;
+  final String icon;
   MListCard(
       {Key key,
       @required this.name,
       @required this.address,
-      @required this.rating})
+      @required this.rating,
+      @required this.icon})
       : super(key: key);
 
   @override
@@ -30,13 +32,12 @@ class _MListCardState extends State<MListCard> {
           contentPadding:
               EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
           leading: Container(
-            padding: EdgeInsets.only(right: 5.0),
-            decoration: BoxDecoration(
-              border:
-                  Border(right: BorderSide(width: 1.0, color: Colors.white)),
-            ),
-            child: Icon(Icons.android, color: Colors.white),
-          ),
+              padding: EdgeInsets.only(right: 5.0),
+              decoration: BoxDecoration(
+                border:
+                    Border(right: BorderSide(width: 1.0, color: Colors.white)),
+              ),
+              child: Image.network(widget.icon)),
           title: Text(
             widget.name,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
@@ -46,9 +47,9 @@ class _MListCardState extends State<MListCard> {
               Icon(Icons.linear_scale, color: Colors.yellow),
               SizedBox(width: 10),
               Flexible(
-                   child: Text(
+                child: Text(
                   widget.address,
-                   overflow: TextOverflow.clip,
+                  overflow: TextOverflow.clip,
                   softWrap: false,
                   style: TextStyle(color: Colors.white),
                 ),
