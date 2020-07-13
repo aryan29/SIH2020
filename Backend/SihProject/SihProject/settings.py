@@ -121,6 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = r'/*./static/'
+MEDIA_ROOT = BASE_DIR
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST_USER = "nk28agra@gmail.com"
 EMAIL_HOST = "smtp.gmail.com"

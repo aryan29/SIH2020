@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from proj.MLModel.Detector_class.garbage_detector import GarbageDetector
-from proj.models import UserContributionModel, ActiveImages
+from proj.models import UserContributionModel, ActiveImages,AppUser
 from proj.maps_api import nearbyngo
 
 # Token Authentication for Our Mobile App
@@ -49,7 +49,13 @@ class GetContributions(APIView):
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
-# getting nearby ngos list
+class GetMyContribution(APIView):
+    def get(self, request):
+        obj =AppUser(user=self.request.user)
+        return Response(obj.contributionImages)
+
+    authentication_classes = [TokenAuthentication, SessionAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class getNGOList(APIView):
@@ -90,6 +96,10 @@ class CheckImage(APIView):
             # Now save the image in ActiveImages panel
             imgModel = ActiveImages(name=upfile.name, lat=lat, lon=lon)
             imgModel.save()
+            userField=AppUser(user=self.request.user)
+            userField.contributionImages+="%"+(upfile.name) #Assuming File Name will not have "%"
+            userField.save()
+            #contributionImages
         # Will be getting lat and long too
         # and if already lat and long is present in databse then no contribution
         # increase orless point increase

@@ -9,12 +9,16 @@ def get_list(lat, lon):
     namelist = []
     addlist = []
     gmap_rating = []
+    icons = []
     for i in stri['results']:
         namelist.append(i['name'])
         addlist.append(i['formatted_address'])
         gmap_rating.append(i['rating'])
-    print(namelist)
-    print(addlist)
-    print(gmap_rating)
+        icons.append(i['icon'])
 
-    return {"name": namelist, "address": addlist, "rating": gmap_rating}
+    # print(namelist)
+    # print(addlist)
+    # print(gmap_rating)
+    print(icons)
+
+    return {"name": namelist, "address": addlist, "rating": gmap_rating, "icons": icons}
