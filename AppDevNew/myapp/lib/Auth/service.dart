@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -35,12 +36,19 @@ registerUser(String username, String password1, String password2, String email,
     "choice": "AppUsers"
   });
   try {
-    var res =
-        await dio.post("http://192.168.0.107:8000/register/", data: formData);
-    if (res.statusCode == 200) {
+    var res = await dio.post("http://192.168.0.107:8000/api/register/",
+        data: formData);
+    print("working");
+    print(res.data.runtimeType);
+    print(res.statusCode);
+    Map data = json.decode(res.data);
+    if (data["status"] == 1) {
+      print("Returning right thing");
       return 1;
-    } else
-      return 0;
+    } else {
+      print("here I am");
+      return data["errors"];
+    }
   } on DioError catch (e) {
     print("Something Went Wrong");
     print(e);

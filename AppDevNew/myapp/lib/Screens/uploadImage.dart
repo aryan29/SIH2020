@@ -75,28 +75,60 @@ class _UploadState extends State<Upload> {
         child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        Column(
-          children: <Widget>[
-            InkWell(
-                onTap: () => captureImage(ImageSource.camera),
-                child: Icon(Icons.camera,
-                    size: 120, color: Color.fromRGBO(48, 154, 187, 1))),
-            Text(
-              "Upload from Camera",
-              style: TextStyle(fontWeight: FontWeight.w400),
-            )
-          ],
-        ),
-        Column(
-          children: <Widget>[
-            InkWell(
-                onTap: () => captureImage(ImageSource.gallery),
-                child: Icon(Icons.image,
-                    size: 120, color: Color.fromRGBO(48, 154, 187, 1))),
-            Text("Upload from Gallery",
-                style: TextStyle(fontWeight: FontWeight.w400))
-          ],
-        ),
+        (_imageFile == null)
+            ? Column(
+                children: <Widget>[
+                  InkWell(
+                      onTap: () => captureImage(ImageSource.camera),
+                      child: Icon(Icons.camera,
+                          size: 120, color: Color.fromRGBO(48, 154, 187, 1))),
+                  Text(
+                    "Upload from Camera",
+                    style: TextStyle(fontWeight: FontWeight.w400),
+                  )
+                ],
+              )
+            : Container(
+                height: 300,
+                width: 300,
+                child: Image.file(_imageFile, fit: BoxFit.cover)),
+        (_imageFile == null)
+            ? Column(
+                children: <Widget>[
+                  InkWell(
+                      onTap: () => captureImage(ImageSource.gallery),
+                      child: Icon(Icons.image,
+                          size: 120, color: Color.fromRGBO(48, 154, 187, 1))),
+                  Text("Upload from Gallery",
+                      style: TextStyle(fontWeight: FontWeight.w400))
+                ],
+              )
+            : Container(
+                width: MediaQuery.of(context).size.width * .6,
+                height: 50,
+                child: FlatButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                  ),
+                  color: Color.fromRGBO(48, 154, 187, .4),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text("Back",
+                          style: TextStyle(
+                              color: Color.fromRGBO(48, 154, 187, 1),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20)),
+                      Icon(Icons.chevron_right,
+                          color: Color.fromRGBO(48, 154, 187, 1))
+                    ],
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _imageFile = null;
+                    });
+                  },
+                )),
         Container(
           width: MediaQuery.of(context).size.width * .6,
           height: 50,
@@ -119,7 +151,17 @@ class _UploadState extends State<Upload> {
                             color: Color.fromRGBO(48, 154, 187, 1))
                       ],
                     ),
-              onPressed: () => sendImage()),
+              onPressed: () {
+                if (_imageFile != null) {
+                  sendImage();
+                } else {
+                  setState(() {
+                    sending = false;
+                  });
+                  Scaffold.of(context).showSnackBar(
+                      SnackBar(content: Text("Please select an image first")));
+                }
+              }),
         ),
       ],
     ));

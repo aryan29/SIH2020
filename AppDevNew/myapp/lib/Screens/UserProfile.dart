@@ -46,70 +46,74 @@ class _UserProfile1State extends State<UserProfile1> {
                                       fontWeight: FontWeight.bold)),
                               SizedBox(height: 10),
                               Text(snapshot.data["contribution"].toString(),
-                                  style: TextStyle(color: Colors.grey[500])),
-                              SizedBox(height: 120),
+                                  style: TextStyle(color: Colors.grey[500],fontSize: 20,fontWeight: FontWeight.bold)),
+                              SizedBox(height: 30),
                               Container(
-                                width: 360,
-                                child: MaterialButton(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                    ),
-                                    height: 70,
-                                    minWidth: 200,
-                                    color: Colors.amber[100],
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Text("Check your contributions",
-                                            style: TextStyle(
-                                                color: Colors.amber[700],
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 20)),
-                                        Icon(Icons.chevron_right,
-                                            color: Colors.amber[700])
-                                      ],
-                                    ),
-                                    onPressed: () async {
-                                      print("On tap detection");
-                                      //(api/myimages/)
-                                      //Will return list of all images upload by me sep by %
-                                      //then I have to go to download/ for each single image
-                                      //download/(Image Name)
-                                      var data = await getMyImages();
-                                      print(data);
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) =>
-                                                  ShowContributions(
-                                                      data: data)));
-                                    }),
+                                child: FittedBox(
+                                       child: MaterialButton(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(18.0),
+                                      ),
+                                      height: 70,
+                                      minWidth: 200,
+                                      color: Colors.amber[100],
+                                      hoverColor: Colors.yellow,
+                                      focusColor: Colors.yellow,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Text("Check your contributions",
+                                              style: TextStyle(
+                                                  color: Colors.amber[700],
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20)),
+                                          Icon(Icons.chevron_right,
+                                              color: Colors.amber[700])
+                                        ],
+                                      ),
+                                      onPressed: () async {
+                                        print("On tap detection");
+                                        //(api/myimages/)
+                                        //Will return list of all images upload by me sep by %
+                                        //then I have to go to download/ for each single image
+                                        //download/(Image Name)
+                                        var data = await getMyImages();
+                                        print(data);
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (BuildContext context) =>
+                                                    ShowContributions(
+                                                        data: data)));
+                                      }),
+                                ),
                               ),
                               SizedBox(height: 50),
                               Container(
-                                width: 360,
-                                child: MaterialButton(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                    ),
-                                    height: 70,
-                                    minWidth: 200,
-                                    color: Colors.amber[100],
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Text("Something Else",
-                                            style: TextStyle(
-                                                color: Colors.amber[700],
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 20)),
-                                        Icon(Icons.chevron_right,
-                                            color: Colors.amber[700])
-                                      ],
-                                    ),
-                                    onPressed: () async {}),
+                                child: FittedBox(
+                                       child: MaterialButton(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(18.0),
+                                      ),
+                                      height: 70,
+                                      minWidth: 200,
+                                      color: Colors.amber[100],
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Text("Something Else",
+                                              style: TextStyle(
+                                                  color: Colors.amber[700],
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20)),
+                                          Icon(Icons.chevron_right,
+                                              color: Colors.amber[700])
+                                        ],
+                                      ),
+                                      onPressed: () async {}),
+                                ),
                               )
                             ],
                           )),
