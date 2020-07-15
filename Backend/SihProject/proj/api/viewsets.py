@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from proj.MLModel.Detector_class.garbage_detector import GarbageDetector
-from proj.models import UserContributionModel, ActiveImages
+from proj.models import UserContributionModel, ActiveImages, AppUser
 from proj.maps_api import nearbyngo
 
 # Token Authentication for Our Mobile App
@@ -42,6 +42,7 @@ class MyViewSet2(viewsets.ModelViewSet):
 # Returning List of Nearby NGO for User
 class GetContributions(APIView):
     def get(self, request):
+
         obj = UserContributionModel.objects.get(user=self.request.user)
         print(obj.contribution)
         return Response(obj.contribution)
@@ -49,7 +50,17 @@ class GetContributions(APIView):
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
-# getting nearby ngos list
+
+class GetMyContribution(APIView):
+    def get(self, request):
+        print("Coming to getMyImages")
+        obj = AppUser.objects.get(user=self.request.user)
+        print(obj.contributionImages)
+        # print(obj.name)
+        return Response(obj.contributionImages)
+
+    authentication_classes = [TokenAuthentication, SessionAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class getNGOList(APIView):
@@ -59,7 +70,7 @@ class getNGOList(APIView):
     def post(self, request):
         lat = request.data['lat']
         lon = request.data['lon']
-        content = nearbyngo.get_list(lat,lon)
+        content = nearbyngo.get_list(lat, lon)
         return Response(content)
 
 
@@ -90,6 +101,11 @@ class CheckImage(APIView):
             # Now save the image in ActiveImages panel
             imgModel = ActiveImages(name=upfile.name, lat=lat, lon=lon)
             imgModel.save()
+            userField = AppUser(user=self.request.user)
+            # Assuming File Name will not have "%"
+            userField.contributionImages += "%"+(upfile.name)
+            userField.save()
+            # contributionImages
         # Will be getting lat and long too
         # and if already lat and long is present in databse then no contribution
         # increase orless point increase

@@ -121,9 +121,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = r'/*./static/'
+MEDIA_ROOT = BASE_DIR
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST_USER = "nk28agra@gmail.com"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_PASSWORD = "This is not my real password"
+GOOGLE_RECAPTCHA_SECRET_KEY = '6Le5grEZAAAAAGs9w31woX2dqKOcSYGsGvxF41Gu'

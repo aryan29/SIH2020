@@ -44,3 +44,17 @@ getNearbyNGO(var lat, var lon) async {
     return -1;
   }
 }
+
+getMyImages() async {
+  print("Coming to get my images");
+  final storage = new FlutterSecureStorage();
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  String token = await storage.read(key: "token");
+  var dio = Dio();
+  dio.options.headers["Authorization"] = "Token $token";
+  var res1 = await dio.get("http://192.168.0.107:8000/api/myimages/");
+  print(res1.data);
+  List<String> li = res1.data.split("%");
+
+  return li;
+}

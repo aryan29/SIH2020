@@ -55,7 +55,7 @@ class _NearbyNGOsState extends State<NearbyNGOs> {
                       shrinkWrap: true,
                       itemCount: data['name'].length,
                       itemBuilder: (BuildContext context, int index) {
-                        return MListCard(name: data['name'][index],address:data['address'][index],rating:data['rating'][index]);
+                        return MListCard(name: data['name'][index],address:data['address'][index],rating:data['rating'][index],icon:data['icons'][index]);
                       }));
             } else if (data == -1) {
               return Center(

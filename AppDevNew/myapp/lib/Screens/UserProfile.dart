@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../GettingData/getUserInformation.dart';
+import 'ShowContributions.dart';
 
 class UserProfile1 extends StatefulWidget {
   UserProfile1({Key key}) : super(key: key);
@@ -15,7 +16,10 @@ class _UserProfile1State extends State<UserProfile1> {
   getDataFromSharedPref() async {
     await getUserInformation();
     final SharedPreferences prefs = await _prefs;
-    return {"username": prefs.get("username"),"contribution":prefs.get("contribution")};
+    return {
+      "username": prefs.get("username"),
+      "contribution": prefs.get("contribution")
+    };
   }
 
   @override
@@ -66,7 +70,21 @@ class _UserProfile1State extends State<UserProfile1> {
                                             color: Colors.amber[700])
                                       ],
                                     ),
-                                    onPressed: () {}),
+                                    onPressed: () async {
+                                      print("On tap detection");
+                                      //(api/myimages/)
+                                      //Will return list of all images upload by me sep by %
+                                      //then I have to go to download/ for each single image
+                                      //download/(Image Name)
+                                      var data = await getMyImages();
+                                      print(data);
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  ShowContributions(
+                                                      data: data)));
+                                    }),
                               ),
                               SizedBox(height: 50),
                               Container(
@@ -91,7 +109,7 @@ class _UserProfile1State extends State<UserProfile1> {
                                             color: Colors.amber[700])
                                       ],
                                     ),
-                                    onPressed: () {}),
+                                    onPressed: () async {}),
                               )
                             ],
                           )),

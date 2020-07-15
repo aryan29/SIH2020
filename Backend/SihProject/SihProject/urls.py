@@ -19,14 +19,16 @@ from .router import router
 from rest_framework.authtoken import views
 from django.contrib.auth.views import LoginView
 from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate
-from proj.api.viewsets import getNGOList, CheckImage, GetContributions
-
+from proj.api.viewsets import getNGOList, CheckImage, GetContributions,GetMyContribution
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/getcontributions/',
          GetContributions.as_view(),
          name='get-contributions'),
     path('api/checkimage/', CheckImage.as_view(), name='check-image'),
+    path('api/myimages/',GetMyContribution.as_view(), name='get-my-contribution'),
     path('api/ngoslist/', getNGOList.as_view(), name='ngo-list'),
     path('api/', include(router.urls)),
     path('api-token-auth/', views.obtain_auth_token, name='api-auth-token'),
@@ -38,4 +40,4 @@ urlpatterns = [
         r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         activate,
         name='activate'),
-]
+]+static('download/', document_root=settings.MEDIA_ROOT)

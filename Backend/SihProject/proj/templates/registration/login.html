@@ -1,12 +1,14 @@
 {% load static %}
 <html>
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <form method="POST">
 {% csrf_token %}
 <div>
 {{form.as_p}}
 {% comment %} Add form css here {% endcomment %}
 </div>
+<div class="g-recaptcha" data-sitekey="6Le5grEZAAAAAIKU5GbiWQCFUuqATh2UjyVadEIe"></div>
 <button type="submit">Submit</button>
 </form>
 </html>
