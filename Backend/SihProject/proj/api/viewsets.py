@@ -101,8 +101,11 @@ class CheckImage(APIView):
             # Now save the image in ActiveImages panel
             imgModel = ActiveImages(name=upfile.name, lat=lat, lon=lon)
             imgModel.save()
-            userField = AppUser(user=self.request.user)
+            userField = AppUser.objects.get(user=self.request.user)
             # Assuming File Name will not have "%"
+            # print(userField.user)
+            # print(userField.mob)
+            # print(userField.contributionImages)
             userField.contributionImages += "%"+(upfile.name)
             userField.save()
             # contributionImages

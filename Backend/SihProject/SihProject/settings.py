@@ -120,6 +120,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# ALl this is for development purpose we can store them as environment variables on host platform
+# and then use them for maintaining security
+
 STATIC_URL = r'/*./static/'
 MEDIA_ROOT = BASE_DIR
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
