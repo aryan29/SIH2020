@@ -6,10 +6,11 @@ from django.forms import ModelForm
 from django.shortcuts import render, redirect
 from django.core.exceptions import ValidationError
 
+
 class ExtendedUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    first_name = forms.CharField(max_length=30,required=False)
-    last_name = forms.CharField(max_length=50,required=False)
+    first_name = forms.CharField(max_length=30, required=False)
+    last_name = forms.CharField(max_length=50, required=False)
 
     class Meta:
         model = User
@@ -21,11 +22,12 @@ class ExtendedUserForm(UserCreationForm):
             'password1',
             'password2'
         ]
-    def clean(self):
-        data=super().clean()
-        if data['email'] and User.objects.filter(email=data['email']).exists():
-            self.add_error('email',"This email is already registered")
 
+    def clean(self):
+        data = super().clean()
+        if data['email'] and User.objects.filter(email=data['email']).exists():
+            self.add_error('email', "This email is already registered")
+        return data
 
     def save(self, commit=True):
         print("In form save")
@@ -33,6 +35,8 @@ class ExtendedUserForm(UserCreationForm):
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         user.email = self.cleaned_data['email']
+        print(user.first_name)
+        print(user.email)
         if commit:
             user.save()
         return user

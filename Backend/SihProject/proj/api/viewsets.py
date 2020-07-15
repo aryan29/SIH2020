@@ -95,19 +95,23 @@ class CheckImage(APIView):
         print(res)
         # Now Change User Contributions
         if(res == 1):
-            obj = UserContributionModel.objects.get(user=self.request.user)
-            obj.contribution = obj.contribution + 1
-            obj.save()
             # Now save the image in ActiveImages panel
             imgModel = ActiveImages(name=upfile.name, lat=lat, lon=lon)
             imgModel.save()
             userField = AppUser.objects.get(user=self.request.user)
+            try:
+                userField.contributionImages += "%"+(upfile.name)
+            except:
+                # print("At Except")
+                userField.contributionImage += ""+upfile.name
+            userField.save()
+            obj = UserContributionModel.objects.get(user=self.request.user)
+            obj.contribution = obj.contribution + 1
+            obj.save()
             # Assuming File Name will not have "%"
             # print(userField.user)
             # print(userField.mob)
             # print(userField.contributionImages)
-            userField.contributionImages += "%"+(upfile.name)
-            userField.save()
             # contributionImages
         # Will be getting lat and long too
         # and if already lat and long is present in databse then no contribution

@@ -73,14 +73,15 @@ def UserRegister(request):
 @csrf_exempt
 def UserRegisterMobile(request):
     if (request.method == 'POST'):
-        print("Here we are")
-        print(request.POST)
+        # print("Here we are")
+        # print(request.POST)
         form1 = ExtendedUserForm(request.POST)
         print(form1.is_valid())
         form2 = AppUserForm(request.POST)
         print(form2.is_valid())
         choice = request.POST['choice']
-        print(choice)
+        print(form1.clean())
+        # print(choice)
 
         if (form1.is_valid() and form2.is_valid() and form1.clean()):
             user = form1.save(commit=False)
@@ -119,7 +120,7 @@ def UserRegisterMobile(request):
 
     else:
         form1 = ExtendedUserForm()
-        print("Form Not validated")
+        print("Form Not validated 2")
         form2 = AppUserForm()
         args = {'form1': form1, 'form2': form2}
         z = {**form1.errors, **form2.errors}

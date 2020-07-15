@@ -130,5 +130,6 @@ EMAIL_HOST_USER = "nk28agra@gmail.com"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = "This is not my real password"
+# Put your password here and ensure no double verification on gmail account & less secured apps allowed
+EMAIL_HOST_PASSWORD = ""
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Le5grEZAAAAAGs9w31woX2dqKOcSYGsGvxF41Gu'
