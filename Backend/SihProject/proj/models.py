@@ -13,7 +13,7 @@ class AppUser(models.Model):
     address = models.CharField(blank=True, null=True, max_length=100)
     # As it is not possible to store array in sqlite db in django
     contributionImages = models.CharField(
-        blank=True, null=True, max_length=100000)
+        blank=True, default="", max_length=100000)
 
     def __str__(self):
         return self.user.username

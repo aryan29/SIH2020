@@ -3,7 +3,6 @@ import 'LoginPage.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -27,8 +26,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     // TODO: implement initState
     super.initState();
 
-    _scaleController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 3000));
+    _scaleController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
 
     _scaleAnimation =
         Tween<double>(begin: 1.0, end: 0.8).animate(_scaleController)
@@ -38,8 +37,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             }
           });
 
-    _widthController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 6000));
+    _widthController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
 
     _widthAnimation =
         Tween<double>(begin: 80.0, end: 300.0).animate(_widthController)
@@ -49,8 +48,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             }
           });
 
-    _positionController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 10000));
+    _positionController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
 
     _positionAnimation =
         Tween<double>(begin: 0.0, end: 215.0).animate(_positionController)
@@ -63,8 +62,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             }
           });
 
-    _scale2Controller = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 10000));
+    _scale2Controller =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
 
     _scale2Animation =
         Tween<double>(begin: 1.0, end: 32.0).animate(_scale2Controller)
@@ -74,8 +73,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               Navigator.push(
                   context,
                   PageTransition(
-                      type: PageTransitionType.fade, child: LoginPage())
-                      );
+                      type: PageTransitionType.fade, child: LoginPage()));
             }
           });
   }

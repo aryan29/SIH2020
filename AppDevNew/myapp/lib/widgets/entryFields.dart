@@ -15,9 +15,9 @@ class _EntryFieldState extends State<EntryField> {
   void initState() {
     super.initState();
     titleController.addListener(() {
-    // print(widget.text);
-    // print(titleController.text);
-    store.set(widget.text, titleController.text);
+      // print(widget.text);
+      // print(titleController.text);
+      store.set(widget.text, titleController.text);
     });
   }
 
@@ -27,7 +27,10 @@ class _EntryFieldState extends State<EntryField> {
       decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: Colors.grey[300]))),
       child: TextField(
-        obscureText:(widget.text=="Password")?true:false,
+        obscureText:
+            (widget.text == "Password" || widget.text == "Confirm Password")
+                ? true
+                : false,
         controller: titleController,
         decoration: InputDecoration(
             border: InputBorder.none,

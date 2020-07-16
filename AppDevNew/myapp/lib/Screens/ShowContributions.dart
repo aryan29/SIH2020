@@ -12,18 +12,42 @@ class ShowContributions extends StatefulWidget {
 class _ShowContributionsState extends State<ShowContributions> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: ListView.builder(
-            itemCount: widget.data.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                  height: 200,
-                  child: CachedNetworkImage(
-                      fit: BoxFit.cover,
-                      progressIndicatorBuilder: (context, url, progress) =>
-                          CircularProgressIndicator(value: progress.progress),
-                      imageUrl:
-                          "http://192.168.0.107:8000/download/${widget.data[index]}"));
-            }));
+    return Scaffold(
+      body: Container(
+          child: ListView(
+        children: <Widget>[
+          Container(
+            height: 150,
+            color: Colors.cyan,
+            child: Center(
+              child: Text("Your Contributions",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      // decoration: TextDecoration.underline,
+                      fontWeight: FontWeight.bold)),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          ListView.builder(
+              shrinkWrap: true,
+              physics: ScrollPhysics(),
+              itemCount: widget.data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                    height: 200,
+                    padding: EdgeInsets.all(20),
+                    child: CachedNetworkImage(
+                        fit: BoxFit.cover,
+                        progressIndicatorBuilder: (context, url, progress) =>
+                            CircularProgressIndicator(value: progress.progress),
+                        imageUrl:
+                            "http://192.168.0.107:8000/download/${widget.data[index]}"));
+              }),
+        ],
+      )),
+    );
   }
 }

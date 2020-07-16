@@ -120,6 +120,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# ALl this is for development purpose we can store them as environment variables on host platform
+# and then use them for maintaining security
+
 STATIC_URL = r'/*./static/'
 MEDIA_ROOT = BASE_DIR
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -127,5 +130,6 @@ EMAIL_HOST_USER = "nk28agra@gmail.com"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = "This is not my real password"
+# Put your password here and ensure no double verification on gmail account & less secured apps allowed
+EMAIL_HOST_PASSWORD = ""
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Le5grEZAAAAAGs9w31woX2dqKOcSYGsGvxF41Gu'
