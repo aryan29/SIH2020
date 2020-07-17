@@ -1,18 +1,112 @@
-<html>
-<h1>Register</h1>
-<form method="POST">
-{% csrf_token %}
-{{form1.as_p}}
-{{form2.as_p}}
-<select name="choice">
-  <option value="Government">Government</option>
-  <option value="NGO">NGO</option>
-  <option value="AppUsers">AppUser</option>
-</select>
-<button type="submit">Submit</button>
-<div>
-<p>{{errors1}}</p>
-<p>{{errors2}}</p>
-<div>
-</form>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+
+    
+    <title>Register</title>
+</head>
+<body>
+{% if error_message %}
+     <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+ {% endif %}
+
+	<div class="login-wrap">
+		<div class="login-html">
+			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+			<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+			<div class="login-form">
+				<div class="sign-in-htm">
+					<div class="group">
+						<label for="user" class="label">Username</label>
+						<input id="user" type="text" class="input">
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Password</label>
+						<input id="pass" type="password" class="input" data-type="password">
+					</div>
+					<div class="group">
+						<input id="check" type="checkbox" class="check" checked>
+						<label for="check"><span class="icon"></span> Keep me Signed in</label>
+					</div>
+					<div class="group">
+						<input type="submit" class="button" value="Sign In" name="signin">
+					</div>
+					<div class="hr"></div>
+					<div class="foot-lnk">
+						<a href="#forgot">Forgot Password?</a>
+					</div>
+				</div>
+				<div class="sign-up-htm">
+				<form action="" method="post">
+				{% csrf_token %}
+					<div class="group">
+					    
+						<label for="user" class="label">Username</label>
+						<input id="username" name="username" type="text" class="input">
+					</div>
+          	        <div class="group">
+					    
+						<label for="user" class="label">First Name</label>
+						<input id="username" name="username" type="text" class="input">
+					</div>
+                	<div class="group">
+					    
+						<label for="user" class="label">Last Name</label>
+						<input id="username" name="username" type="text" class="input">
+					</div>
+                     <div class="group">
+			
+						<label for="pass" class="label">Email Address</label>
+						<input id="pass" name="email" type="text" class="input">
+					</div>
+
+					<div class="group">
+						<label for="pass" class="label">Password</label>
+						<input id="pass" name="password1" type="password" class="input" data-type="password">
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Repeat Password</label>
+						<input id="pass" name="password2" type="password" class="input" data-type="password">
+					</div>
+					
+                	<div class="group">
+					    
+						<label for="user" class="label">Mobile</label>
+						<input id="username" name="username" type="text" class="input">
+					</div>
+                	<div class="group">
+					    
+						<label for="user" class="label">Address</label>
+						<input id="username" name="username" type="text" class="input">
+					</div>
+					<div class="styled-select">
+					
+				     <select name="choice">
+                     <option value="Government">Government</option>
+                     <option value="NGO">NGO</option>
+                     <option value="AppUsers">AppUser</option>
+                     </select>
+                    <span class="fa fa-sort-desc"></span>
+             </div>
+					   <br>
+					<div class="group">
+						<input type="submit" class="button" value="Sign Up" name="signup">
+					</div>
+					<div class="hr"></div>
+					 <div class="foot-lnk">
+						<label for="tab-1">Already Member?</a>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    
+</body>
 </html>
