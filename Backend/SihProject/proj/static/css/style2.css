@@ -1,0 +1,179 @@
+body,html{
+    padding-top: 25px;
+    height: 100%;
+    margin: 0;
+    font-family: "lato", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.8em;
+    color:white;
+    padding-top:0px;
+  }
+  
+  .navbar-default{
+    background: #232526; 
+    background: -webkit-linear-gradient(to right, #414345, #232526);  
+    background: linear-gradient(to right, #414345, #232526); 
+    
+    
+  }
+  
+  .pmg1, .pmg2, .pmg3,.pmg4{
+    position: relative;
+    opacity: 0.9;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .pmg1{
+    background-image: url('f2.jpg');
+    min-height: 60%;
+   }
+  
+  .pmg2{
+    background-image: url('http://bit.ly/2FF6Jx0');
+    min-height: 400px;
+    
+  }
+  
+  .pmg3{
+    background-image: url('w24.jpg');
+    min-height: 400px;
+    }
+
+    .pmg4{
+      background-image: url('w99.jpg');
+      min-height: 400px;
+      }
+  
+  section{
+    
+    text-align: center;
+    padding: 50px 80px;
+   
+    background: -webkit-linear-gradient(to right, #414345, #232526);  
+    background: linear-gradient(to right,rgba(85, 119, 88, 0.9),rgba(68, 94, 70, 0.9))
+  }
+  
+  .hometext{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 27px;
+    letter-spacing: 8px;
+    font-weight: 700;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
+  }
+  
+  hr{
+    width: 500px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+  
+  .control-label{
+    color:#666;
+  }
+  
+  .imgme{
+    border-radius: 8px;
+    height: 100px;    
+  }
+  
+  .aboutp{
+    padding-top: 30px;
+  }
+  
+  .hometext .name{
+    padding-top: 20px;
+    font-size: 25px;
+    font-weight: 300;
+    
+  }
+  #map {
+    height: 400px;  /* The height is 400 pixels */
+    width: 100%;  /* The width is the width of the web page */
+   }
+   #mychart {
+    width: 40%;
+    height: 40%;
+    margin: 15px auto;
+  }
+  .chart {
+    width: fit-content;
+    margin: 15px auto;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  
+ 
+  
+  .wrapper1 h1{
+    font-family: 'Allura', cursive;
+    font-size: 52px;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  
+  .team{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    text-align: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+  }
+  
+  .team .team_member{
+    background: #fff;
+    margin: 5px;
+    margin-bottom: 50px;
+    width: 180px;
+    padding: 20px;
+    line-height: 20px;
+    color: #8e8b8b;  
+    position: relative;
+  }
+  
+  .team .team_member h3{
+    color: #81c644;
+    font-size: 26px;
+    margin-top: 50px;
+  }
+  
+  .team .team_member p.role{
+    color: #ccc;
+    margin: 12px 0;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  
+  .team .team_member .team_img{
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+  }
+  
+  .team .team_member .team_img img{
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+  }
+  
