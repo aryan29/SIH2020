@@ -28,18 +28,18 @@ body,html{
   }
   
   .pmg1{
-    background-image: url('f2.jpg');
+    background-image: url('../img/f2.jpg');
     min-height: 60%;
    }
   
   
   .pmg3{
-    background-image: url('w24.jpg');
+    background-image: url('../img/w24.jpg');
     min-height: 400px;
     }
 
     .pmg4{
-      background-image: url('w99.jpg');
+      background-image: url('../img/w99.jpg');
       min-height: 400px;
       }
   
