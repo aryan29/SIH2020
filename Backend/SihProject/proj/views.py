@@ -24,6 +24,7 @@ from .models import AppUser
 @csrf_exempt
 def UserRegister(request):
     if (request.method == 'POST'):
+        #if 'signup' in request.POST:
         print(request.POST)
         form1 = ExtendedUserForm(request.POST)
         form2 = AppUserForm(request.POST)
