@@ -5,8 +5,9 @@ Created on Thu Jan 16 23:29:52 2020
 @author: Abhilasha
 """
 
-import tensorflow as tf
 import cv2 as cv
+import tensorflow as tf
+print(tf.__version__)
 
 
 def get_image(path_to_image):
@@ -21,7 +22,7 @@ def get_image(path_to_image):
 
         img = cv.imread(path_to_image)
         inp = cv.resize(img, (300, 300))
-        inp = inp[:, :, [2, 1, 0]]  
+        inp = inp[:, :, [2, 1, 0]]
 
         # Run the model
         out = sess.run([sess.graph.get_tensor_by_name('num_detections:0'),
@@ -29,7 +30,7 @@ def get_image(path_to_image):
                         sess.graph.get_tensor_by_name('detection_boxes:0'),
                         sess.graph.get_tensor_by_name('detection_classes:0')],
                        feed_dict={'image_tensor:0': inp.reshape(1, inp.shape[0], inp.shape[1], 3)})
-    
+
         # coco_dataset class 18 - Dog
         # coco_dataset class 20 - Sheep
         # coco_dataset class 21 - Cow
@@ -39,11 +40,11 @@ def get_image(path_to_image):
         dog_count = 0
         sheep_count = 0
         cow_count = 0
-    
+
         for i in range(num_detections):
             classId = int(out[3][0][i])
             score = float(out[1][0][i])
-    
+
             if score > 0.3:
                 if (classId == 18):
                     dog_count += 1
@@ -51,4 +52,7 @@ def get_image(path_to_image):
                     sheep_count += 1
                 if (classId == 21):
                     cow_count += 1
-        return dog_count, sheep_count, cow_count 
+        return dog_count, sheep_count, cow_count
+
+
+get_image("/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/check2.jpg")

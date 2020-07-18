@@ -42,6 +42,7 @@ class ActiveImages(models.Model):
     lat = models.FloatField(default=80.0)  # latitude
     lon = models.FloatField(default=50.0)  # longitude
     timestamp = models.DateTimeField(auto_now_add=True)
+    animals = models.PositiveSmallIntegerField(default=0)
     # If completed we will remove entry from this DB as this will be queried everyday and store it somewhere else
     completed = models.BooleanField(default=False)
     # Is reviewed by governement or not will show on govn dashboard (If not)

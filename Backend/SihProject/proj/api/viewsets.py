@@ -8,7 +8,8 @@ from ..decorators import allowed_users
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from proj.MLModel.Detector_class.garbage_detector import GarbageDetector
+from proj.MLModel.garbage_final.test_on_cpu import GarbageDetector
+from proj.MLModel.Detector_class_animal.animal_detector import AnimalDetector
 from proj.models import UserContributionModel, ActiveImages, AppUser
 from proj.maps_api import nearbyngo
 
@@ -74,6 +75,23 @@ class getNGOList(APIView):
         return Response(content)
 
 
+class getActiveImagesData(APIView):
+    def post(self, request):
+        if(request.data["password"] == "letitbeanything"):  # Save in ev variables later
+            z = ActiveImages.objects.filter(completed=False)
+            print(z)
+            li = []
+            for x in z:
+                di = {
+                    "latitude": x.lat,
+                    "longitude": x.lon,
+                    "animals": x.animals,
+                    "under_review": x.reviewed
+                }
+                li.append(di)
+            return Response(li)
+        else:
+            Response("Invalid Password")
 
 
 class CheckImage(APIView):
@@ -94,17 +112,16 @@ class CheckImage(APIView):
                 f1.write(chunks)
 
         res = GarbageDetector().detect(upfile.name)
-        print(res)
         # Now Change User Contributions
         if(res == 1):
-            # Now save the image in ActiveImages panel
-            imgModel = ActiveImages(name=upfile.name, lat=lat, lon=lon)
+            animals = AnimalDetector().get_number_of_animals(upfile.name)
+            imgModel = ActiveImages(
+                name=upfile.name, lat=lat, lon=lon, animals=animals)
             imgModel.save()
             userField = AppUser.objects.get(user=self.request.user)
             try:
                 userField.contributionImages += "%"+(upfile.name)
             except:
-                # print("At Except")
                 userField.contributionImage += ""+upfile.name
             userField.save()
             obj = UserContributionModel.objects.get(user=self.request.user)
@@ -115,9 +132,8 @@ class CheckImage(APIView):
             # print(userField.mob)
             # print(userField.contributionImages)
             # contributionImages
-        # Will be getting lat and long too
-        # and if already lat and long is present in databse then no contribution
-        # increase orless point increase
+            # Go through Animal Mod
+
         return Response(res)
 
 # Some More API Views Here

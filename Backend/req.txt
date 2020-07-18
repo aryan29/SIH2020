@@ -1,5 +1,6 @@
 absl-py==0.9.0
 asgiref==3.2.7
+astor==0.8.1
 astunparse==1.6.3
 autopep8==1.5.2
 Babel==2.8.0
@@ -8,9 +9,11 @@ certifi==2020.4.5.1
 chardet==3.0.4
 Django==3.0.6
 django-phonenumber-field==4.0.0
+django-ranged-response==0.2.0
+django-simple-captcha==0.5.12
 django-simple-email-confirmation==0.70
 djangorestframework==3.11.0
-gast==0.3.3
+gast==0.2.2
 google-auth==1.16.1
 google-auth-oauthlib==0.4.1
 google-pasta==0.2.0
@@ -27,7 +30,9 @@ oauthlib==3.1.0
 opencv-python==4.2.0.34
 opt-einsum==3.2.1
 phonenumberslite==8.12.4
+Pillow==7.2.0
 protobuf==3.12.2
+psycopg2-binary==2.8.5
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycodestyle==2.6.0
@@ -39,10 +44,10 @@ rsa==4.0
 scipy==1.4.1
 six==1.15.0
 sqlparse==0.3.1
-tensorboard==2.2.2
+tensorboard==1.15.0
 tensorboard-plugin-wit==1.6.0.post3
-tensorflow==2.2.0
-tensorflow-estimator==2.2.0
+tensorflow==1.15.0
+tensorflow-estimator==1.15.1
 termcolor==1.1.0
 urllib3==1.25.9
 Werkzeug==1.0.1

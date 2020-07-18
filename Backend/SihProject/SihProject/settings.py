@@ -126,10 +126,10 @@ USE_TZ = True
 STATIC_URL = r'/*./static/'
 MEDIA_ROOT = BASE_DIR
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST_USER = "nk28agra@gmail.com"
+EMAIL_HOST_USER = "ctrlaltelitesih2020@gmail.com"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # Put your password here and ensure no double verification on gmail account & less secured apps allowed
-EMAIL_HOST_PASSWORD = ""
+EMAIL_HOST_PASSWORD = "passwordispassword"
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Le5grEZAAAAAGs9w31woX2dqKOcSYGsGvxF41Gu'

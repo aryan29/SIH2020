@@ -137,7 +137,7 @@ def UserRegisterMobile(request):
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
             })
-            email = "nk28agra@gmail.com"
+            email = "ctrlaltelitesih2020@gmail.com"
             send_mail(message=message,
                       from_email=email,
                       recipient_list=[user.email],
@@ -232,3 +232,8 @@ def NGOsHomePage(request):
     # work is already taken by certain NGO with its name
 
     return render(request, 'ngo.html', args)
+
+# Make this only for admin
+
+
+

@@ -4,11 +4,11 @@ import cv2 as cv
 
 class AnimalDetector():
     def get_number_of_animals(self, path_to_image):
-        with tf.io.gfile.GFile('frozen_inference_graph.pb', 'rb') as f:
-            graph_def = tf.compat.v1.GraphDef()
+        with tf.gfile.FastGFile('/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/proj/MLModel/Detector_class_animal/frozen_inference_graph.pb', 'rb') as f:
+            graph_def = tf.GraphDef()
             graph_def.ParseFromString(f.read())
 
-        with tf.compat.v1.Session() as sess:
+        with tf.Session() as sess:
             # Restore session
             sess.graph.as_default()
             tf.import_graph_def(graph_def, name='')
@@ -18,16 +18,12 @@ class AnimalDetector():
             inp = inp[:, :, [2, 1, 0]]
 
             # Run the model
-            out = sess.run([
-                sess.graph.get_tensor_by_name('num_detections:0'),
-                sess.graph.get_tensor_by_name('detection_scores:0'),
-                sess.graph.get_tensor_by_name('detection_boxes:0'),
-                sess.graph.get_tensor_by_name('detection_classes:0')
-            ],
-                           feed_dict={
-                               'image_tensor:0':
-                               inp.reshape(1, inp.shape[0], inp.shape[1], 3)
-                           })
+            out = sess.run([sess.graph.get_tensor_by_name('num_detections:0'),
+                            sess.graph.get_tensor_by_name(
+                                'detection_scores:0'),
+                            sess.graph.get_tensor_by_name('detection_boxes:0'),
+                            sess.graph.get_tensor_by_name('detection_classes:0')],
+                           feed_dict={'image_tensor:0': inp.reshape(1, inp.shape[0], inp.shape[1], 3)})
 
             num_detections = int(out[0][0])
             dog_count = 0
@@ -45,4 +41,7 @@ class AnimalDetector():
                         sheep_count += 1
                     if (classId == 21):
                         cow_count += 1
-            return dog_count + sheep_count + cow_count
+            return dog_count+sheep_count+cow_count
+
+# x=AnimalDetector().get_number_of_animals("/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/image_picker718219696365588664.jpg")
+# print(x)

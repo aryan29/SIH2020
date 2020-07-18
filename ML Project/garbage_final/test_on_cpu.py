@@ -101,7 +101,7 @@ class GarbageDetector():
         else:
               return 0
 
-obj = GarbageDetector()
-ans = obj.detect('/content/drive/My Drive/test_img/tt.jpeg')
-print(ans)
+# obj = GarbageDetector()
+# ans = obj.detect('/content/drive/My Drive/test_img/tt.jpeg')
+# print(ans)
 
