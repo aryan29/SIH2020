@@ -18,9 +18,8 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(3, 9, 23, 1),
       body: Builder(builder: (context) {
-        return Center(
-          child: SingleChildScrollView(
-            child: Container(
+        return  Container(
+              alignment: Alignment.topLeft,
               padding: EdgeInsets.all(30),
               child: SingleChildScrollView(
                 child: Column(
@@ -50,6 +49,8 @@ class _SignupPageState extends State<SignupPage> {
                           child: Column(
                             children: <Widget>[
                               EntryField(text: "Username"),
+                              EntryField(text: "First Name"),
+                              EntryField(text: "Last Name"),
                               EntryField(text: "Email"),
                               EntryField(text: "Mobile Number"),
                               EntryField(text: "Address"),
@@ -72,11 +73,14 @@ class _SignupPageState extends State<SignupPage> {
 
                               var res = await registerUser(
                                 store.get("Username"),
+                                store.get("First Name"),
+                                store.get("Last Name"),
                                 store.get("Password"),
                                 store.get("Confirm Password"),
                                 store.get("Email"),
                                 store.get("Address"),
                                 store.get("Mobile Number"),
+
                               );
                               if (res == 0) {
                                 setState(() {
@@ -107,8 +111,11 @@ class _SignupPageState extends State<SignupPage> {
                                       content: Column(children: [
                                         for (var k in res.keys)
                                           Container(
-                                              child: Text(k + " " + res[k][0]+"\n",style: TextStyle(color: Colors.red,))
-                                              )
+                                              child: Text(
+                                                  k + " " + res[k][0] + "\n",
+                                                  style: TextStyle(
+                                                    color: Colors.red,
+                                                  )))
                                       ]),
                                       actions: <Widget>[
                                         FlatButton(
@@ -170,8 +177,7 @@ class _SignupPageState extends State<SignupPage> {
                   ],
                 ),
               ),
-            ),
-          ),
+          
         );
       }),
     );

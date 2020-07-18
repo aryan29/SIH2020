@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
-from .forms import AppUserForm, ExtendedUserForm
+from .forms import AppUserForm, ExtendedUserForm, MyForm1
 from .decorators import allowed_users
 from django.template.loader import render_to_string
 from .models import UserContributionModel
@@ -14,20 +14,58 @@ from django.utils.encoding import force_bytes, force_text
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponse
 import json
+from django.contrib.auth import authenticate, login
 from .tokens import account_activation_token
-from .models import AppUser
+from .models import AppUser, ActiveImages
+from django.db.models import Q
+import time
+from datetime import datetime, timedelta
 # Create your views here.
 
 # All Views which user can see
 
 
+# def UserLogin(request):
+#     if(request.method == 'POST'):
+#         form1 = MyForm1(request.POST)
+#         user = authenticate(
+#             username=request.POST['username'], password=request.POST['password'])
+#         if(user is not None):
+#             if(user.is_active):
+#                 login(request, user)
+#                 redirect('/register')
+#             else:
+#                 print("Your Account is Not active")
+#                 args = {
+#                     "form": form1,
+#                     "errors": form1.errors
+#                 }
+#                 return render(request, 'registration/login.html', args)
+#         else:
+#             print("Not Valid acount exist")
+#             args = {
+#                 "form": form1,
+#                 "errors": form1.errors
+#             }
+#             return render(request, 'registration/login.html', args)
+#     else:
+#         args = {
+#             "form": MyForm1(),
+#         }
+#         return render(request, 'registration/login.html', args)
+
+
 @csrf_exempt
 def UserRegister(request):
     if (request.method == 'POST'):
+        # if 'signup' in request.POST:
         print(request.POST)
         form1 = ExtendedUserForm(request.POST)
         form2 = AppUserForm(request.POST)
         choice = request.POST['choice']
+        # print(form1.is_valid())
+        # print(form2.is_valid())
+        # print(form1.is_valid())
 
         if (form1.is_valid() and form2.is_valid() and form1.clean()):
             user = form1.save(commit=False)
@@ -54,6 +92,8 @@ def UserRegister(request):
             group.user_set.add(user)
             return redirect('/login')
         else:
+            print(form1.errors)
+            print(form2.errors)
             args = {
                 'form1': form1,
                 'form2': form2,
@@ -63,6 +103,8 @@ def UserRegister(request):
             return render(request, 'registration/register.html', args)
 
     else:
+        # print(form1.errors)
+        # print(form2.errors)
         form1 = ExtendedUserForm()
         form2 = AppUserForm()
         args = {'form1': form1, 'form2': form2}
@@ -154,3 +196,39 @@ def activate(request, uidb64, token):
         )
     else:
         return HttpResponse('Activation link is invalid!')
+
+
+@allowed_users(allowed_roles=['Government'])
+def GetLocationList(request):
+    if(request.method == "GET"):
+        days = 30
+        # Show All Images that are not completed and atleast 1 month old
+        obj = ActiveImages.objects.filter(
+            Q(completed=False) & Q(timestamp__lte=datetime.now()-timedelta(days=days)))
+        print(obj)
+
+        return render(request, 'gov.html', {"list": obj})
+
+
+@allowed_users(allowed_roles=['Government'])
+def GetAllRegisteredNGOs(request):
+    # Will Give Government the list of all registered NGOs
+    if(request.method == "GET"):
+        li = User.objects.filter(groups__name='AppUsers')
+        print(li)
+        return render(request, 'gov.html', {"list": li})
+
+
+@allowed_users(allowed_roles=['NGO'])
+def NGOsHomePage(request):
+    # Here NGOs will see all reviewed Images by government
+    # This is the only page NGOs will be seeing
+    review_not_comp = ActiveImages.objects.filter(completed=False)
+    args = {
+
+    }
+    # Todo by Me
+    # Add one more parameter inProgress will denote that this
+    # work is already taken by certain NGO with its name
+
+    return render(request, 'ngo.html', args)

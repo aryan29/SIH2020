@@ -23,6 +23,19 @@ class _EntryFieldState extends State<EntryField> {
 
   @override
   Widget build(BuildContext context) {
+    String getHintText(String s) {
+      if (s == "Username")
+        return "Enter your Unique UserId";
+      else if (s == "Email")
+        return "Enter Your Email";
+      else if (s == "Mobile Number")
+        return "Ex:- +917906224093";
+      else if (s == "Password")
+        return "Password";
+      else
+        return widget.text;
+    }
+
     return Container(
       decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: Colors.grey[300]))),
@@ -35,7 +48,7 @@ class _EntryFieldState extends State<EntryField> {
         decoration: InputDecoration(
             border: InputBorder.none,
             hintStyle: TextStyle(color: Colors.grey.withOpacity(.8)),
-            hintText: widget.text),
+            hintText: getHintText(widget.text)),
       ),
     );
   }

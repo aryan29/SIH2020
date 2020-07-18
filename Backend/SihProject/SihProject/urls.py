@@ -18,12 +18,15 @@ from django.urls import path, include
 from .router import router
 from rest_framework.authtoken import views
 from django.contrib.auth.views import LoginView
-from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile
+from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile,GetLocationList,GetAllRegisteredNGOs
 from proj.api.viewsets import getNGOList, CheckImage, GetContributions, GetMyContribution
 from django.conf import settings
+from proj.forms import MyForm1
+
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/', LoginView.as_view(authentication_form=MyForm1)),
     path('api/getcontributions/',
          GetContributions.as_view(),
          name='get-contributions'),
@@ -32,9 +35,10 @@ urlpatterns = [
     path('api/ngoslist/', getNGOList.as_view(), name='ngo-list'),
     path('api/', include(router.urls)),
     path('api-token-auth/', views.obtain_auth_token, name='api-auth-token'),
-    path('login/', LoginView.as_view(), name='login'),
-    path('api/register/', UserRegisterMobile, name='register'),
-    path('register/', UserRegister, name='mobile-register'),
+    path('api/register/', UserRegisterMobile, name='mobile-register'),
+    path('gov-reviewed/', GetLocationList,name='reviewed'),
+    path('gov-ngoreviewed/', GetAllRegisteredNGOs,name='ngo-reviewed'),
+    path('register/', UserRegister, name='register'),
     path('gov/', CheckOnlyGovernMentView, name='gov-view'),
     path('ngo/', CheckOnlyNgoView, name='ngo-view'),
     path(
