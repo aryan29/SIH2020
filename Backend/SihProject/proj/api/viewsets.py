@@ -74,6 +74,8 @@ class getNGOList(APIView):
         return Response(content)
 
 
+
+
 class CheckImage(APIView):
     parser_class = (FileUploadParser, )
     authentication_classes = [TokenAuthentication, SessionAuthentication]

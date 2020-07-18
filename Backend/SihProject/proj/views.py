@@ -16,7 +16,10 @@ from django.http import HttpResponse
 import json
 from django.contrib.auth import authenticate, login
 from .tokens import account_activation_token
-from .models import AppUser
+from .models import AppUser, ActiveImages
+from django.db.models import Q
+import time
+from datetime import datetime, timedelta
 # Create your views here.
 
 # All Views which user can see
@@ -193,3 +196,39 @@ def activate(request, uidb64, token):
         )
     else:
         return HttpResponse('Activation link is invalid!')
+
+
+@allowed_users(allowed_roles=['Government'])
+def GetLocationList(request):
+    if(request.method == "GET"):
+        days = 30
+        # Show All Images that are not completed and atleast 1 month old
+        obj = ActiveImages.objects.filter(
+            Q(completed=False) & Q(timestamp__lte=datetime.now()-timedelta(days=days)))
+        print(obj)
+
+        return render(request, 'gov.html', {"list": obj})
+
+
+@allowed_users(allowed_roles=['Government'])
+def GetAllRegisteredNGOs(request):
+    # Will Give Government the list of all registered NGOs
+    if(request.method == "GET"):
+        li = User.objects.filter(groups__name='AppUsers')
+        print(li)
+        return render(request, 'gov.html', {"list": li})
+
+
+@allowed_users(allowed_roles=['NGO'])
+def NGOsHomePage(request):
+    # Here NGOs will see all reviewed Images by government
+    # This is the only page NGOs will be seeing
+    review_not_comp = ActiveImages.objects.filter(completed=False)
+    args = {
+
+    }
+    # Todo by Me
+    # Add one more parameter inProgress will denote that this
+    # work is already taken by certain NGO with its name
+
+    return render(request, 'ngo.html', args)

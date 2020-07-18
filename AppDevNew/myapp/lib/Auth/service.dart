@@ -21,13 +21,15 @@ getAuthToken(String username, String password) async {
   }
 }
 
-registerUser(String username, String password1, String password2, String email,
-    String address, String mob) async {
+registerUser(String username, String fn, String ln, String password1,
+    String password2, String email, String address, String mob) async {
   var dio = Dio();
   dio.options.headers['content-type'] = "application/json";
   print(username);
   FormData formData = new FormData.fromMap({
     "username": username,
+    "first_name": fn,
+    "last_name": ln,
     "password1": password1,
     "password2": password2,
     "email": email,
