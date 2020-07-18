@@ -99,7 +99,7 @@
             <tr>
               <th>SNo.</th>
               <th>Location</th>
-              <th>City</th>
+              <th>Time</th>
               <th>Status</th>
               
               <th></th>
@@ -107,12 +107,13 @@
             </tr>
           </thead>
           <tbody class="tbdy">
+            {% for x in list %}
             <tr>
 
 
-              <td>1</td>
-              <td>abc</td>
-              <td>def</td>
+              <td>{{forloop.counter}}</td>
+              <td>{{x.lat}},{{x.lon}}</td>
+              <td>{{x.timestamp}}</td>
               
 
             
@@ -127,6 +128,7 @@
               </td>  
               <td></td>           
             </tr>
+            {% endfor %}
             
           </tbody>
         </table>

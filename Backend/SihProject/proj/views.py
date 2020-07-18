@@ -16,7 +16,7 @@ from django.http import HttpResponse
 import json
 from django.contrib.auth import authenticate, login
 from .tokens import account_activation_token
-from .models import AppUser, ActiveImages
+from .models import AppUser, ActiveImages, UserContributionModel
 from django.db.models import Q
 import time
 from datetime import datetime, timedelta
@@ -201,10 +201,11 @@ def activate(request, uidb64, token):
 @allowed_users(allowed_roles=['Government'])
 def GetLocationList(request):
     if(request.method == "GET"):
-        days = 30
+        days = 1
         # Show All Images that are not completed and atleast 1 month old
         obj = ActiveImages.objects.filter(
             Q(completed=False) & Q(timestamp__lte=datetime.now()-timedelta(days=days)))
+
         print(obj)
 
         return render(request, 'gov.html', {"list": obj})
@@ -214,12 +215,21 @@ def GetLocationList(request):
 def GetAllRegisteredNGOs(request):
     # Will Give Government the list of all registered NGOs
     if(request.method == "GET"):
-        li = User.objects.filter(groups__name='AppUsers')
+        li = User.objects.filter(groups__name='NGOs')
         print(li)
-        return render(request, 'gov.html', {"list": li})
+
+        l1 = []
+        for x in li:
+            l1.append({
+                "name": AppUser.objects.get(user=x).user,
+                "address": AppUser.objects.get(user=x).address,
+                "rating": UserContributionModel.objects.get(user=x).contribution
+            })
+        print(l1)
+        return render(request, 'NGOList.html', {"list": l1})
 
 
-@allowed_users(allowed_roles=['NGO'])
+# @allowed_users(allowed_roles=['NGO'])
 def NGOsHomePage(request):
     # Here NGOs will see all reviewed Images by government
     # This is the only page NGOs will be seeing
@@ -231,9 +241,6 @@ def NGOsHomePage(request):
     # Add one more parameter inProgress will denote that this
     # work is already taken by certain NGO with its name
 
-    return render(request, 'ngo.html', args)
+    return render(request, 'NGOList.html', args)
 
 # Make this only for admin
-
-
-

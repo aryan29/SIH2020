@@ -11,16 +11,18 @@
   <h1>NGOList</h1>
   <ul class="cards">
   <!-- display names, ratings and address of all NGOs-->
+  {% for i in list%}
     <li class="cards_item">
       <div class="card">
         <div class="card_image"><img src=" ">Image if uploaded</div>
         <div class="card_content">
-          <h2 class="card_title">Name of NGO</h2>
-          <p class="card_text">Details of NGO</p>
-          <h3> {{rating}}</h3>
+          <h2 class="card_title">{{i.name}}</h2>
+          <p class="card_text">{{i.address}}</p>
+          <h3> {{i.rating}}</h3>
         </div>
       </div>
     </li>
+    {% endfor %}
   
   </ul>
 </div>
