@@ -22,6 +22,8 @@ class AppUser(models.Model):
 class UserContributionModel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     contribution = models.PositiveSmallIntegerField(default=0)
+    workCompleted = models.PositiveSmallIntegerField(
+        default=0)  # Specific for NGO
 
 
 class NGOUser(models.Model):
@@ -47,5 +49,6 @@ class ActiveImages(models.Model):
     completed = models.BooleanField(default=False)
     # Is reviewed by governement or not will show on govn dashboard (If not)
     reviewed = models.BooleanField(default=False)
+    ngoName = models.CharField(default="", max_length=100)
 
     # otherwise on ngo dashboard

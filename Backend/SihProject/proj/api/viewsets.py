@@ -12,6 +12,7 @@ from proj.MLModel.garbage_final.test_on_cpu import GarbageDetector
 from proj.MLModel.Detector_class_animal.animal_detector import AnimalDetector
 from proj.models import UserContributionModel, ActiveImages, AppUser
 from proj.maps_api import nearbyngo
+from django.db.models import Q
 
 # Token Authentication for Our Mobile App
 # Session Authentication for Our Website
@@ -112,9 +113,14 @@ class CheckImage(APIView):
                 f1.write(chunks)
 
         res = GarbageDetector().detect(upfile.name)
-        # Now Change User Contributions
+        ###################################
+        # Do Checking related to image in seperate thread here
+        ###################################
         if(res == 1):
+            #############################################################
+            # Can be done in a seperate thread
             animals = AnimalDetector().get_number_of_animals(upfile.name)
+            ##############################################################
             imgModel = ActiveImages(
                 name=upfile.name, lat=lat, lon=lon, animals=animals)
             imgModel.save()
@@ -135,5 +141,17 @@ class CheckImage(APIView):
             # Go through Animal Mod
 
         return Response(res)
+# def doChecking(lat ,lon,res):
+#     error=0.0005
+#     obj=ActiveImages().objects.filter(Q(lat__gte=lat-error) & Q(lat__lte=lat+error) & Q(lon__gte=lon-error) & Q(lon__lte=lon+error))
+#     if(res==0):
+#         #No Garbage in Image
+#         for x in obj:
+#             if(x.completed==False and x.reviewed==True):
+#                 z=UserContributionModel.objects.get(user=x.ngoName)
+#                 z.workCompleted+=1
+#                 z.save()
+#                 x.completed=True
+
 
 # Some More API Views Here

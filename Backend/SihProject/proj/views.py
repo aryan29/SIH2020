@@ -230,17 +230,22 @@ def GetAllRegisteredNGOs(request):
 
 
 # @allowed_users(allowed_roles=['NGO'])
+@csrf_exempt
 def NGOsHomePage(request):
+    if(request.GET.get('mybtn')):
+        i = request.GET.get('id')
+        z = ActiveImages.objects.get(pk=i)
+        z.reviewed = True
+        z.save()
     # Here NGOs will see all reviewed Images by government
     # This is the only page NGOs will be seeing
-    review_not_comp = ActiveImages.objects.filter(completed=False)
-    args = {
-
-    }
+    review_not_comp = ActiveImages.objects.filter(
+        Q(completed=False) & Q(reviewed=False))
     # Todo by Me
     # Add one more parameter inProgress will denote that this
     # work is already taken by certain NGO with its name
 
-    return render(request, 'NGOList.html', args)
+    return render(request, 'ngo.html', {"list": review_not_comp})
 
 # Make this only for admin
+# def getButtonClick(request,pk):

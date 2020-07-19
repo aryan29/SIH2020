@@ -60,7 +60,7 @@
             <tr>
               <th>SNo.</th>
               <th>Location</th>
-              <th>City</th>
+              <th>Time</th>
               
               
               <th></th>
@@ -68,17 +68,26 @@
             </tr>
           </thead>
           <tbody class="tbdy">
+            {% for x in list %}
             <tr>
 
 
-              <td>1</td>
-              <td>abc</td>
-              <td>def</td>
+              <td>{{forloop.counter}}</td>
+              <td>{{x.lat}},{{x.lon}}</td>
+              <td>{{x.timestamp}}</td>
+              <td>
+                <form action="" method="get">
+                  <input type="hidden" name="id" value="{{x.pk}}">
+                  <input type="submit" class="btn" value="Review It" name="mybtn">
+                </form>
+              </td>
+
               
 
             
               <td></td>           
             </tr>
+            {% endfor %}
             
           </tbody>
         </table>
