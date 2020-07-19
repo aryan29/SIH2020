@@ -234,8 +234,10 @@ def GetAllRegisteredNGOs(request):
 def NGOsHomePage(request):
     if(request.GET.get('mybtn')):
         i = request.GET.get('id')
+        user = request.user
         z = ActiveImages.objects.get(pk=i)
         z.reviewed = True
+        z.ngoName = user.username
         z.save()
     # Here NGOs will see all reviewed Images by government
     # This is the only page NGOs will be seeing
