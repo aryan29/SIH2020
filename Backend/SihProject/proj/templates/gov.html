@@ -100,7 +100,7 @@
               <th>SNo.</th>
               <th>Location</th>
               <th>Time</th>
-              <th>Status</th>
+              <th>Undertaken By</th>
               
               <th></th>
 
@@ -113,19 +113,8 @@
 
               <td>{{forloop.counter}}</td>
               <td>{{x.lat}},{{x.lon}}</td>
-              <td>{{x.timestamp}}</td>
-              
-
-            
-              <td> 
-              <div>
-              
-              <input class="toggle-button" type="checkbox" name="toggle" />
-              <br>
-              <label> Cleaned</label>
-
-              </div>
-              </td>  
+              <td>{{x.timestamp}}</td> 
+              <td>{{x.ngoName}}</td>
               <td></td>           
             </tr>
             {% endfor %}

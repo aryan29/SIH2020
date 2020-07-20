@@ -133,3 +133,4 @@ EMAIL_USE_TLS = True
 # Put your password here and ensure no double verification on gmail account & less secured apps allowed
 EMAIL_HOST_PASSWORD = "passwordispassword"
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Le5grEZAAAAAGs9w31woX2dqKOcSYGsGvxF41Gu'
+LOGIN_REDIRECT_URL = '/profiles/home'

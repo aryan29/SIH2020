@@ -20,39 +20,6 @@ from .models import AppUser, ActiveImages, UserContributionModel
 from django.db.models import Q
 import time
 from datetime import datetime, timedelta
-# Create your views here.
-
-# All Views which user can see
-
-
-# def UserLogin(request):
-#     if(request.method == 'POST'):
-#         form1 = MyForm1(request.POST)
-#         user = authenticate(
-#             username=request.POST['username'], password=request.POST['password'])
-#         if(user is not None):
-#             if(user.is_active):
-#                 login(request, user)
-#                 redirect('/register')
-#             else:
-#                 print("Your Account is Not active")
-#                 args = {
-#                     "form": form1,
-#                     "errors": form1.errors
-#                 }
-#                 return render(request, 'registration/login.html', args)
-#         else:
-#             print("Not Valid acount exist")
-#             args = {
-#                 "form": form1,
-#                 "errors": form1.errors
-#             }
-#             return render(request, 'registration/login.html', args)
-#     else:
-#         args = {
-#             "form": MyForm1(),
-#         }
-#         return render(request, 'registration/login.html', args)
 
 
 @csrf_exempt
@@ -215,15 +182,18 @@ def GetLocationList(request):
 def GetAllRegisteredNGOs(request):
     # Will Give Government the list of all registered NGOs
     if(request.method == "GET"):
-        li = User.objects.filter(groups__name='NGOs')
+        li = User.objects.filter(groups__name='NGO')
         print(li)
 
         l1 = []
         for x in li:
+            z = AppUser.objects.get(user=x)
+            y = UserContributionModel.objects.get(user=x)
             l1.append({
-                "name": AppUser.objects.get(user=x).user,
-                "address": AppUser.objects.get(user=x).address,
-                "rating": UserContributionModel.objects.get(user=x).contribution
+                "name": z.user,
+                "address": z.address,
+                "rating": y.contribution,
+                "workCompleted": y.workCompleted
             })
         print(l1)
         return render(request, 'NGOList.html', {"list": l1})
@@ -240,7 +210,7 @@ def NGOsHomePage(request):
         z.ngoName = user.username
         z.save()
     # Here NGOs will see all reviewed Images by government
-    # This is the only page NGOs will be seeing
+    # NGOs will also have one profile page
     review_not_comp = ActiveImages.objects.filter(
         Q(completed=False) & Q(reviewed=False))
     # Todo by Me
@@ -251,3 +221,15 @@ def NGOsHomePage(request):
 
 # Make this only for admin
 # def getButtonClick(request,pk):
+
+
+def CustomRedirect(request):
+    if (request.user.groups.exists()):
+        group = request.user.groups.all()[0].name
+        print(group)
+        if(group == "NGO"):
+            return redirect('/ngolist')
+        elif(group == "AppUsers"):
+            return HttpResponse("Please Visit App this page is not designed for you")
+        else:
+            return redirect('/gov-ngoreviewed')

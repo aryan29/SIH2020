@@ -13,6 +13,7 @@ from proj.MLModel.Detector_class_animal.animal_detector import AnimalDetector
 from proj.models import UserContributionModel, ActiveImages, AppUser
 from proj.maps_api import nearbyngo
 from django.db.models import Q
+import threading
 
 # Token Authentication for Our Mobile App
 # Session Authentication for Our Website
@@ -107,7 +108,7 @@ class CheckImage(APIView):
         upfile = request.FILES['file']
         lat = request.data['lat']
         lon = request.data['lon']
-        print(upfile.name)
+        # print(upfile.name)
         with open(upfile.name, 'wb+') as f1:
             for chunks in upfile.chunks():
                 f1.write(chunks)
@@ -141,17 +142,27 @@ class CheckImage(APIView):
             # Go through Animal Mod
 
         return Response(res)
-# def doChecking(lat ,lon,res):
+# def doChecking(lat ,lon,status):
 #     error=0.0005
-#     obj=ActiveImages().objects.filter(Q(lat__gte=lat-error) & Q(lat__lte=lat+error) & Q(lon__gte=lon-error) & Q(lon__lte=lon+error))
-#     if(res==0):
-#         #No Garbage in Image
-#         for x in obj:
-#             if(x.completed==False and x.reviewed==True):
-#                 z=UserContributionModel.objects.get(user=x.ngoName)
-#                 z.workCompleted+=1
-#                 z.save()
-#                 x.completed=True
+#     obj=ActiveImages().objects.filter(Q(lat=lat) & Q(lon=lon) & Q(completed=False))
+#     if(status==0):
+#         #Now no garabage
+#         if(obj.reviewed==True):
+#             #Increase Work Done by NGO
 
 
-# Some More API Views Here
+
+
+# class MyThread(threading.Thread):
+#     def __init__(self,*args, **kwargs):
+#         super(PreserializeThread, self).__init__(*args, **kwargs)
+
+#     def run(self):
+#         pass
+
+
+
+
+
+    
+
