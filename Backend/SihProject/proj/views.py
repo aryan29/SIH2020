@@ -229,26 +229,54 @@ def CustomRedirect(request):
 
 @allowed_users(allowed_roles=['NGO'])
 def NGOProfilePage(request):
-    # print(request.user)
-    # # Work Taken By This NGO
-    args1 = ActiveImages.objects.filter(ngoName=request.user)
+    if(request.GET.get('mybtn')):
+        i = request.GET.get('id')
+        print(i)
+        obj = ActiveImages.objects.get(pk=i)
+        print(type(obj.completed))
+        var = True
+        obj.completed = var
+        obj.timestamp = datetime.now()
+        obj.save()
+        obj2 = UserContributionModel.objects.get(user=request.user)
+        obj2.workCompleted += 1
+        obj2.save()
+        # Mark this image as Completed
+        # And Increase WorkDone by this NGO
+        # ActiveImages.objects.get()
+
+    args1 = ActiveImages.objects.filter(
+        Q(ngoName=request.user))
     args2 = AppUser.objects.get(user=request.user)
     args3 = UserContributionModel.objects.get(user=request.user)
     args = {
         "name": args2.user,
         "address": args2.address,
         "mob": args2.mob,
+        "email": request.user.email,
         "rating": args3.contribution,
         "workCompleted": args3.workCompleted,
     }
     li = []
+    li2 = []
     for x in args1:
-        li.append({
-            "lat": x.lat,
-            "lon": x.lon,
-            "timestamp": x.timestamp,
-        })
-    args["images"] = li
+        if(x.completed == False):
+            li.append({
+                "lat": x.lat,
+                "lon": x.lon,
+                "timestamp": x.timestamp,
+                "id": x.pk,
+            })
+        else:
+            li2.append({
+                "lat": x.lat,
+                "lon": x.lon,
+                "timestamp": x.timestamp,
+                "id": x.pk
+            })
+
+    args["imagesActive"] = li
+    args["imagesCompleted"] = li2
     print(args)
 
     return render(request, 'NGOProfile.html', {"list": args})

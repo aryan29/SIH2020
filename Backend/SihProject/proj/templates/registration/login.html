@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     
     <title>Register</title>
@@ -31,6 +32,7 @@
 						<label for="pass" class="label">Password</label>
 						{{form.password}}
 					</div>
+					<div class="g-recaptcha" data-sitekey="6Le5grEZAAAAAIKU5GbiWQCFUuqATh2UjyVadEIe"></div>
 					<div class="group">
 						<input id="check" type="checkbox" class="check" checked>
 						<label for="check"><span class="icon"></span> Keep me Signed in</label>
@@ -95,7 +97,8 @@
                      <option value="AppUsers">AppUser</option>
                      </select>
                     <span class="fa fa-sort-desc"></span>
-             </div>
+			 </div>
+
 					   <br>
 					<div class="group">
 						<input type="submit" class="button" value="Sign Up" name="signup">
