@@ -63,8 +63,6 @@
           <tbody class="tbdy">
             {% for i in list%}
             <tr>
-
-
               <td>{{forloop.counter}}</td>
               <td>{{i.name}}</td>
               <td>{{i.address}}</td>
@@ -72,18 +70,13 @@
               <!-- redirects to update.html -->
               <td><a class="btn btn-outline-secondary btn-sm" onclick="addTextBox()">
                   <i>Update Rating</i>
-
               </a>
                </td>
                <!-- redirects to delete.html -->
                <td><a class="btn btn-outline-secondary btn-sm" onclick="addTextBox()">
                   <i>Delete</i>
-
               </a>
                </td>
-              
-              
-             
             </tr>
             {% endfor %}
           </tbody>

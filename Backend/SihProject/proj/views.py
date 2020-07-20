@@ -178,8 +178,9 @@ def GetLocationList(request):
         return render(request, 'gov.html', {"list": obj})
 
 
-@allowed_users(allowed_roles=['Government'])
+# @allowed_users(allowed_roles=['Government'])
 def GetAllRegisteredNGOs(request):
+    print("Here we Are")
     # Will Give Government the list of all registered NGOs
     if(request.method == "GET"):
         li = User.objects.filter(groups__name='NGO')
@@ -199,7 +200,7 @@ def GetAllRegisteredNGOs(request):
         return render(request, 'NGOList.html', {"list": l1})
 
 
-# @allowed_users(allowed_roles=['NGO'])
+@allowed_users(allowed_roles=['NGO'])
 @csrf_exempt
 def NGOsHomePage(request):
     if(request.GET.get('mybtn')):
@@ -209,18 +210,9 @@ def NGOsHomePage(request):
         z.reviewed = True
         z.ngoName = user.username
         z.save()
-    # Here NGOs will see all reviewed Images by government
-    # NGOs will also have one profile page
     review_not_comp = ActiveImages.objects.filter(
         Q(completed=False) & Q(reviewed=False))
-    # Todo by Me
-    # Add one more parameter inProgress will denote that this
-    # work is already taken by certain NGO with its name
-
     return render(request, 'ngo.html', {"list": review_not_comp})
-
-# Make this only for admin
-# def getButtonClick(request,pk):
 
 
 def CustomRedirect(request):
@@ -233,3 +225,30 @@ def CustomRedirect(request):
             return HttpResponse("Please Visit App this page is not designed for you")
         else:
             return redirect('/gov-ngoreviewed')
+
+
+@allowed_users(allowed_roles=['NGO'])
+def NGOProfilePage(request):
+    # print(request.user)
+    # # Work Taken By This NGO
+    args1 = ActiveImages.objects.filter(ngoName=request.user)
+    args2 = AppUser.objects.get(user=request.user)
+    args3 = UserContributionModel.objects.get(user=request.user)
+    args = {
+        "name": args2.user,
+        "address": args2.address,
+        "mob": args2.mob,
+        "rating": args3.contribution,
+        "workCompleted": args3.workCompleted,
+    }
+    li = []
+    for x in args1:
+        li.append({
+            "lat": x.lat,
+            "lon": x.lon,
+            "timestamp": x.timestamp,
+        })
+    args["images"] = li
+    print(args)
+
+    return render(request, 'NGOProfile.html', {"list": args})
