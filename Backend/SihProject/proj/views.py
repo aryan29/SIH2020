@@ -173,14 +173,14 @@ def GetLocationList(request):
         obj = ActiveImages.objects.filter(
             Q(completed=False) & Q(timestamp__lte=datetime.now()-timedelta(days=days)))
 
-        print(obj)
+        # print(obj)
 
         return render(request, 'gov.html', {"list": obj})
 
 
 # @allowed_users(allowed_roles=['Government'])
 def GetAllRegisteredNGOs(request):
-    print("Here we Are")
+    # print("Here we Are")
     # Will Give Government the list of all registered NGOs
     if(request.method == "GET"):
         li = User.objects.filter(groups__name='NGO')
@@ -231,9 +231,9 @@ def CustomRedirect(request):
 def NGOProfilePage(request):
     if(request.GET.get('mybtn')):
         i = request.GET.get('id')
-        print(i)
+        # print(i)
         obj = ActiveImages.objects.get(pk=i)
-        print(type(obj.completed))
+        # print(type(obj.completed))
         var = True
         obj.completed = var
         obj.timestamp = datetime.now()
@@ -262,6 +262,7 @@ def NGOProfilePage(request):
     for x in args1:
         if(x.completed == False):
             li.append({
+                "name": x.name,
                 "lat": x.lat,
                 "lon": x.lon,
                 "timestamp": x.timestamp,
@@ -269,6 +270,7 @@ def NGOProfilePage(request):
             })
         else:
             li2.append({
+                "name": x.name,
                 "lat": x.lat,
                 "lon": x.lon,
                 "timestamp": x.timestamp,
@@ -277,6 +279,6 @@ def NGOProfilePage(request):
 
     args["imagesActive"] = li
     args["imagesCompleted"] = li2
-    print(args)
+    # print(args)
 
     return render(request, 'NGOProfile.html', {"list": args})

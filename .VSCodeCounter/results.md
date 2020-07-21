@@ -1,50 +1,44 @@
 # Summary
 
-Date : 2020-06-08 00:56:24
+Date : 2020-07-20 20:37:04
 
 Directory /home/aryan/Documents/newsih2020/sih2020
 
-Total : 149 files,  8011 codes, 460 comments, 718 blanks, all 9189 lines
+Total : 185 files,  18376 codes, 628 comments, 1217 blanks, all 20221 lines
 
 [details](details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Dart | 34 | 3,838 | 96 | 242 | 4,176 |
-| HTML | 9 | 1,238 | 1 | 64 | 1,303 |
-| Jupyter | 4 | 796 | 0 | 4 | 800 |
-| Python | 29 | 544 | 119 | 167 | 830 |
+| Jupyter | 10 | 8,708 | 0 | 4 | 8,712 |
+| Dart | 35 | 4,159 | 105 | 256 | 4,520 |
+| HTML | 16 | 2,008 | 18 | 254 | 2,280 |
+| Python | 45 | 1,237 | 217 | 331 | 1,785 |
+| CSS | 9 | 904 | 9 | 147 | 1,060 |
 | JSON | 6 | 435 | 0 | 6 | 441 |
 | XML | 21 | 318 | 88 | 24 | 430 |
-| CSS | 3 | 292 | 1 | 30 | 323 |
 | Groovy | 11 | 275 | 9 | 65 | 349 |
-| YAML | 3 | 96 | 140 | 48 | 284 |
-| Markdown | 11 | 71 | 0 | 43 | 114 |
+| YAML | 3 | 98 | 140 | 48 | 286 |
+| Markdown | 13 | 81 | 0 | 49 | 130 |
+| JavaScript | 3 | 69 | 37 | 18 | 124 |
 | Swift | 3 | 36 | 0 | 6 | 42 |
 | Properties | 6 | 27 | 3 | 6 | 36 |
-| Kotlin | 3 | 24 | 0 | 9 | 33 |
 | PHP | 1 | 18 | 2 | 2 | 22 |
 | C++ | 3 | 3 | 0 | 1 | 4 |
-| Django txt | 1 | 0 | 0 | 1 | 1 |
-| JavaScript | 1 | 0 | 1 | 0 | 1 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 149 | 8,011 | 460 | 718 | 9,189 |
-| App Dev | 57 | 3,649 | 232 | 291 | 4,172 |
-| App Dev/Aryan | 31 | 2,242 | 130 | 165 | 2,537 |
-| App Dev/Aryan/my_app | 31 | 2,242 | 130 | 165 | 2,537 |
-| App Dev/Aryan/my_app/android | 12 | 155 | 26 | 33 | 214 |
-| App Dev/Aryan/my_app/android/app | 7 | 105 | 25 | 21 | 151 |
-| App Dev/Aryan/my_app/android/app/src | 6 | 52 | 22 | 9 | 83 |
+| . | 185 | 18,376 | 628 | 1,217 | 20,221 |
+| App Dev | 55 | 3,629 | 232 | 285 | 4,146 |
+| App Dev/Aryan | 30 | 2,232 | 130 | 162 | 2,524 |
+| App Dev/Aryan/my_app | 30 | 2,232 | 130 | 162 | 2,524 |
+| App Dev/Aryan/my_app/android | 11 | 145 | 26 | 30 | 201 |
+| App Dev/Aryan/my_app/android/app | 6 | 95 | 25 | 18 | 138 |
+| App Dev/Aryan/my_app/android/app/src | 5 | 42 | 22 | 6 | 70 |
 | App Dev/Aryan/my_app/android/app/src/debug | 1 | 4 | 3 | 1 | 8 |
-| App Dev/Aryan/my_app/android/app/src/main | 4 | 44 | 16 | 7 | 67 |
-| App Dev/Aryan/my_app/android/app/src/main/kotlin | 1 | 10 | 0 | 3 | 13 |
-| App Dev/Aryan/my_app/android/app/src/main/kotlin/com | 1 | 10 | 0 | 3 | 13 |
-| App Dev/Aryan/my_app/android/app/src/main/kotlin/com/example | 1 | 10 | 0 | 3 | 13 |
-| App Dev/Aryan/my_app/android/app/src/main/kotlin/com/example/my_app | 1 | 10 | 0 | 3 | 13 |
+| App Dev/Aryan/my_app/android/app/src/main | 3 | 34 | 16 | 4 | 54 |
 | App Dev/Aryan/my_app/android/app/src/main/res | 2 | 10 | 9 | 3 | 22 |
 | App Dev/Aryan/my_app/android/app/src/main/res/drawable | 1 | 4 | 7 | 2 | 13 |
 | App Dev/Aryan/my_app/android/app/src/main/res/values | 1 | 6 | 2 | 1 | 9 |
@@ -60,16 +54,12 @@ Total : 149 files,  8011 codes, 460 comments, 718 blanks, all 9189 lines
 | App Dev/Aryan/my_app/lib | 8 | 1,795 | 40 | 92 | 1,927 |
 | App Dev/Aryan/my_app/lib/src | 6 | 828 | 23 | 56 | 907 |
 | App Dev/Aryan/my_app/test | 2 | 21 | 17 | 9 | 47 |
-| App Dev/Rohan Nishant | 26 | 1,407 | 102 | 126 | 1,635 |
-| App Dev/Rohan Nishant/android | 12 | 153 | 26 | 33 | 212 |
-| App Dev/Rohan Nishant/android/app | 7 | 104 | 25 | 21 | 150 |
-| App Dev/Rohan Nishant/android/app/src | 6 | 51 | 22 | 9 | 82 |
+| App Dev/Rohan Nishant | 25 | 1,397 | 102 | 123 | 1,622 |
+| App Dev/Rohan Nishant/android | 11 | 143 | 26 | 30 | 199 |
+| App Dev/Rohan Nishant/android/app | 6 | 94 | 25 | 18 | 137 |
+| App Dev/Rohan Nishant/android/app/src | 5 | 41 | 22 | 6 | 69 |
 | App Dev/Rohan Nishant/android/app/src/debug | 1 | 4 | 3 | 1 | 8 |
-| App Dev/Rohan Nishant/android/app/src/main | 4 | 43 | 16 | 7 | 66 |
-| App Dev/Rohan Nishant/android/app/src/main/kotlin | 1 | 10 | 0 | 3 | 13 |
-| App Dev/Rohan Nishant/android/app/src/main/kotlin/com | 1 | 10 | 0 | 3 | 13 |
-| App Dev/Rohan Nishant/android/app/src/main/kotlin/com/example | 1 | 10 | 0 | 3 | 13 |
-| App Dev/Rohan Nishant/android/app/src/main/kotlin/com/example/project_one | 1 | 10 | 0 | 3 | 13 |
+| App Dev/Rohan Nishant/android/app/src/main | 3 | 33 | 16 | 4 | 53 |
 | App Dev/Rohan Nishant/android/app/src/main/res | 2 | 10 | 9 | 3 | 22 |
 | App Dev/Rohan Nishant/android/app/src/main/res/drawable | 1 | 4 | 7 | 2 | 13 |
 | App Dev/Rohan Nishant/android/app/src/main/res/values | 1 | 6 | 2 | 1 | 9 |
@@ -84,17 +74,13 @@ Total : 149 files,  8011 codes, 460 comments, 718 blanks, all 9189 lines
 | App Dev/Rohan Nishant/ios/Runner/Base.lproj | 2 | 61 | 2 | 2 | 65 |
 | App Dev/Rohan Nishant/lib | 4 | 972 | 14 | 52 | 1,038 |
 | App Dev/Rohan Nishant/test | 1 | 14 | 10 | 6 | 30 |
-| AppDevNew | 40 | 1,464 | 106 | 149 | 1,719 |
-| AppDevNew/myapp | 40 | 1,464 | 106 | 149 | 1,719 |
-| AppDevNew/myapp/android | 11 | 153 | 42 | 32 | 227 |
-| AppDevNew/myapp/android/app | 7 | 105 | 41 | 21 | 167 |
-| AppDevNew/myapp/android/app/src | 6 | 56 | 38 | 9 | 103 |
+| AppDevNew | 40 | 1,783 | 115 | 160 | 2,058 |
+| AppDevNew/myapp | 40 | 1,783 | 115 | 160 | 2,058 |
+| AppDevNew/myapp/android | 10 | 149 | 42 | 29 | 220 |
+| AppDevNew/myapp/android/app | 6 | 101 | 41 | 18 | 160 |
+| AppDevNew/myapp/android/app/src | 5 | 52 | 38 | 6 | 96 |
 | AppDevNew/myapp/android/app/src/debug | 1 | 4 | 3 | 1 | 8 |
-| AppDevNew/myapp/android/app/src/main | 4 | 48 | 32 | 7 | 87 |
-| AppDevNew/myapp/android/app/src/main/kotlin | 1 | 4 | 0 | 3 | 7 |
-| AppDevNew/myapp/android/app/src/main/kotlin/com | 1 | 4 | 0 | 3 | 7 |
-| AppDevNew/myapp/android/app/src/main/kotlin/com/example | 1 | 4 | 0 | 3 | 7 |
-| AppDevNew/myapp/android/app/src/main/kotlin/com/example/myapp | 1 | 4 | 0 | 3 | 7 |
+| AppDevNew/myapp/android/app/src/main | 3 | 44 | 32 | 4 | 80 |
 | AppDevNew/myapp/android/app/src/main/res | 2 | 13 | 16 | 3 | 32 |
 | AppDevNew/myapp/android/app/src/main/res/drawable | 1 | 4 | 7 | 2 | 13 |
 | AppDevNew/myapp/android/app/src/main/res/values | 1 | 9 | 9 | 1 | 19 |
@@ -107,36 +93,43 @@ Total : 149 files,  8011 codes, 460 comments, 718 blanks, all 9189 lines
 | AppDevNew/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset | 1 | 122 | 0 | 1 | 123 |
 | AppDevNew/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset | 2 | 26 | 0 | 3 | 29 |
 | AppDevNew/myapp/ios/Runner/Base.lproj | 2 | 61 | 2 | 2 | 65 |
-| AppDevNew/myapp/lib | 19 | 1,040 | 7 | 78 | 1,125 |
+| AppDevNew/myapp/lib | 20 | 1,361 | 16 | 92 | 1,469 |
 | AppDevNew/myapp/lib/Animations | 1 | 29 | 0 | 5 | 34 |
-| AppDevNew/myapp/lib/Auth | 1 | 43 | 0 | 4 | 47 |
-| AppDevNew/myapp/lib/GettingData | 2 | 52 | 1 | 4 | 57 |
-| AppDevNew/myapp/lib/Screens | 9 | 790 | 3 | 43 | 836 |
-| AppDevNew/myapp/lib/blocs | 1 | 8 | 0 | 3 | 11 |
+| AppDevNew/myapp/lib/Auth | 1 | 56 | 0 | 4 | 60 |
+| AppDevNew/myapp/lib/GettingData | 2 | 84 | 3 | 7 | 94 |
+| AppDevNew/myapp/lib/Screens | 10 | 1,031 | 10 | 54 | 1,095 |
+| AppDevNew/myapp/lib/blocs | 1 | 8 | 0 | 4 | 12 |
 | AppDevNew/myapp/lib/model | 1 | 15 | 0 | 2 | 17 |
-| AppDevNew/myapp/lib/widgets | 3 | 88 | 3 | 13 | 104 |
+| AppDevNew/myapp/lib/widgets | 3 | 123 | 3 | 12 | 138 |
 | AppDevNew/myapp/test | 1 | 14 | 10 | 7 | 31 |
-| Backend | 34 | 899 | 100 | 148 | 1,147 |
-| Backend/SihProject | 34 | 899 | 100 | 148 | 1,147 |
-| Backend/SihProject/SihProject | 6 | 106 | 56 | 39 | 201 |
-| Backend/SihProject/proj | 25 | 754 | 30 | 100 | 884 |
-| Backend/SihProject/proj/MLModel | 6 | 475 | 12 | 25 | 512 |
+| Backend | 58 | 6,745 | 196 | 588 | 7,529 |
+| Backend/SihProject | 58 | 6,745 | 196 | 588 | 7,529 |
+| Backend/SihProject/SihProject | 6 | 131 | 60 | 40 | 231 |
+| Backend/SihProject/proj | 49 | 6,575 | 122 | 539 | 7,236 |
+| Backend/SihProject/proj/MLModel | 12 | 4,562 | 30 | 55 | 4,647 |
 | Backend/SihProject/proj/MLModel/Detector_class | 2 | 41 | 0 | 9 | 50 |
-| Backend/SihProject/proj/MLModel/animal_detection | 2 | 148 | 12 | 12 | 172 |
+| Backend/SihProject/proj/MLModel/Detector_class_animal | 2 | 39 | 4 | 13 | 56 |
+| Backend/SihProject/proj/MLModel/animal_detection | 2 | 150 | 12 | 14 | 176 |
 | Backend/SihProject/proj/MLModel/garbage_detection | 1 | 282 | 0 | 1 | 283 |
-| Backend/SihProject/proj/api | 2 | 72 | 10 | 27 | 109 |
-| Backend/SihProject/proj/maps_api | 1 | 10 | 0 | 3 | 13 |
-| Backend/SihProject/proj/migrations | 2 | 40 | 1 | 8 | 49 |
-| Backend/SihProject/proj/static | 2 | 4 | 2 | 1 | 7 |
-| Backend/SihProject/proj/static/css | 1 | 4 | 1 | 1 | 6 |
+| Backend/SihProject/proj/MLModel/garbage_final | 4 | 4,046 | 14 | 15 | 4,075 |
+| Backend/SihProject/proj/api | 2 | 114 | 30 | 47 | 191 |
+| Backend/SihProject/proj/maps_api | 1 | 17 | 3 | 5 | 25 |
+| Backend/SihProject/proj/migrations | 10 | 168 | 9 | 56 | 233 |
+| Backend/SihProject/proj/static | 6 | 598 | 4 | 116 | 718 |
+| Backend/SihProject/proj/static/css | 5 | 598 | 3 | 116 | 717 |
 | Backend/SihProject/proj/static/js | 1 | 0 | 1 | 0 | 1 |
-| Backend/SihProject/proj/templates | 4 | 32 | 0 | 0 | 32 |
-| Backend/SihProject/proj/templates/registration | 2 | 30 | 0 | 0 | 30 |
-| ML Project | 6 | 474 | 12 | 25 | 511 |
+| Backend/SihProject/proj/templates | 8 | 751 | 17 | 189 | 957 |
+| Backend/SihProject/proj/templates/registration | 3 | 229 | 0 | 30 | 259 |
+| ML Project | 13 | 4,551 | 33 | 54 | 4,638 |
 | ML Project/Detector_class | 2 | 40 | 0 | 9 | 49 |
+| ML Project/Detector_class_animal | 2 | 39 | 5 | 13 | 57 |
 | ML Project/animal_detection | 2 | 148 | 12 | 12 | 172 |
 | ML Project/garbage_detection | 1 | 282 | 0 | 1 | 283 |
-| Rough | 5 | 998 | 9 | 32 | 1,039 |
+| ML Project/garbage_final | 4 | 4,033 | 16 | 15 | 4,064 |
+| Plotting_on_map | 7 | 124 | 42 | 25 | 191 |
+| Plotting_on_map/heat_map | 3 | 53 | 14 | 8 | 75 |
+| Plotting_on_map/map_pins | 3 | 66 | 28 | 12 | 106 |
+| Rough | 5 | 1,017 | 9 | 32 | 1,058 |
 | Web Dev | 6 | 523 | 1 | 70 | 594 |
 
 [details](details.md)
