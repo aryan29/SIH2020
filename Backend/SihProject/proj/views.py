@@ -285,8 +285,29 @@ def NGOProfilePage(request):
 
 
 def UsersLeaderboard(request):
-    return render(request, 'LeaderBoard.html')
+    li = UserContributionModel.objects.order_by('contribution')
+    l1 = []
+    print(li)
+
+    # print(li[0].user.groups.all())
+
+    for x in li:
+        if(x.user.groups.all()[0].name == "AppUsers"):
+            l1.append(x)
+    l1 = l1[:100]
+    print(l1)
+    return render(request, 'LeaderBoard.html', {"list": l1})
 
 
 def NGOLeaderboard(request):
-    return render(request, 'LeaderBoard.html')
+    li = UserContributionModel.objects.order_by('contribution')
+    l1 = []
+    print(li)
+
+
+    for x in li:
+        if(x.user.groups.all()[0].name == "NGO"):
+            l1.append(x)
+    l1 = l1[:100]
+    print(l1)
+    return render(request, 'LeaderBoard.html', {"list": l1})
