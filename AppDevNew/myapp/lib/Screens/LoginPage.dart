@@ -17,11 +17,18 @@ class _LoginPageState extends State<LoginPage> {
   bool loggingIn = false;
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(3, 9, 23, 1),
+      // backgroundColor: Color.fromRGBO(3, 9, 23, 1),
       body: Builder(builder: (context) {
         return Center(
           child: SingleChildScrollView(
             child: Container(
+              height: MediaQuery.of(context).size.height,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      colorFilter: ColorFilter.mode(
+                          Colors.white.withOpacity(0.7), BlendMode.dstATop),
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/1.jpg'))),
               padding: EdgeInsets.all(30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                       Text(
                         "Login",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 40,
                             fontWeight: FontWeight.bold),
                       )),
@@ -85,14 +92,14 @@ class _LoginPageState extends State<LoginPage> {
                             padding: EdgeInsets.all(15),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                color: Colors.blue[800]),
+                                color: Colors.green[800]),
                             child: (loggingIn)
                                 ? Center(child: CircularProgressIndicator())
                                 : Center(
                                     child: Text(
                                     "Login",
                                     style: TextStyle(
-                                        color: Colors.white.withOpacity(.7)),
+                                        color: Colors.black.withOpacity(.7)),
                                   )),
                           ),
                         ),
@@ -120,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                                     style: TextStyle(
                                         fontSize: 13,
                                         decoration: TextDecoration.underline,
-                                        color: Colors.white)),
+                                        color: Colors.black)),
                               )),
                         ),
                       ))

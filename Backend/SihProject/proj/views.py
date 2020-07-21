@@ -30,10 +30,6 @@ def UserRegister(request):
         form1 = ExtendedUserForm(request.POST)
         form2 = AppUserForm(request.POST)
         choice = request.POST['choice']
-        # print(form1.is_valid())
-        # print(form2.is_valid())
-        # print(form1.is_valid())
-
         if (form1.is_valid() and form2.is_valid() and form1.clean()):
             user = form1.save(commit=False)
             print("Form validated")
@@ -288,9 +284,6 @@ def UsersLeaderboard(request):
     li = UserContributionModel.objects.order_by('contribution')
     l1 = []
     print(li)
-
-    # print(li[0].user.groups.all())
-
     for x in li:
         if(x.user.groups.all()[0].name == "AppUsers"):
             l1.append(x)

@@ -85,6 +85,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Scaffold(
       backgroundColor: Color.fromRGBO(3, 9, 23, 1),
       body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                fit: BoxFit.cover, image: AssetImage('assets/i11.jpeg'))),
         width: double.infinity,
         child: Stack(
           children: <Widget>[
@@ -96,10 +99,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Container(
                     width: width,
                     height: 400,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/1.png'),
-                            fit: BoxFit.cover)),
+                    // decoration: BoxDecoration(
+                    //     image: DecorationImage(
+                    //         image: AssetImage('assets/1.jpg'),
+                    //         fit: BoxFit.cover)),
                   )),
             ),
             Positioned(
@@ -110,10 +113,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Container(
                     width: width,
                     height: 400,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/1.png'),
-                            fit: BoxFit.cover)),
+                    // decoration: BoxDecoration(
+                    //     image: DecorationImage(
+                    //         image: AssetImage('assets/1.jpg'),
+                    //         fit: BoxFit.cover)),
                   )),
             ),
             Positioned(
@@ -124,10 +127,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Container(
                     width: width,
                     height: 400,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/1.png'),
-                            fit: BoxFit.cover)),
+                    // decoration: BoxDecoration(
+                    //     image: DecorationImage(
+                    //         image: AssetImage('assets/2.png'),
+                    //         fit: BoxFit.cover)),
                   )),
             ),
             Container(
@@ -140,7 +143,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       1,
                       Text(
                         "Project ...",
-                        style: TextStyle(color: Colors.white, fontSize: 50),
+                        style: TextStyle(color: Colors.black, fontSize: 50),
                       )),
                   SizedBox(
                     height: 15,
@@ -150,7 +153,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       Text(
                         "We promis that you'll have the most \nfuss-free time with us ever.",
                         style: TextStyle(
-                            color: Colors.white.withOpacity(.7),
+                            color: Colors.black.withOpacity(.7),
                             height: 1.4,
                             fontSize: 20),
                       )),
@@ -172,7 +175,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   padding: EdgeInsets.all(10),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(50),
-                                      color: Colors.blue.withOpacity(.4)),
+                                      color: Colors.green.withOpacity(.4)),
                                   child: InkWell(
                                     onTap: () {
                                       _scaleController.forward();
@@ -194,7 +197,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                       decoration: BoxDecoration(
                                                           shape:
                                                               BoxShape.circle,
-                                                          color: Colors.blue),
+                                                          color: Colors.green),
                                                       child: hideIcon == false
                                                           ? Icon(
                                                               Icons
