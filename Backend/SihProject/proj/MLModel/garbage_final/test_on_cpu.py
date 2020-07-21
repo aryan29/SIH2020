@@ -112,7 +112,7 @@ class GarbageDetector():
             return 0
 
 
-obj = GarbageDetector()
-ans = obj.detect(
-    '/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/image_picker2817497108083145646.jpg')
-print(ans)
+# obj = GarbageDetector()
+# ans = obj.detect(
+#     '/home/aryan/Documents/newsih2020/sih2020/Backend/SihProject/image_picker2817497108083145646.jpg')
+# print(ans)

@@ -282,3 +282,11 @@ def NGOProfilePage(request):
     # print(args)
 
     return render(request, 'NGOProfile.html', {"list": args})
+
+
+def UsersLeaderboard(request):
+    return render(request, 'LeaderBoard.html')
+
+
+def NGOLeaderboard(request):
+    return render(request, 'LeaderBoard.html')

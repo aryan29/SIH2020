@@ -18,7 +18,7 @@ from django.urls import path, include
 from .router import router
 from rest_framework.authtoken import views
 from django.contrib.auth.views import LoginView
-from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile, GetLocationList, GetAllRegisteredNGOs, NGOsHomePage,CustomRedirect,NGOProfilePage
+from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile, GetLocationList, GetAllRegisteredNGOs, NGOsHomePage, CustomRedirect, NGOProfilePage,UsersLeaderboard,NGOLeaderboard
 from proj.api.viewsets import getNGOList, CheckImage, GetContributions, GetMyContribution, getActiveImagesData
 from django.conf import settings
 from proj.forms import MyForm1
@@ -44,6 +44,8 @@ urlpatterns = [
     path('gov/', CheckOnlyGovernMentView, name='gov-view'),
     path('ngolist/', NGOsHomePage, name='ngo-view'),
     path('ngo-profile/', NGOProfilePage, name='ngo-profile'),
+    path('user-leaderboard/', UsersLeaderboard, name='UsersLeaderboard'),
+    path('ngos-leaderboard/', NGOLeaderboard, name='NGOLeaderboard'),
     path('profiles/home/', CustomRedirect),
     path(
         r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
