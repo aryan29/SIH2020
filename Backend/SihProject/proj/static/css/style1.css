@@ -1,16 +1,27 @@
-body{
-	margin:0;
-	
-	background-color: rgb(90, 241, 90);
-	font:600 16px/18px 'Open Sans',sans-serif;
-	background-size: cover;
-    background-repeat: no-repeat;
-	background-position: center;
-	
-	
+body { 
+  background: url('../img/i1.jpg')  no-repeat center center fixed!important ;
+  font-family: "lato", sans-serif!important;
+  background-size: cover!important;
+  -webkit-background-size: cover!important;
+  height: -webkit-fill-available!important;
+  -o-background-size: cover!important;
+  -moz-background-size: cover!important;
+  background-repeat: no-repeat!important;
+	background-position: center!important;
+  flex-direction: column!important;
+  align-items: center;
+  font:600 16px/18px 'Open Sans',sans-serif!important;
+  
+
+
 }
 
-body { background:  url("../img/i11.jpeg") !important;
+element.style {
+  height:100% ;
+}
+.container {
+
+  margin-left: 0px;
 }
 
 .text-white {
@@ -82,138 +93,88 @@ body { background:  url("../img/i11.jpeg") !important;
     
 
 
-  }
-
-  .notifications
-  {
-    width: 60px;
-    height: 60px;
-    background: black;
-    border-radius: 30px;
-    box-sizing: border-box;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
 
-  }
-
-   .notifications .fas{
-     color: green;
-     line-height: 60px;
-     font-size: 30px;
-
-
-  }
-  .notifications:hover{
-    width: 300px;
-    height: 60px;
-    text-align: left;
-    padding: 0 15px;
-     background: white;
-     transform:translateY(-100%);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    z-index: 99 ;
-
-  }
-   
-
-  .notifications:hover .fas{
-    color:white;
-
-  }
-  .notifications:hover .not{
-    display:block;
-
-  }
-
-  .notifications:hover .num{
-    position: relative;
-    background: transparent;
-    color: red;
-    font-size: 24px;
-    top: -4px;
-
-  }
-
-  .notifications:hover .num:after{
-    content:' Notifications'
-  }
-  .not{
-    position:relative;
-    left:0;
-    top: 0;
-    margin:0;
-    padding:0;
-    background: red;
-    box-shadow:0 5px 15px rgba(0,0,0,0.5) ;
-    padding:20px;
-    box-sizing: border-box;
-    border-bottom-left-radius: 30;
-    border-bottom-right-radius: 30;
-    display: none;
-
-
-  }
-  .not li{
-    list-style: none;
-    border-bottom: 1px solid rgba(0,0,0,.1);
-    display: flex;
-    padding: 8px 0;
+ .profile 
+{   background-color: rgba(85, 119, 88, 0.9);
 
 
 
-  }
-  .not li:last-child
-  {
-    border-bottom: none;
-
-  }
-  .not li .icon{
-    width:24px;
-    height: 24px;
-    background: red;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 24px;
-
-
-  }
-  .not li .icon .fas
-  {
-    color: red;
-    font-size:16px ;
-    line-height: 24px;
-  }
-
-  .not li .text{
-    position: relative;
-    font-family: sans-serif;
-    top: 3px;
-    cursor: pointer;
-
-  }
-  .not li:hover .text{
-    font-weight: bold;
-    color: blue;
-
-
-  }
-
-
-  .notifications .num
-  {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: red;
-    color: white;
-    line-height: 25px;
-    font-family: sans-serif;
-    text-align: center;
+    min-height: 355px;
+    display: inline-block;
     
-  }
-  
+
+}
+
+figcaption.ratings
+{
+    margin-top:20px;
+    }
+figcaption.ratings a
+{
+    color:#f1c40f;
+    font-size:11px;
+    }
+figcaption.ratings a:hover
+{
+    color:#f39c12;
+    text-decoration:none;
+    }
+.divider 
+{
+    border-top:1px solid rgba(0,0,0,0.1);
+    }
+.emphasis 
+{
+    border-top: 4px solid transparent;
+    }
+.emphasis:hover 
+{
+    border-top: 4px solid #1abc9c;
+    }
+.emphasis h2
+{
+    margin-bottom:0;
+    }
+span.tags 
+{
+    background: #1abc9c;
+    border-radius: 2px;
+    color: #f5f5f5;
+    font-weight: bold;
+    padding: 2px 4px;
+    }
+.dropdown-menu 
+{
+    background-color: #34495e;    
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    width: 250px;
+    margin-left: -125px;
+    left: 50%;
+    }
+.dropdown-menu .divider 
+{
+    background:none;    
+    }
+.dropdown-menu>li>a
+{
+    color:#f5f5f5;
+    }
+.dropup .dropdown-menu 
+{
+    margin-bottom:10px;
+    }
+.dropup .dropdown-menu:before 
+{
+    content: "";
+    border-top: 10px solid #34495e;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -10px;
+    z-index: 10;
+    }
