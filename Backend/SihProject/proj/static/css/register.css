@@ -2,7 +2,8 @@
 body{
 	margin:0;
 	color:#6a6f8c;
-	background: url('../img/i1.jpg') ;
+	
+	background: url('../img/i1.jpg')  no-repeat center center fixed!important ;
 	font:600 16px/18px 'Open Sans',sans-serif;
 	background-size: cover;
     background-repeat: no-repeat;
