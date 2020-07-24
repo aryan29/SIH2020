@@ -1,21 +1,28 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style=" height: -webkit-fill-available;" >
 <head>
   <meta charset="utf-8">
   <title>NGO List</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
 
+
+
+
 <div class="main">
-  <h1>NGOList</h1>
+   
+  
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
      
        
@@ -24,12 +31,9 @@
        
         <li class="nav-item">
           <a href="#t1" class="nav-link">
-            <i class="fas fa-list-ul"></i> Update Ratings</a>
+             <h1>NGOList</h1></a>
         </li>
-        <li class="nav-item">
-          <a href="#t2" class="nav-link">
-          <i class="fas fa-network-wired"></i> Update Status</a>
-        </li>
+       
       </ul>
       <ul class="navbar-nav ml-auto">
          
@@ -42,11 +46,13 @@
     </div>
   </nav>
   <div class="container-fluid">
+  
+    
     
     <div class="row"> 
       <div class="col-8">
-        <h2 style="background-color: purple;" class="text-white p-2 "> Update Rating</h2>
-        <div class="container">
+       
+        <div class="container" style="margin-left:0px">
         <!-- display NGOlist from db-->
         <table class="table mt-3" id="t1">
           <thead class="table-dark">
@@ -55,8 +61,8 @@
               <th>Name</th>
               <th>Address</th>
               <th>Rating</th>
-              <th></th>
-              <th></th>
+              
+            
 
             </tr>
           </thead>
@@ -68,15 +74,7 @@
               <td>{{i.address}}</td>
               <td>{{i.rating}}</td>
               <!-- redirects to update.html -->
-              <td><a class="btn btn-outline-secondary btn-sm" onclick="addTextBox()">
-                  <i>Update Rating</i>
-              </a>
-               </td>
-               <!-- redirects to delete.html -->
-               <td><a class="btn btn-outline-secondary btn-sm" onclick="addTextBox()">
-                  <i>Delete</i>
-              </a>
-               </td>
+              
             </tr>
             {% endfor %}
           </tbody>
