@@ -2,7 +2,7 @@
 body{
 	margin:0;
 	color:#6a6f8c;
-	background: url('../img/i1.jpeg') ;
+	background: url('../img/i1.jpg') ;
 	font:600 16px/18px 'Open Sans',sans-serif;
 	background-size: cover;
     background-repeat: no-repeat;
@@ -21,6 +21,7 @@ a{color:inherit;text-decoration:none}
 	max-width:525px;
 	min-height:1000px;
 	position:relative;
+	color:rgba(43, 54, 44, 0.9);
 	
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
@@ -30,6 +31,7 @@ a{color:inherit;text-decoration:none}
 	position:absolute;
 	padding:40px 70px 50px 70px;
 	background:rgba(85, 119, 88, 0.9);
+	color:rgba(26, 37, 27, 0.9);
 }
 .login-html .sign-in-htm,
 .login-html .sign-up-htm{
@@ -51,6 +53,7 @@ a{color:inherit;text-decoration:none}
 .login-form .group .label,
 .login-form .group .button{
 	text-transform:uppercase;
+
 }
 .login-html .tab{
 	font-size:22px;
@@ -63,7 +66,7 @@ a{color:inherit;text-decoration:none}
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab{
 	color:#fff;
-	border-color:#1161ee;
+	border-color:rgba(26, 37, 27, 0.9);
 }
 .login-form{
 	min-height:345px;
@@ -78,13 +81,15 @@ a{color:inherit;text-decoration:none}
 .login-form .group .input,
 .login-form .group .button{
 	width:100%;
-	color:#fff;
+	color:rgba(26, 37, 27, 0.9)!important;
+	
 	display:block;
 }
 .login-form .group .input,
 .login-form .group .button{
 	border:none;
 	padding:15px 20px;
+	color: white!important;
 	border-radius:25px;
 	background:rgba(255,255,255,.1);
 }
@@ -94,10 +99,10 @@ a{color:inherit;text-decoration:none}
 }
 .login-form .group .label{
 	color:#aaa;
-	font-size:12px;
+	font-size:14px;
 }
 .login-form .group .button{
-	background:#1161ee;
+	background:rgba(26, 37, 27, 0.9)
 }
 .login-form .group label .icon{
 	width:15px;
@@ -131,7 +136,7 @@ a{color:inherit;text-decoration:none}
 	color:#fff;
 }
 .login-form .group .check:checked + label .icon{
-	background:#1161ee;
+	background:rgba(26, 37, 27, 0.9);
 }
 .login-form .group .check:checked + label .icon:before{
 	transform:scale(1) rotate(45deg);
