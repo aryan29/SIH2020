@@ -1,16 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 body{
-	margin:0;
-	color:#6a6f8c;
-	
 	background: url('../img/i1.jpg')  no-repeat center center fixed!important ;
-	font:600 16px/18px 'Open Sans',sans-serif;
-	background-size: cover;
-    background-repeat: no-repeat;
-	background-position: center;
+	font-family: "lato", sans-serif!important;
+	background-size: cover!important;
+	-webkit-background-size: cover!important;
+	height: -webkit-fill-available!important;
+	-o-background-size: cover!important;
+	-moz-background-size: cover!important;
+	background-repeat: no-repeat!important;
+	  background-position: center!important;
+	flex-direction: column!important;
+	align-items: center;
 	
 	
 }
+
+
+
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}
 .clearfix:after{clear:both;display:block}
