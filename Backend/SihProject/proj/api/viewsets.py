@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from proj.MLModel.garbage_final.test_on_cpu import GarbageDetector
 from proj.MLModel.Detector_class_animal.animal_detector import AnimalDetector
-from proj.models import UserContributionModel, ActiveImages, AppUser
+from proj.models import UserContributionModel, ActiveImages, AppUser, ActiveArea
 from proj.maps_api import nearbyngo
 from django.db.models import Q
 import threading
@@ -89,6 +89,23 @@ class getActiveImagesData(APIView):
                     "latitude": x.lat,
                     "longitude": x.lon,
                     "animals": x.animals,
+                }
+                li.append(di)
+            return Response(li)
+        else:
+            Response("Invalid Password")
+
+
+class getDataPlotting(APIView):
+    def post(self, request):
+        if(request.data["password"] == "letitbeanything"):  # Save in ev variables later
+            z = ActiveArea.objects.filter(completed=False)
+            li = []
+            for x in z:
+                di = {
+                    "index": x.index,
+                    "latitude": x.lat,
+                    "longitude": x.lon,
                 }
                 li.append(di)
             return Response(li)

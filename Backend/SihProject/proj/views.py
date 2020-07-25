@@ -339,7 +339,7 @@ def RunDaily(request):
     for obj in li:
         print(obj.pk)
         # If there is
-        err = 1
+        err = 0.1
         l = ActiveArea.objects.filter(Q(completed=False) &
                                       Q(lat__lte=(obj.lat+err)) & Q(lat__gte=(obj.lat-err)) & Q(lon__lte=(obj.lon+err)) & Q(lon__gte=(obj.lon-err)))
         if(len(l) > 0):

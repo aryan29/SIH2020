@@ -19,7 +19,7 @@ from .router import router
 from rest_framework.authtoken import views
 from django.contrib.auth.views import LoginView
 from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile, GetLocationList, GetAllRegisteredNGOs, NGOsHomePage, CustomRedirect, NGOProfilePage, UsersLeaderboard, NGOLeaderboard, RunDaily, LogoutView
-from proj.api.viewsets import getNGOList, CheckImage, GetContributions, GetMyContribution, getActiveImagesData
+from proj.api.viewsets import getNGOList, CheckImage, GetContributions, GetMyContribution, getActiveImagesData, getDataPlotting
 from django.conf import settings
 from proj.forms import MyForm1
 
@@ -37,6 +37,8 @@ urlpatterns = [
     path('api-token-auth/', views.obtain_auth_token, name='api-auth-token'),
     path('api/admin/getActiveImagesData',
          getActiveImagesData.as_view(), name='admin-data'),
+    path('api/admin/getPlottingData',
+         getDataPlotting.as_view(), name='admin-plot-data'),
     path('api/register/', UserRegisterMobile, name='mobile-register'),
     path('gov-reviewed/', GetLocationList, name='reviewed'),
     path('gov-ngoreviewed/', GetAllRegisteredNGOs, name='ngo-reviewed'),
