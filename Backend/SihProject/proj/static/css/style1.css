@@ -10,7 +10,6 @@ body {
 	background-position: center!important;
   flex-direction: column!important;
   align-items: center;
-  font:600 16px/18px 'Open Sans',sans-serif!important;
   
 
 
@@ -178,3 +177,28 @@ span.tags
     margin-left: -10px;
     z-index: 10;
     }
+
+
+
+    .box4 {
+      width: 100%;
+    }
+    .two {
+        border-radius: 0 4px 4px 0;
+        
+    }
+    
+    /* pretty */
+   
+    
+    input[type="text"] {
+        border-radius: 4px;
+        color: inherit;
+        display: inline-block;
+        line-height: normal;
+        margin-bottom: 0.75em;
+        padding: 12px 10px 10px;
+        vertical-align: middle;
+      border: 1px solid #ccc;
+    }
+    
