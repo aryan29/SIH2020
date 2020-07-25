@@ -31,13 +31,39 @@
     {% for x in list %}
     <tr>
         <td>{{forloop.counter}}</td>
-        <td>{{x.user}}</td>
-        <td>{{x.contribution}}</td>
+        <td class="name">{{x.user}}</td>
+        <td class="contributions">{{x.contribution}}</td>
     </tr>
     {% endfor %}
 </tbody>
   </table>
-
+<script>
+    var color_list=[
+    "#202060",
+    "#660066",
+    "#660033",
+    "#cc6600",
+    "#0055ff",
+    "#006699",
+    "#408000",
+    "#00334d",
+    "#ff9900",
+    "#993300",
+    "#ff3333",
+    "#4d0000",
+    "#006666"
+    ]
+    var elem = document.getElementsByClassName("name")
+    for (i = 0, len = elem.length; i < len; i++) {
+    elem[i].style.cssText = "color: "+ color_list[Math.floor(Math.random() * color_list.length)]+" !important";
+    
+  }
+  var elem2 = document.getElementsByClassName("contributions")
+    for (i = 0, len = elem2.length; i < len; i++) {
+    elem2[i].style.cssText = "color: "+ color_list[Math.floor(Math.random() * color_list.length)]+" !important";
+    
+  }
+</script>
 
 
 </body>
