@@ -212,6 +212,15 @@ def NGOsHomePage(request):
         z.reviewed = True
         z.ngoName = user.username
         z.save()
+    if(request.GET.get('mybtn2')):
+        i = request.GET.get('id')
+        # Which Area Object is clicked
+        # Get all Active Images linked to this one
+        # And show them
+        obj = ActiveArea.objects.get(pk=i)
+        li = obj.activeimages_set.all()
+        print(len(li))
+        return render(request, "view-area.html", {"args": li})
     review_not_comp = ActiveArea.objects.filter(
         Q(completed=False) & Q(reviewed=False))
     return render(request, 'ngo.html', {"list": review_not_comp})

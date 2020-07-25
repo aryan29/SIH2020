@@ -66,7 +66,9 @@
               <th>SNo.</th>
               <th>Location</th>
               <th>Time</th>
-              <th></th>
+              <th>Review</th>
+              <th>View Images</th>
+              
               
               <th></th>
 
@@ -84,6 +86,12 @@
                 <form action="" method="get">
                   <input type="hidden" name="id" value="{{x.pk}}">
                   <input type="submit" class="btn" value="Review It" name="mybtn">
+                </form>
+              </td>
+              <td>
+                <form action="" method="get">
+                  <input type="hidden" name="id" value="{{x.id}}">
+                  <input type="submit" class="btn" value="View Image" name="mybtn2">
                 </form>
               </td>
 
