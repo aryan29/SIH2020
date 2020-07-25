@@ -38,8 +38,20 @@ class NGOUser(models.Model):
         return self.name
 
 
+class ActiveArea(models.Model):
+    index = models.PositiveIntegerField(default=0)
+    lat = models.FloatField(default=80.0)  # latitude
+    lon = models.FloatField(default=50.0)  # longitude
+    timestamp = models.DateTimeField(auto_now_add=True)
+    completed = models.BooleanField(default=False)
+    reviewed = models.BooleanField(default=False)
+    ngoName = models.CharField(default="", max_length=100, blank=True)
+
+
 class ActiveImages(models.Model):
     # Remove after debugging
+    area = models.ForeignKey(
+        ActiveArea, null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(default="13232", max_length=50)
     lat = models.FloatField(default=80.0)  # latitude
     lon = models.FloatField(default=50.0)  # longitude
@@ -48,7 +60,5 @@ class ActiveImages(models.Model):
     # If completed we will remove entry from this DB as this will be queried everyday and store it somewhere else
     completed = models.BooleanField(default=False)
     # Is reviewed by governement or not will show on govn dashboard (If not)
-    reviewed = models.BooleanField(default=False)
-    ngoName = models.CharField(default="", max_length=100)
 
     # otherwise on ngo dashboard

@@ -14,12 +14,13 @@ from django.utils.encoding import force_bytes, force_text
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponse
 import json
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .tokens import account_activation_token
-from .models import AppUser, ActiveImages, UserContributionModel
-from django.db.models import Q
+from .models import AppUser, ActiveImages, UserContributionModel, ActiveArea
+from django.db.models import Q, F
 import time
 from datetime import datetime, timedelta
+from .generate_index_rough import GetUnAssignedIndexes
 
 
 @csrf_exempt
@@ -132,6 +133,11 @@ def UserRegisterMobile(request):
         return HttpResponse(json.dumps({"status": 0, "errors": z}))
 
 
+def LogoutView(request):
+    logout(request)
+    return redirect('/login')
+
+
 @allowed_users(allowed_roles=['Government'])
 def CheckOnlyGovernMentView(request):
     return render(request, 'gov.html')
@@ -166,7 +172,7 @@ def GetLocationList(request):
     if(request.method == "GET"):
         days = 1
         # Show All Images that are not completed and atleast 1 month old
-        obj = ActiveImages.objects.filter(
+        obj = ActiveArea.objects.filter(
             Q(completed=False) & Q(timestamp__lte=datetime.now()-timedelta(days=days)))
 
         # print(obj)
@@ -202,11 +208,11 @@ def NGOsHomePage(request):
     if(request.GET.get('mybtn')):
         i = request.GET.get('id')
         user = request.user
-        z = ActiveImages.objects.get(pk=i)
+        z = ActiveArea.objects.get(pk=i)
         z.reviewed = True
         z.ngoName = user.username
         z.save()
-    review_not_comp = ActiveImages.objects.filter(
+    review_not_comp = ActiveArea.objects.filter(
         Q(completed=False) & Q(reviewed=False))
     return render(request, 'ngo.html', {"list": review_not_comp})
 
@@ -227,8 +233,10 @@ def CustomRedirect(request):
 def NGOProfilePage(request):
     if(request.GET.get('mybtn')):
         i = request.GET.get('id')
-        # print(i)
-        obj = ActiveImages.objects.get(pk=i)
+        print(i)
+        obj = ActiveArea.objects.get(pk=i)
+        li = obj.activeimages_set.all()
+        li.update(completed=True)
         # print(type(obj.completed))
         var = True
         obj.completed = var
@@ -237,11 +245,17 @@ def NGOProfilePage(request):
         obj2 = UserContributionModel.objects.get(user=request.user)
         obj2.workCompleted += 1
         obj2.save()
-        # Mark this image as Completed
-        # And Increase WorkDone by this NGO
-        # ActiveImages.objects.get()
+    if(request.GET.get('mybtn2')):
+        i = request.GET.get('id')
+        # Which Area Object is clicked
+        # Get all Active Images linked to this one
+        # And show them
+        obj = ActiveArea.objects.get(pk=i)
+        li = obj.activeimages_set.all()
+        print(len(li))
+        return render(request, "view-area.html", {"args": li})
 
-    args1 = ActiveImages.objects.filter(
+    args1 = ActiveArea.objects.filter(
         Q(ngoName=request.user))
     args2 = AppUser.objects.get(user=request.user)
     args3 = UserContributionModel.objects.get(user=request.user)
@@ -258,7 +272,6 @@ def NGOProfilePage(request):
     for x in args1:
         if(x.completed == False):
             li.append({
-                "name": x.name,
                 "lat": x.lat,
                 "lon": x.lon,
                 "timestamp": x.timestamp,
@@ -266,7 +279,6 @@ def NGOProfilePage(request):
             })
         else:
             li2.append({
-                "name": x.name,
                 "lat": x.lat,
                 "lon": x.lon,
                 "timestamp": x.timestamp,
@@ -297,10 +309,67 @@ def NGOLeaderboard(request):
     l1 = []
     print(li)
 
-
     for x in li:
         if(x.user.groups.all()[0].name == "NGO"):
             l1.append(x)
     l1 = l1[:100]
     print(l1)
     return render(request, 'LeaderBoard.html', {"list": l1})
+
+
+def compute_distance(x, y, u, v):
+
+    slat = radians(float(x))
+    slon = radians(float(y))
+    elat = radians(float(u))
+    elon = radians(float(v))
+
+    dist = 1000 * 6371.01 * \
+        acos(sin(slat)*sin(elat) + cos(slat)*cos(elat)*cos(slon - elon))
+    return dist
+
+
+def RunDaily(request):
+
+    #########################################
+    # The images which dont have parents assign them parent if they belongs
+    # to some active area
+
+    li = ActiveImages.objects.filter(area=None)
+    for obj in li:
+        print(obj.pk)
+        # If there is
+        err = 1
+        l = ActiveArea.objects.filter(Q(completed=False) &
+                                      Q(lat__lte=(obj.lat+err)) & Q(lat__gte=(obj.lat-err)) & Q(lon__lte=(obj.lon+err)) & Q(lon__gte=(obj.lon-err)))
+        if(len(l) > 0):
+            print(obj.pk, "Assigned to Some Area")
+            elem = l[0]
+            # Modify This object
+            elem.index = elem.index+35+10*obj.animals
+            elem.save()
+            obj.area = elem
+            obj.save()
+
+        # elem.
+    print("1st part done\n")
+    lat, lon, ind, keys = GetUnAssignedIndexes()
+    print("2nd part done\n")
+
+    #########################################
+    for i in range(len(lat)):
+        try:
+            o1 = ActiveArea.objects.create(
+                lat=lat[i],
+                lon=lon[i],
+                index=ind[i],
+            )
+            for j in range(len(keys[i])):
+                obj = ActiveImages.objects.get(pk=keys[i][j])
+                obj.area = o1
+                obj.save()
+            print(o1.activeimages_set.all())
+            print("Work Completed\n")
+        except Exception as e:
+            print("Some Error Occured")
+            print(e)

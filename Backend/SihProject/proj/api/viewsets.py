@@ -80,15 +80,15 @@ class getNGOList(APIView):
 class getActiveImagesData(APIView):
     def post(self, request):
         if(request.data["password"] == "letitbeanything"):  # Save in ev variables later
-            z = ActiveImages.objects.filter(completed=False)
+            z = ActiveImages.objects.filter(completed=False).filter(area=None)
             print(z)
             li = []
             for x in z:
                 di = {
+                    "pk": x.id,
                     "latitude": x.lat,
                     "longitude": x.lon,
                     "animals": x.animals,
-                    "under_review": x.reviewed
                 }
                 li.append(di)
             return Response(li)
@@ -121,7 +121,6 @@ class CheckImage(APIView):
             #############################################################
             # Can be done in a seperate thread
             animals = AnimalDetector().get_number_of_animals(upfile.name)
-            ##############################################################
             imgModel = ActiveImages(
                 name=upfile.name, lat=lat, lon=lon, animals=animals)
             imgModel.save()
@@ -151,18 +150,9 @@ class CheckImage(APIView):
 #             #Increase Work Done by NGO
 
 
-
-
 # class MyThread(threading.Thread):
 #     def __init__(self,*args, **kwargs):
 #         super(PreserializeThread, self).__init__(*args, **kwargs)
 
 #     def run(self):
 #         pass
-
-
-
-
-
-    
-

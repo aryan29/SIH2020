@@ -40,7 +40,7 @@
         <ul class="navbar-nav ml-auto">
            
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="http://0.0.0.0:8000/logout/" class="nav-link">
               <!-- logout -->
               <i class="fas fa-sign-out-alt"></i> Logout</a>
           </li>
@@ -116,7 +116,12 @@
                   <input type="submit" class="btn" value="Completed" name="mybtn">
                 </form>
               </td>
-            <td><button class="btn" onclick="location.href ='/download/{{x.name}}'">View Image</button></td>
+              <td>
+                <form action="" method="get">
+                  <input type="hidden" name="id" value="{{x.id}}">
+                  <input type="submit" class="btn" value="View Image" name="mybtn2">
+                </form>
+              </td>
 
               
 
@@ -159,7 +164,13 @@
             <td>{{forloop.counter}}</td>
             <td>{{x.lat}},{{x.lon}}</td>
             <td>{{x.timestamp}}</td>
-            <td><button class="btn" onclick="location.href ='/download/{{x.name}}'">View Image</button></td>         
+            <td>
+              <form action="" method="get">
+                <input type="hidden" name="id" value="{{x.id}}">
+                <input type="submit" class="btn" value="View Image" name="mybtn2">
+              </form>
+            </td>
+   
           </tr>
           {% endfor %}
           
