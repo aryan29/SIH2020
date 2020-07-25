@@ -57,6 +57,8 @@
               <th>Rating</th>
               <th></th>
               <th></th>
+              <th></th>
+              <th></th>
 
             </tr>
           </thead>
@@ -68,18 +70,20 @@
               <td>abc</td>
               <td>def</td>
               <td>3.5</td>
-              <!-- redirects to update.html -->
-              <td><a class="btn btn-outline-secondary btn-sm" onclick="addTextBox()">
-                  <i>Update Rating</i>
-
-              </a>
+              <td> <input type="button"  value="Delete" />
                </td>
-               <!-- redirects to delete.html -->
-               <td><a class="btn btn-outline-secondary btn-sm" onclick="addTextBox()">
-                  <i>Delete</i>
-
-              </a>
+              <td> <input type="button" onclick="addTextBox()" value="Update Rating"/>
+              </td>
+              <td>
+               <input type="text" value="" name="Test Name" id="box4" style="display:none"/>
+              
                </td>
+               <td>
+               <input type="button" value="Submit" id="two" disabled="disabled"/>
+               </td>
+
+             
+               
               
               
              
@@ -131,6 +135,23 @@
   </div>
   <div>
   </div>
+   <script>
+   function addTextBox() {
+
+    var box4 = document.getElementById("box4");
+    box4.style.display = "inline";
+    document.getElementById('two').removeAttribute('disabled');
+
+    
+}
+
+
+</script>
+
+
+
+
+
 
 </body>
   
