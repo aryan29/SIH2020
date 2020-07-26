@@ -1,5 +1,5 @@
 * garbage detection - done
 * animal detection - done
-* water bodies
-* biodegradability/nonbiodegradability
-* population density
+* water bodies - done
+* amount - done
+* population density - done
