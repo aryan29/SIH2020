@@ -6,72 +6,39 @@
 var map;
 function initMap() {
   var mapOptions = {
-    zoom: 8,
-    center: { lat: 23.2856, lng: 85.3059 }
+    zoom: 5,
+    center: { lat: 30.2856, lng: 70.3059 }
   };
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-  var marker = new google.maps.Marker({
-    // The below line is equivalent to writing:
-    // position: new google.maps.LatLng(-34.397, 150.644)
-    icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-    position: { lat: 23.2856,lng: 85.3059 },
-    map: map
-  });
+  var data = [{"index": 2, "latitude": 80.0, "longitude": 50.0}, {"index": 3, "latitude": 27.0, "longitude": 90.0}, {"index": 8, "latitude": 31.14, "longitude": 75.54}, {"index": 3.5, "latitude": 31.0, "longitude": 75.5}, {"index": 7, "latitude": 31.14, "longitude": 72.54}, {"index": 10, "latitude": 31.0, "longitude": 70.5}];
 
-  // You can use a LatLng literal in place of a google.maps.LatLng object when
-  // creating the Marker object. Once the Marker object is instantiated, its
-  // position will be available as a google.maps.LatLng object. In this case,
-  // we retrieve the marker's position using the
-  // google.maps.LatLng.getPosition() method.
-  var infowindow = new google.maps.InfoWindow({
-    content: "<p>Marker Location:" + marker.getPosition() + "</p>"
-  });
+  for (var i = 0; i < data.length; i++) {
+  
+    var col =  'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+    if(data[i].index>=0 & data[i].index<=3.3){
+      col =  'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+    }
+    else if(data[i].index>3.3 & data[i].index<=7.3){
+      col = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+    }
 
-  google.maps.event.addListener(marker, "click", function() {
-    infowindow.open(map, marker);
-  });
+    var marker = new google.maps.Marker({
+        position: { lat: data[i].latitude, lng: data[i].longitude},
+        map: map,
+        icon: col,
+       
+    });
 
 
-  var marker2 = new google.maps.Marker({
-    // The below line is equivalent to writing:
-    // position: new google.maps.LatLng(-34.397, 150.644)
-    icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
-    position: { lat: 23.2856, lng: 85.3359 },
-    map: map
-  });
+    var infowindow = new google.maps.InfoWindow({
+        content: "<p>Marker Location:" + marker.getPosition() + "</p>"
+    });
 
-  // You can use a LatLng literal in place of a google.maps.LatLng object when
-  // creating the Marker object. Once the Marker object is instantiated, its
-  // position will be available as a google.maps.LatLng object. In this case,
-  // we retrieve the marker's position using the
-  // google.maps.LatLng.getPosition() method.
-  var infowindow = new google.maps.InfoWindow({
-    content: "<p>Marker Location:" + marker2.getPosition() + "</p>"
-  });
 
-  google.maps.event.addListener(marker2, "click", function() {
-    infowindow.open(map, marker2);
-  });
+    google.maps.event.addListener(marker, "click", function() {
+      infowindow.open(map, marker);
+    });
+  }
 
-  var marker3 = new google.maps.Marker({
-    // The below line is equivalent to writing:
-    // position: new google.maps.LatLng(-34.397, 150.644)
-    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-    position: { lat: 23.2756, lng: 85.3059 },
-    map: map
-  });
-
-  // You can use a LatLng literal in place of a google.maps.LatLng object when
-  // creating the Marker object. Once the Marker object is instantiated, its
-  // position will be available as a google.maps.LatLng object. In this case,
-  // we retrieve the marker's position using the
-  // google.maps.LatLng.getPosition() method.
-  var infowindow = new google.maps.InfoWindow({
-    content: "<p>Marker Location:" + marker3.getPosition() + "</p>"
-  });
-
-  google.maps.event.addListener(marker3, "click", function() {
-    infowindow.open(map, marker3);
-  });
 }
