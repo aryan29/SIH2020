@@ -45,7 +45,7 @@ class ActiveArea(models.Model):
     completed = models.BooleanField(default=False)
     reviewed = models.BooleanField(default=False)
     ngo = models.ForeignKey(
-        User, null=True, blank=True, on_delete=models.CASCADE),
+        User, null=True, blank=True, on_delete=models.CASCADE)
     # ngoName = models.CharField(default="", max_length=100, blank=True)
 
 
