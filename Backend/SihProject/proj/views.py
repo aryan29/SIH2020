@@ -24,7 +24,12 @@ from .generate_index_rough import GetUnAssignedIndexes
 
 
 def HomeView(request):
-    return render(request, 'index.html')
+    li = {
+        "one": {"name": "FAKENGO", "contribution": 15, "address": "AGRA ,INDIA", "mobile": "7906224093"},
+        "two": {"name": "MYNGO", "contribution": 9, "address": "JHARKAHND", "mobile": "7382382333"},
+        "three": {"name": "ANYTHING", "contribution": 5, "address": "CHENNAI", "mobile": "...."}
+    }
+    return render(request, 'index.html', {"li": li})
 
 
 @csrf_exempt
