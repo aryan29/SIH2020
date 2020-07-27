@@ -12,11 +12,11 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.models import User
 from django.utils.encoding import force_bytes, force_text
 from django.contrib.sites.shortcuts import get_current_site
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 import json
 from django.contrib.auth import authenticate, login, logout
 from .tokens import account_activation_token
-from .models import AppUser, ActiveImages, UserContributionModel, ActiveArea
+from .models import AppUser, ActiveImages, UserContributionModel, ActiveArea, Queries
 from django.db.models import Q, F
 import time
 from datetime import datetime, timedelta
@@ -25,6 +25,43 @@ from .generate_index_rough import GetUnAssignedIndexes
 
 def HomeView(request):
     return render(request, 'index.html')
+
+
+@csrf_exempt
+def SubmitQuery(request):
+    if(request.method == 'POST'):
+        try:
+            print(request.user)
+            print(request.POST)
+            if(request.user.is_anonymous):
+                user = None
+                name = request.POST['name']
+                email = request.POST['email']
+            else:
+                user = request.user
+                name = request.user.username,
+                name = name[0]
+                email = request.user.email,
+                email = email[0]
+
+            message = request.POST['message']
+            print(type(name))
+            print(name)
+            message = "anything fo rtrail"
+            try:
+                q1 = Queries.objects.create(
+                    user=user,
+                    name=name,
+                    email=email,
+                    message=message,
+                )
+                return HttpResponseRedirect('/home')
+            except Exception as e:
+                print(e)
+                return HttpResponse(500)
+        except Exception as e:
+            print(e)
+            return HttpResponse(500)
 
 
 @csrf_exempt

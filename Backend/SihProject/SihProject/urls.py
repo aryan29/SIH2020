@@ -18,14 +18,15 @@ from django.urls import path, include
 from .router import router
 from rest_framework.authtoken import views
 from django.contrib.auth.views import LoginView
-from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile, GetLocationList, GetAllRegisteredNGOs, NGOsHomePage, CustomRedirect, NGOProfilePage, UsersLeaderboard, NGOLeaderboard, RunDaily, LogoutView,HomeView
+from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile, GetLocationList, GetAllRegisteredNGOs, NGOsHomePage, CustomRedirect, NGOProfilePage, UsersLeaderboard, NGOLeaderboard, RunDaily, LogoutView, HomeView, SubmitQuery
 from proj.api.viewsets import getNGOList, CheckImage, GetContributions, GetMyContribution, getActiveImagesData, getDataPlotting
 from django.conf import settings
 from proj.forms import MyForm1
 
 from django.conf.urls.static import static
 urlpatterns = [
-    path('home/',HomeView),
+    path('home/', HomeView),
+    path('query/', SubmitQuery, name="submit-queries"),
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view(authentication_form=MyForm1)),
     path('api/getcontributions/',

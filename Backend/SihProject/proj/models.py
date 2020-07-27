@@ -65,3 +65,11 @@ class ActiveImages(models.Model):
     # Is reviewed by governement or not will show on govn dashboard (If not)
 
     # otherwise on ngo dashboard
+
+
+class Queries(models.Model):
+    user = models.ForeignKey(
+        User, null=True, blank=True, on_delete=models.SET_NULL)
+    message = models.CharField(max_length=1000, default="any")
+    name = models.CharField(max_length=30, default="any")
+    email = models.EmailField()

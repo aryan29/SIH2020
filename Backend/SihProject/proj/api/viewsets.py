@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from proj.MLModel.garbage_final.test_on_cpu import GarbageDetector
 from proj.MLModel.Detector_class_animal.animal_detector import AnimalDetector
-from proj.models import UserContributionModel, ActiveImages, AppUser, ActiveArea
+from proj.models import UserContributionModel, ActiveImages, AppUser, ActiveArea,Queries
 from proj.maps_api import nearbyngo
 from django.db.models import Q
 import threading
@@ -40,6 +40,8 @@ class MyViewSet2(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
+
+
 
 
 # Returning List of Nearby NGO for User
