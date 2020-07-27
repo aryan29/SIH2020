@@ -54,7 +54,7 @@ getMyImages() async {
   dio.options.headers["Authorization"] = "Token $token";
   var res1 = await dio.get("http://192.168.0.107:8000/api/myimages/");
   print(res1.data);
-  List<String> li = res1.data.split("%");
+  List<dynamic> li = res1.data;
 
   return li;
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'UserProfile.dart';
 import 'uploadImage.dart';
+import 'contactus.dart';
 import 'Ngos.dart';
 
 class LoginHome extends StatefulWidget {
@@ -74,7 +75,7 @@ class _LoginHomeState extends State<LoginHome> {
             UserProfile1(),
             Upload(),
             NearbyNGOs(),
-            Container(color: Colors.blue),
+            ContactUs()
           ],
         ));
   }

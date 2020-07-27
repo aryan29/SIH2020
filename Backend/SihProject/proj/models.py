@@ -5,15 +5,13 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.forms import UserCreationForm
+from field_history.tracker import FieldHistoryTracker
 
 
 class AppUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     mob = PhoneNumberField()
     address = models.CharField(blank=True, null=True, max_length=100)
-    # As it is not possible to store array in sqlite db in django
-    contributionImages = models.CharField(
-        blank=True, default="", max_length=100000)
 
     def __str__(self):
         return self.user.username
@@ -24,6 +22,7 @@ class UserContributionModel(models.Model):
     contribution = models.PositiveSmallIntegerField(default=0)
     workCompleted = models.PositiveSmallIntegerField(
         default=0)  # Specific for NGO
+    field_history = FieldHistoryTracker(['contribution'])
 
 
 class NGOUser(models.Model):
@@ -45,13 +44,17 @@ class ActiveArea(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     completed = models.BooleanField(default=False)
     reviewed = models.BooleanField(default=False)
-    ngoName = models.CharField(default="", max_length=100, blank=True)
+    ngo = models.ForeignKey(
+        User, null=True, blank=True, on_delete=models.CASCADE),
+    # ngoName = models.CharField(default="", max_length=100, blank=True)
 
 
 class ActiveImages(models.Model):
     # Remove after debugging
     area = models.ForeignKey(
-        ActiveArea, null=True, blank=True, on_delete=models.SET_NULL)
+        ActiveArea, null=True, blank=True, on_delete=models.CASCADE)
+    contributinguser = models.ForeignKey(
+        User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(default="13232", max_length=50)
     lat = models.FloatField(default=80.0)  # latitude
     lon = models.FloatField(default=50.0)  # longitude

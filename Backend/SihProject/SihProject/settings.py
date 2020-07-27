@@ -36,9 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'phonenumber_field',
+    'field_history',
     'proj',
     'rest_framework',
     'rest_framework.authtoken',
+
     # 'simple_email_confirmation',
 ]
 

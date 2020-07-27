@@ -23,6 +23,10 @@ from datetime import datetime, timedelta
 from .generate_index_rough import GetUnAssignedIndexes
 
 
+def HomeView(request):
+    return render(request, 'index.html')
+
+
 @csrf_exempt
 def UserRegister(request):
     if (request.method == 'POST'):
@@ -210,7 +214,7 @@ def NGOsHomePage(request):
         user = request.user
         z = ActiveArea.objects.get(pk=i)
         z.reviewed = True
-        z.ngoName = user.username
+        z.ngo = user
         z.save()
     if(request.GET.get('mybtn2')):
         i = request.GET.get('id')
@@ -264,8 +268,9 @@ def NGOProfilePage(request):
         print(len(li))
         return render(request, "view-area.html", {"args": li})
 
-    args1 = ActiveArea.objects.filter(
-        Q(ngoName=request.user))
+    # args1 = ActiveArea.objects.filter(
+    #     Q(ngoName=request.user))
+    args1 = request.user.activearea_set.all()
     args2 = AppUser.objects.get(user=request.user)
     args3 = UserContributionModel.objects.get(user=request.user)
     args = {

@@ -57,10 +57,9 @@ class GetContributions(APIView):
 class GetMyContribution(APIView):
     def get(self, request):
         print("Coming to getMyImages")
-        obj = AppUser.objects.get(user=self.request.user)
-        print(obj.contributionImages)
+        print(self.request.user.activeimages_set.all().values('name'))
         # print(obj.name)
-        return Response(obj.contributionImages)
+        return Response(self.request.user.activeimages_set.all().values_list('name', flat=True))
 
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
