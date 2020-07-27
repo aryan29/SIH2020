@@ -24,12 +24,36 @@ from .generate_index_rough import GetUnAssignedIndexes
 
 
 def HomeView(request):
-    li = {
-        "one": {"name": "FAKENGO", "contribution": 15, "address": "AGRA ,INDIA", "mobile": "7906224093"},
-        "two": {"name": "MYNGO", "contribution": 9, "address": "JHARKAHND", "mobile": "7382382333"},
-        "three": {"name": "ANYTHING", "contribution": 5, "address": "CHENNAI", "mobile": "...."}
-    }
-    return render(request, 'index.html', {"li": li})
+    li = UserContributionModel.objects.order_by('-contribution')
+    l1 = []
+    l2 = []
+    l3 = []
+    # print(li)
+    c = 0
+    for x in li:
+        if(x.user.groups.all()[0].name == "NGO"):
+            l1.append(x)
+            l2.append(x.user)
+            l3.append(AppUser(user=x.user))
+            c += 1
+            if(c == 3):
+                break
+    x1 = {}
+    x2 = {}
+    x3 = {}
+    if(len(l1) > 0):
+        x1 = {"name": l2[0].username, "contribution": l1[0].contribution,
+              "address": l3[0].address, "mobile": l3[0].mob},
+        x1 = x1[0]
+    if(len(l1) > 1):
+        x2 = {"name": l2[1].username, "contribution": l1[1].contribution,
+              "address": l3[1].address, "mobile": l3[1].mob},
+        x2 = x2[0]
+    if(len(l1) > 2):
+        x3 = {"name": l2[2].username, "contribution": l1[2].contribution,
+              "address": l3[2].address, "mobile": l3[2].mob}
+        x3 = x3[0]
+    return render(request, 'index.html', {"li": {"one": x1, "two": x2, "three": x3}})
 
 
 @csrf_exempt
@@ -349,7 +373,7 @@ def NGOProfilePage(request):
 
 
 def UsersLeaderboard(request):
-    li = UserContributionModel.objects.order_by('contribution')
+    li = UserContributionModel.objects.order_by('-contribution')
     l1 = []
     print(li)
     for x in li:
@@ -361,7 +385,7 @@ def UsersLeaderboard(request):
 
 
 def NGOLeaderboard(request):
-    li = UserContributionModel.objects.order_by('contribution')
+    li = UserContributionModel.objects.order_by('-contribution')
     l1 = []
     print(li)
 
@@ -383,6 +407,17 @@ def compute_distance(x, y, u, v):
     dist = 1000 * 6371.01 * \
         acos(sin(slat)*sin(elat) + cos(slat)*cos(elat)*cos(slon - elon))
     return dist
+
+
+@allowed_users(allowed_roles=['Government'])
+def UpdateRatings(request):
+    if(request.method == "POST"):
+        id = request.POST.get("id")
+        rating = request.POST.get("rating")
+        obj = User.objects.get(pk=id)
+        uc = UserContributionModel(user=obj)
+        uc += rating
+        uc.save()
 
 
 def RunDaily(request):
