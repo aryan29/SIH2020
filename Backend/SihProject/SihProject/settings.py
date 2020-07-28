@@ -126,6 +126,8 @@ USE_TZ = True
 # and then use them for maintaining security
 
 STATIC_URL = '/proj/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'proj/static/')
+# print(STATIC_ROOT)
 MEDIA_ROOT = BASE_DIR
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST_USER = "ctrlaltelitesih2020@gmail.com"
