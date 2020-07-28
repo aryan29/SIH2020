@@ -12,7 +12,7 @@ import 'package:mongo_dart/mongo_dart.dart' as mongo;
 import '../main.dart';
 import 'user.dart';
 
-final String ip = "192.168.0.105";
+final String ip = "3.13.105.21";
 String FileName = "";
 String Base64EncodeFile = "";
 void main() => runApp(MyApp1());

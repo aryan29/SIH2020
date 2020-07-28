@@ -21,7 +21,7 @@ sendingImage(File file, var lat, var lon) async {
     "lon": lon
   });
   try {
-    var res1 = await dio.post("http://192.168.0.107:8000/api/checkimage/",
+    var res1 = await dio.post("http://3.13.105.21:8000/api/checkimage/",
         data: formData);
     return res1.data;
   } on DioError catch (e) {
@@ -42,7 +42,7 @@ sendingQuery(message) async {
   FormData formData = FormData.fromMap({"message": message});
   try {
     var res1 =
-        await dio.post("http://192.168.0.107:8000/api/query/", data: formData);
+        await dio.post("http://3.13.105.21:8000/api/query/", data: formData);
     return res1.data;
   } on DioError catch (e) {
     print("Something went wrong");

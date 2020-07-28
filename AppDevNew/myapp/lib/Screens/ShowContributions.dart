@@ -44,7 +44,7 @@ class _ShowContributionsState extends State<ShowContributions> {
                         progressIndicatorBuilder: (context, url, progress) =>
                             Center(child: CircularProgressIndicator(value: progress.progress)),
                         imageUrl:
-                            "http://192.168.0.107:8000/download/${widget.data[index]}"));
+                            "http://3.13.105.21:8000/download/${widget.data[index]}"));
               }),
         ],
       )),

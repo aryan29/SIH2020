@@ -12,7 +12,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'user.dart';
 
-final String ip = "192.168.0.105";
+final String ip = "3.13.105.21";
 
 class NgoRate extends StatefulWidget {
   NgoRate({Key key}) : super(key: key);

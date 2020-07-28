@@ -11,7 +11,7 @@ import 'src/my.dart';
 import 'src/user.dart';
 import 'src/ngo.dart';
 
-final String ip = "192.168.0.105";
+final String ip = "3.13.105.21";
 void main() => runApp(MaterialApp(
       home: MyApp(),
     ));

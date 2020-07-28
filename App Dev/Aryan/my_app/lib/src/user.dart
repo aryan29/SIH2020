@@ -7,7 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:math';
 import 'package:flutter/painting.dart';
 
-final String ip = "192.168.0.105";
+final String ip = "3.13.105.21";
 class UserData extends StatefulWidget {
   static String email = "", pass = "";
   static int count = 0;
