@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from proj.MLModel.garbage_final.test_on_cpu import GarbageDetector
 from proj.MLModel.Detector_class_animal.animal_detector import AnimalDetector
-from proj.models import UserContributionModel, ActiveImages, AppUser, ActiveArea,Queries
+from proj.models import UserContributionModel, ActiveImages, AppUser, ActiveArea, Queries
 from proj.maps_api import nearbyngo
 from django.db.models import Q
 import threading
@@ -42,8 +42,6 @@ class MyViewSet2(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
 
-
-
 # Returning List of Nearby NGO for User
 class GetContributions(APIView):
     def get(self, request):
@@ -51,6 +49,20 @@ class GetContributions(APIView):
         obj = UserContributionModel.objects.get(user=self.request.user)
         print(obj.contribution)
         return Response(obj.contribution)
+
+    authentication_classes = [TokenAuthentication, SessionAuthentication]
+    permission_classes = [IsAuthenticated]
+
+
+class SubmitQueryAPI(APIView):
+    def post(self, request):
+        q1 = Queries.objects.create(
+            user=request.user,
+            name=request.user.username,
+            email=request.user.email,
+            message=request.data['message']
+        )
+        return Response(1)
 
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
@@ -126,12 +138,13 @@ class CheckImage(APIView):
         upfile = request.FILES['file']
         lat = request.data['lat']
         lon = request.data['lon']
-        # print(upfile.name)
+        print(upfile.name)
         with open(upfile.name, 'wb+') as f1:
             for chunks in upfile.chunks():
                 f1.write(chunks)
 
         res = GarbageDetector().detect(upfile.name)
+        print(res)
         ###################################
         # Do Checking related to image in seperate thread here
         ###################################
@@ -140,14 +153,8 @@ class CheckImage(APIView):
             # Can be done in a seperate thread
             animals = AnimalDetector().get_number_of_animals(upfile.name)
             imgModel = ActiveImages(
-                name=upfile.name, lat=lat, lon=lon, animals=animals)
+                name=upfile.name, lat=lat, lon=lon, animals=animals, contributinguser=self.request.user)
             imgModel.save()
-            userField = AppUser.objects.get(user=self.request.user)
-            try:
-                userField.contributionImages += "%"+(upfile.name)
-            except:
-                userField.contributionImage += ""+upfile.name
-            userField.save()
             obj = UserContributionModel.objects.get(user=self.request.user)
             obj.contribution = obj.contribution + 1
             obj.save()

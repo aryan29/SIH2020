@@ -21,6 +21,7 @@ from django.db.models import Q, F
 import time
 from datetime import datetime, timedelta
 from .generate_index_rough import GetUnAssignedIndexes
+from rest_framework.authtoken.models import Token
 
 
 def HomeView(request):
@@ -76,7 +77,6 @@ def SubmitQuery(request):
             message = request.POST['message']
             print(type(name))
             print(name)
-            message = "anything fo rtrail"
             try:
                 q1 = Queries.objects.create(
                     user=user,
@@ -86,14 +86,15 @@ def SubmitQuery(request):
                 )
                 return HttpResponseRedirect('/home')
             except Exception as e:
+                print("Exception")
                 print(e)
                 return HttpResponse(500)
         except Exception as e:
+            print("Exception")
             print(e)
             return HttpResponse(500)
 
 
-@csrf_exempt
 def UserRegister(request):
     if (request.method == 'POST'):
         # if 'signup' in request.POST:

@@ -42,7 +42,7 @@ class _ShowContributionsState extends State<ShowContributions> {
                     child: CachedNetworkImage(
                         fit: BoxFit.cover,
                         progressIndicatorBuilder: (context, url, progress) =>
-                            CircularProgressIndicator(value: progress.progress),
+                            Center(child: CircularProgressIndicator(value: progress.progress)),
                         imageUrl:
                             "http://192.168.0.107:8000/download/${widget.data[index]}"));
               }),

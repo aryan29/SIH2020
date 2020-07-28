@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                                       builder: (context) => LoginHome()));
                             } else {
                               setState(() {
-                                loggingIn = true;
+                                loggingIn = false;
                               });
                               Scaffold.of(context).showSnackBar(SnackBar(
                                   content: Text("Something Went Wrong")));

@@ -142,8 +142,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   FadeAnimation(
                       1,
                       Text(
-                        "Project ...",
-                        style: TextStyle(color: Colors.black, fontSize: 50),
+                        "Project Vishudh",
+                        style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
                       )),
                   SizedBox(
                     height: 15,
@@ -151,11 +154,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   FadeAnimation(
                       1.3,
                       Text(
-                        "We promis that you'll have the most \nfuss-free time with us ever.",
+                        "Team Ctrl Alt Elite - A team of elites controlling and altering india's fight to crisis",
                         style: TextStyle(
-                            color: Colors.black.withOpacity(.7),
-                            height: 1.4,
-                            fontSize: 20),
+                            color: Colors.green[800], height: 1.4, fontSize: 15),
                       )),
                   SizedBox(
                     height: 180,
