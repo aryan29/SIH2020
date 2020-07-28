@@ -125,7 +125,7 @@ USE_TZ = True
 # ALl this is for development purpose we can store them as environment variables on host platform
 # and then use them for maintaining security
 
-STATIC_URL = '/proj/static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'proj/static/')
 # print(STATIC_ROOT)
 MEDIA_ROOT = BASE_DIR
