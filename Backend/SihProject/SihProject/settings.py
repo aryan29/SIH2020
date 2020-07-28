@@ -125,7 +125,7 @@ USE_TZ = True
 # ALl this is for development purpose we can store them as environment variables on host platform
 # and then use them for maintaining security
 
-STATIC_URL = r'/*./static/'
+STATIC_URL = '/proj/static/'
 MEDIA_ROOT = BASE_DIR
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST_USER = "ctrlaltelitesih2020@gmail.com"
