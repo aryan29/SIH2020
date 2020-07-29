@@ -18,7 +18,7 @@ class _ShowContributionsState extends State<ShowContributions> {
         children: <Widget>[
           Container(
             height: 150,
-            color: Colors.cyan,
+            color: Colors.green,
             child: Center(
               child: Text("Your Contributions",
                   style: TextStyle(
@@ -46,7 +46,7 @@ class _ShowContributionsState extends State<ShowContributions> {
                                 child: CircularProgressIndicator(
                                     value: progress.progress)),
                         imageUrl:
-                            "http://0.0.0.0:8000/download/${widget.data[index]}"));
+                            "http://192.168.0.107:8000/download/${widget.data[index]}"));
               }),
         ],
       )),

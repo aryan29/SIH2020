@@ -81,7 +81,7 @@ class _UploadState extends State<Upload> {
                   InkWell(
                       onTap: () => captureImage(ImageSource.camera),
                       child: Icon(Icons.camera,
-                          size: 120, color: Color.fromRGBO(48, 154, 187, 1))),
+                          size: 120, color: Colors.green)),
                   Text(
                     "Upload from Camera",
                     style: TextStyle(fontWeight: FontWeight.w400),
@@ -98,7 +98,7 @@ class _UploadState extends State<Upload> {
                   InkWell(
                       onTap: () => captureImage(ImageSource.gallery),
                       child: Icon(Icons.image,
-                          size: 120, color: Color.fromRGBO(48, 154, 187, 1))),
+                          size: 120, color: Colors.green)),
                   Text("Upload from Gallery",
                       style: TextStyle(fontWeight: FontWeight.w400))
                 ],
@@ -110,17 +110,17 @@ class _UploadState extends State<Upload> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                   ),
-                  color: Color.fromRGBO(48, 154, 187, .4),
+                  color: Colors.green[200],
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text("Back",
                           style: TextStyle(
-                              color: Color.fromRGBO(48, 154, 187, 1),
+                              color: Colors.green,
                               fontWeight: FontWeight.bold,
                               fontSize: 20)),
                       Icon(Icons.chevron_right,
-                          color: Color.fromRGBO(48, 154, 187, 1))
+                          color: Colors.green)
                     ],
                   ),
                   onPressed: () {
@@ -136,7 +136,7 @@ class _UploadState extends State<Upload> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18.0),
               ),
-              color: Color.fromRGBO(48, 154, 187, .4),
+              color: Colors.green[200],
               child: (sending)
                   ? Center(child: CircularProgressIndicator())
                   : Row(
@@ -144,11 +144,11 @@ class _UploadState extends State<Upload> {
                       children: <Widget>[
                         Text("Upload",
                             style: TextStyle(
-                                color: Color.fromRGBO(48, 154, 187, 1),
+                                color: Colors.green[600],
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20)),
                         Icon(Icons.chevron_right,
-                            color: Color.fromRGBO(48, 154, 187, 1))
+                            color: Colors.green[600])
                       ],
                     ),
               onPressed: () {

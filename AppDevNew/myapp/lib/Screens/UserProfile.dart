@@ -30,6 +30,14 @@ class _UserProfile1State extends State<UserProfile1> {
             builder: (context, snapshot) {
               if (snapshot.data != null) {
                 return Container(
+                    // decoration: BoxDecoration(
+                    //     image: DecorationImage(
+                    //         fit: BoxFit.cover,
+                    //         colorFilter: ColorFilter.mode(
+                    //             Colors.white.withOpacity(0.7),
+                    //             BlendMode.dstATop),
+                    //         image: AssetImage("assets/hh.jpg"))
+                    //         ),
                     child: Stack(
                   children: <Widget>[
                     Positioned(
@@ -46,13 +54,17 @@ class _UserProfile1State extends State<UserProfile1> {
                                       fontWeight: FontWeight.bold)),
                               SizedBox(height: 10),
                               Text(snapshot.data["contribution"].toString(),
-                                  style: TextStyle(color: Colors.grey[500],fontSize: 20,fontWeight: FontWeight.bold)),
+                                  style: TextStyle(
+                                      color: Colors.grey[500],
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
                               SizedBox(height: 30),
                               Container(
                                 child: FittedBox(
-                                       child: MaterialButton(
+                                  child: MaterialButton(
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(18.0),
+                                        borderRadius:
+                                            BorderRadius.circular(18.0),
                                       ),
                                       height: 70,
                                       minWidth: 200,
@@ -83,18 +95,20 @@ class _UserProfile1State extends State<UserProfile1> {
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                                builder: (BuildContext context) =>
-                                                    ShowContributions(
-                                                        data: data)));
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        ShowContributions(
+                                                            data: data)));
                                       }),
                                 ),
                               ),
                               SizedBox(height: 50),
                               Container(
                                 child: FittedBox(
-                                       child: MaterialButton(
+                                  child: MaterialButton(
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(18.0),
+                                        borderRadius:
+                                            BorderRadius.circular(18.0),
                                       ),
                                       height: 70,
                                       minWidth: 200,
@@ -103,7 +117,7 @@ class _UserProfile1State extends State<UserProfile1> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          Text("Something Else",
+                                          Text("Edit Your Profile",
                                               style: TextStyle(
                                                   color: Colors.amber[700],
                                                   fontWeight: FontWeight.bold,
@@ -125,7 +139,7 @@ class _UserProfile1State extends State<UserProfile1> {
                           clipper: ArcClipper(),
                           child: Container(
                             height: 300,
-                            color: Colors.cyan,
+                            color: Colors.green[300],
                           )),
                     ),
                     Positioned(
@@ -137,7 +151,7 @@ class _UserProfile1State extends State<UserProfile1> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                                color: Colors.cyan.withOpacity(0.5),
+                                color: Colors.green.withOpacity(0.5),
                                 spreadRadius: 5,
                                 blurRadius: 7,
                                 offset: Offset(0, 0))

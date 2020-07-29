@@ -30,11 +30,11 @@ class _LoginHomeState extends State<LoginHome> {
                 child: GNav(
                   selectedIndex: _selectedIndex,
                   gap: 8,
-                  activeColor: Color.fromRGBO(48, 154, 187, 1),
+                  activeColor: Colors.green,
                   iconSize: 24,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 7),
                   duration: Duration(milliseconds: 800),
-                  tabBackgroundColor: Color.fromRGBO(142, 208, 226, 0.5),
+                  tabBackgroundColor: Colors.green[100],
                   tabs: [
                     GButton(
                       icon: Icons.home,
