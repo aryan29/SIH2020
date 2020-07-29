@@ -57,6 +57,10 @@ def HomeView(request):
     return render(request, 'index.html', {"li": {"one": x1, "two": x2, "three": x3}})
 
 
+def Home2(request):
+    return render(request, 'home.html')
+
+
 @csrf_exempt
 def SubmitQuery(request):
     if(request.method == 'POST'):
@@ -84,7 +88,7 @@ def SubmitQuery(request):
                     email=email,
                     message=message,
                 )
-                return HttpResponseRedirect('/home')
+                return HttpResponseRedirect('')
             except Exception as e:
                 print("Exception")
                 print(e)

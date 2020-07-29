@@ -21,8 +21,8 @@ sendingImage(File file, var lat, var lon) async {
     "lon": lon
   });
   try {
-    var res1 = await dio.post("http://3.13.105.21:8000/api/checkimage/",
-        data: formData);
+    var res1 =
+        await dio.post("http://0.0.0.0:8000/api/checkimage/", data: formData);
     return res1.data;
   } on DioError catch (e) {
     print("Something went wrong");
@@ -41,8 +41,7 @@ sendingQuery(message) async {
   dio.options.headers["Authorization"] = "Token $token";
   FormData formData = FormData.fromMap({"message": message});
   try {
-    var res1 =
-        await dio.post("http://3.13.105.21:8000/api/query/", data: formData);
+    var res1 = await dio.post("http://0.0.0.0:8000/api/query/", data: formData);
     return res1.data;
   } on DioError catch (e) {
     print("Something went wrong");
