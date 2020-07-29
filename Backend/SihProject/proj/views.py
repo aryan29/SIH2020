@@ -430,12 +430,11 @@ def UpdateRating(request):
         return HttpResponse(200)
 
 
-@allowed_users(allowed_roles=['Government'])
-def GetFieldHistory(request):
+def GetRatingHistory(request):
     if(request.method == "GET"):
         id = request.GET.get("id")
         model = UserContributionModel.objects.get(pk=id)
-        model.fieldhistory_set.all()
+        return model.field_history
 
     # Get field history for particular ngo
 

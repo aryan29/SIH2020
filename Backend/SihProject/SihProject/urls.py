@@ -18,7 +18,7 @@ from django.urls import path, include
 from .router import router
 from rest_framework.authtoken import views
 from django.contrib.auth.views import LoginView
-from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile, GetLocationList, GetAllRegisteredNGOs, NGOsHomePage, CustomRedirect, NGOProfilePage, UsersLeaderboard, NGOLeaderboard, RunDaily, LogoutView, HomeView, SubmitQuery, Home2,UpdateRating
+from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile, GetLocationList, GetAllRegisteredNGOs, NGOsHomePage, CustomRedirect, NGOProfilePage, UsersLeaderboard, NGOLeaderboard, RunDaily, LogoutView, HomeView, SubmitQuery, Home2, UpdateRating, GetRatingHistory
 from proj.api.viewsets import getNGOList, CheckImage, GetContributions, GetMyContribution, getActiveImagesData, getDataPlotting, SubmitQueryAPI
 from django.conf import settings
 from proj.forms import MyForm1
@@ -43,7 +43,8 @@ urlpatterns = [
          getActiveImagesData.as_view(), name='admin-data'),
     path('api/admin/getPlottingData',
          getDataPlotting.as_view(), name='admin-plot-data'),
-    path('api/gov-update-rating', UpdateRating,name='update-rating'),
+    path('api/gov-update-rating', UpdateRating, name='update-rating'),
+    path('get-rating-history/', GetRatingHistory, name='rating history'),
     path('api/register/', UserRegisterMobile, name='mobile-register'),
     path('gov-reviewed/', GetLocationList, name='reviewed'),
     path('gov-ngoreviewed/', GetAllRegisteredNGOs, name='ngo-reviewed'),
