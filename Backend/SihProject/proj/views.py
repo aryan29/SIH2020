@@ -22,6 +22,7 @@ import time
 from datetime import datetime, timedelta
 from .generate_index_rough import GetUnAssignedIndexes
 from rest_framework.authtoken.models import Token
+from field_history.models import FieldHistory
 
 
 def HomeView(request):
@@ -418,7 +419,7 @@ def compute_distance(x, y, u, v):
 
 
 @allowed_users(allowed_roles=['Government'])
-def UpdateRatings(request):
+def UpdateRating(request):
     if(request.method == "POST"):
         id = request.POST.get("id")
         rating = request.POST.get("rating")
@@ -426,6 +427,17 @@ def UpdateRatings(request):
         uc = UserContributionModel(user=obj)
         uc += rating
         uc.save()
+        return HttpResponse(200)
+
+
+@allowed_users(allowed_roles=['Government'])
+def GetFieldHistory(request):
+    if(request.method == "GET"):
+        id = request.GET.get("id")
+        model = UserContributionModel.objects.get(pk=id)
+        model.fieldhistory_set.all()
+
+    # Get field history for particular ngo
 
 
 def RunDaily(request):
