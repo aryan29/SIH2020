@@ -158,7 +158,7 @@ def UserRegister(request):
         form1 = ExtendedUserForm()
         form2 = AppUserForm()
         args = {'form1': form1, 'form2': form2}
-        return
+        return render(request, 'registration/register.html', args)
 
 
 # Like This we can add allowed roles
