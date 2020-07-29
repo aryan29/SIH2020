@@ -102,9 +102,11 @@ def SubmitQuery(request):
 def UserRegister(request):
     if (request.method == 'POST'):
         # if 'signup' in request.POST:
-        print(request.POST)
+        # print(request.POST)
         form1 = ExtendedUserForm(request.POST)
         form2 = AppUserForm(request.POST)
+        # print(form1.is_valid())
+        # print(form2.is_valid())
         choice = request.POST['choice']
         if (form1.is_valid() and form2.is_valid() and form1.clean()):
             user = form1.save(commit=False)
@@ -118,7 +120,7 @@ def UserRegister(request):
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
             })
-            email = "nk28agra@gmail.com"
+            email = "ctrlaltelitesih2020@gmail.com"
             send_mail(message=message,
                       from_email=email,
                       recipient_list=[user.email],

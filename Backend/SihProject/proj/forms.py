@@ -5,6 +5,7 @@ from .models import AppUser
 from django.forms import ModelForm
 from django.shortcuts import render, redirect
 from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
 
 
 class ExtendedUserForm(UserCreationForm):
@@ -35,9 +36,12 @@ class ExtendedUserForm(UserCreationForm):
 
     def clean(self):
         data = super().clean()
-        if data['email'] and User.objects.filter(email=data['email']).exists():
-            self.add_error('email', "This email is already registered")
-        return data
+        try:
+            if data['email'] and User.objects.filter(email=data['email']).exists():
+                self.add_error('email', "This email is already registered")
+            return data
+        except Exception as e:
+            pass
 
     def save(self, commit=True):
         print("In form save")
