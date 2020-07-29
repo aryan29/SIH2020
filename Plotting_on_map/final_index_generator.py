@@ -3,6 +3,14 @@ import json
 from math import radians, sin, cos, acos
 import time
 
+def normalize(inp):
+    if min(inp) == max(inp):
+        inp = inp/min(inp)
+    else:
+        inp = [i - min(inp) for i in inp]
+        inp = [(i / (max(inp)-min(inp))) for i in inp] 
+    return inp
+
 def compute_distance(x, y, u, v):
 
     slat = radians(float(x))
@@ -28,7 +36,7 @@ def get_water_bodies(x, y):
         a = geo['location']['lat']
         b = geo['location']['lng']
         d = compute_distance(x, y, a, b)
-        if d <= float(1000):
+        if d <= float(10000):
             water_cnt += 1
 
     for element in lake['results']:
@@ -37,7 +45,7 @@ def get_water_bodies(x, y):
         a = geo['location']['lat']
         b = geo['location']['lng']
         d = compute_distance(x, y, a, b)
-        if d <= float(1000):
+        if d <= float(10000):
             water_cnt += 1
     time.sleep(1)
     return water_cnt
@@ -51,7 +59,7 @@ def get_pop_density(x, y):
         city = temp['address_components'][0]['long_name']
     except:
         return 1000
-    print(city)
+    #print(city)
 
     tmp = 'https://public.opendatasoft.com/api/records/1.0/search/?dataset=worldcitiespop&q=%s&sort=population&facet=country&refine.country=%s'
     cmd = tmp % (city, 'in')
@@ -63,7 +71,7 @@ def get_pop_density(x, y):
     except:
         ans = 10000
     time.sleep(1)
-    print(ans)
+    #print(ans)
     return ans
 
 def GetUnAssignedIndexes():
@@ -73,6 +81,7 @@ def GetUnAssignedIndexes():
     x = requests.post(
         "http://127.0.0.1:8000/api/admin/getActiveImagesData", data=di)
     data = x.json()
+    print(data)
     latitude = []
     longitude = []
     animals = []
@@ -84,7 +93,7 @@ def GetUnAssignedIndexes():
         animals.append(element['animals'])
         pks.append(element['pk'])
 
-    print(latitude, longitude, animals)
+    #print(latitude, longitude, animals)
 
     
 
@@ -118,7 +127,7 @@ def GetUnAssignedIndexes():
             v = longitude[j]
             dist = compute_distance(p, q, u, v)
 
-            if dist <= float(1000):
+            if dist <= float(10000):
 
                 a += animals[j]
                 loc += 1
@@ -146,9 +155,20 @@ def GetUnAssignedIndexes():
         pop = get_pop_density(final_latitude[i], final_longitude[i])
         pop_den.append(pop)
 
+
+    [float(i) for i in locations]
+    [float(i) for i in water_body]
+    [float(i) for i in final_animals]
+    [float(i) for i in pop_den]
+
+    locations = normalize(locations)
+    water_body = normalize(water_body)
+    final_animals = normalize(final_animals)
+    pop_den = normalize(pop_den)
+
     for i in range(len(final_latitude)):
-        #values to be scaled
         final_index.append(locations[i]*3.5 + final_animals[i]*1.5 + pop_den[i]*2.5 + water_body[i]*2.5)
+
 
     print(final_latitude)
     print(final_longitude)
@@ -158,6 +178,7 @@ def GetUnAssignedIndexes():
     print(pop_den)
     print(final_index)
     print(final_pks)
+    
     return final_latitude, final_longitude, final_index, final_pks
 
-#GetUnAssignedIndexes()
+GetUnAssignedIndexes()
