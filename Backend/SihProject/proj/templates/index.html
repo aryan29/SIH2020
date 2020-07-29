@@ -11,6 +11,7 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Vishudh | We are Here for India's Waste Problem</title>
 </head>
 
@@ -309,7 +310,7 @@
         <div class="row">
             <div class="story">
                 <figure class="story__shape">
-                    <img src="{%static 'img/nat-9.jpg' %}"" alt="Person on a tour" class="story__img">
+                    <img src="{%static 'img/nat-9.jpg' %}" alt="Person on a tour" class="story__img">
                     <figcaption class="story__caption">by Dainik Jaagran</figcaption>
                 </figure>
                 <div class="story__text">
@@ -332,7 +333,7 @@
         <div class="row">
             <div class="book">
                 <div class="book__form">
-                    <form action="http://http://0.0.0.0:8000/query/" class="form" method="post">
+                    <form class="form"  id="query_form">
                         <div class="u-margin-bottom-medium">
                             <h2 class="heading-secondary">
                                 Contact Us
@@ -519,4 +520,32 @@
 -->
 
 </body>
+<script>
+// alert("JS Working");
+$(document).on("submit","#query_form",function(e){
+    // alert("AJAX Working");
+    e.preventDefault();
+    $.ajax({
+        type:"POST",
+        url:"http://0.0.0.0:8000/query/",
+        data:{
+            name:$('#name').val(),
+            email:$('#email').val(),
+            message:$('#message').val()
+
+        },
+        success:function(res){
+            console.log(res);
+            if(res==200)
+        {
+            alert("We Will contact you soon");
+        }
+            else
+            {
+            alert("Invalid Form");
+            }
+        }
+    })
+})
+</script>
 </html>

@@ -23,6 +23,8 @@ from datetime import datetime, timedelta
 from .generate_index_rough import GetUnAssignedIndexes
 from rest_framework.authtoken.models import Token
 from field_history.models import FieldHistory
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 
 def HomeView(request):
@@ -83,13 +85,19 @@ def SubmitQuery(request):
             print(type(name))
             print(name)
             try:
-                q1 = Queries.objects.create(
-                    user=user,
-                    name=name,
-                    email=email,
-                    message=message,
-                )
-                return HttpResponseRedirect('')
+                print(email)
+                try:
+                    validate_email(email)
+                    q1 = Queries.objects.create(
+                        user=user,
+                        name=name,
+                        email=email,
+                        message=message,
+                    )
+                    return HttpResponse(200)
+                except ValidationError as e1:
+                    print(e1)
+                    return HttpResponse(500)
             except Exception as e:
                 print("Exception")
                 print(e)
