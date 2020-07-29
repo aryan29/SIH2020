@@ -149,7 +149,8 @@ def UserRegister(request):
         form1 = ExtendedUserForm()
         form2 = AppUserForm()
         args = {'form1': form1, 'form2': form2}
-        return render(request, 'checkEmail.html')
+        return
+
 
 # Like This we can add allowed roles
 @csrf_exempt
