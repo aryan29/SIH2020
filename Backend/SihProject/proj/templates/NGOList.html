@@ -33,10 +33,14 @@
           <a href="#t1" class="nav-link">
              <h1>NGOList</h1></a>
         </li>
-       
       </ul>
+
+
       <ul class="navbar-nav ml-auto">
-         
+        <li class="nav-item">
+          <a href="/gov-reviewed/" class="nav-link">
+             <h6>View Uncleaned Areas</h6></a>
+        </li>
         <li class="nav-item">
           <a href="/logout/" class="nav-link">
             <!-- logout -->
@@ -61,6 +65,7 @@
               <th>Name</th>
               <th>Address</th>
               <th>Rating</th>
+              <th>Visit Profile</th>
               
             
 
@@ -73,6 +78,7 @@
               <td>{{i.name}}</td>
               <td>{{i.address}}</td>
               <td>{{i.rating}}</td>
+              <td><button>Visit</button></td>
               <!-- redirects to update.html -->
               
             </tr>
