@@ -49,8 +49,6 @@ class ExtendedUserForm(UserCreationForm):
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         user.email = self.cleaned_data['email']
-        # print(user.first_name)
-        # print(user.email)
         if commit:
             user.save()
         return user

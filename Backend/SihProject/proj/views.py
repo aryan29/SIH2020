@@ -131,7 +131,7 @@ def UserRegister(request):
             UserContributionModel.objects.create(user=user)
             group = Group.objects.get(name=choice)
             group.user_set.add(user)
-            return redirect('/login')
+            return render(request, 'checkEmail.html')
         else:
             print(form1.errors)
             print(form2.errors)
@@ -149,8 +149,7 @@ def UserRegister(request):
         form1 = ExtendedUserForm()
         form2 = AppUserForm()
         args = {'form1': form1, 'form2': form2}
-        return render(request, 'registration/register.html', args)
-
+        return render(request, 'checkEmail.html')
 
 # Like This we can add allowed roles
 @csrf_exempt

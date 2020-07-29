@@ -125,6 +125,8 @@ USE_TZ = True
 # ALl this is for development purpose we can store them as environment variables on host platform
 # and then use them for maintaining security
 # STATIC_URL = '/static/'
+SESSION_COOKIE_SECURE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'proj/static/')
 MEDIA_ROOT = BASE_DIR
