@@ -270,6 +270,7 @@ def GetAllRegisteredNGOs(request):
             z = AppUser.objects.get(user=x)
             y = UserContributionModel.objects.get(user=x)
             l1.append({
+                "id": z.id,
                 "name": z.user,
                 "address": z.address,
                 "rating": y.contribution,
