@@ -16,8 +16,9 @@ We are also generating Index which will tell us the urgency to clean that area b
 * Amount of Garbage
 * Water Bodies in that Area
 * Population Density
+* Number of Animals
 
-So that the area which needs higher attention can be baught into notice all this is shown on Heat Map in different shades using Google Maps API
+So that the area which needs higher attention can be brought into notice, all this is shown on Heat Map in different shades using Google Maps API
 
 
 
