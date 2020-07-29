@@ -12,7 +12,6 @@ body {
   align-items: center;
   
 
-
 }
 
 element.style {
@@ -22,7 +21,10 @@ element.style {
 
   margin-left: 0px;
 }
-
+.h2{
+  margin-top: auto;
+  margin-left: auto;
+}
 .text-white {
     color: #fff!important;
     margin-right: 10px !important;
@@ -32,11 +34,20 @@ element.style {
     
     
 }
+table{
+  border-radius: 100px!important;
+}
 .tbdy
 {
     font-weight: normal;
     background-color: aliceblue;
     font-weight: normal;
+    
+}
+.col-8
+{
+  margin-left: auto!important;
+  margin-right: auto!important;
 }
 :root {
     --main-bg-color: #F3F3F3;
