@@ -124,9 +124,7 @@ USE_TZ = True
 
 # ALl this is for development purpose we can store them as environment variables on host platform
 # and then use them for maintaining security
-# STATIC_URL = '/static/'
-SESSION_COOKIE_SECURE = True
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'proj/static/')
 MEDIA_ROOT = BASE_DIR
@@ -139,3 +137,9 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_PASSWORD = "passwordispassword"
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Le5grEZAAAAAGs9w31woX2dqKOcSYGsGvxF41Gu'
 LOGIN_REDIRECT_URL = '/profiles/home'
+
+############################
+# To be enabled in production
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = True
