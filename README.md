@@ -95,7 +95,8 @@ Also have a look at our app
 [Aryan Khandelwal]()   
 [Abhilasha Sinha]()  
 [Amit Dutta]()  
-[Rohan Nishant]()  
+[Rohan Nishant]()
+[Rashi Gupta]()    
 [Shrey Rai]()  
 
 
