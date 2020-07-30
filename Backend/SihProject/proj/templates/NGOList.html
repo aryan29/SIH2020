@@ -13,6 +13,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -66,6 +67,7 @@
               <th>Address</th>
               <th>Rating</th>
               <th>Visit Profile</th>
+              <th>Delete</th>
               
             
 
@@ -79,6 +81,10 @@
               <td>{{i.address}}</td>
               <td>{{i.rating}}</td>
               <td><button><a href="/gov-update-rating?name={{i.name}}">Visit</a></button></td>
+              <form id="delete">
+              <input type="hidden" name="name" id="deletename" value="{{i.name}}">
+              <td><button type="submit">Delete</button></td>
+              </form>
               <!-- redirects to update.html -->
               
             </tr>
@@ -91,7 +97,32 @@
 
 </div>
  
-
+<script>
+  // alert("JS Working");
+  $(document).on("submit","#delete",function(e){
+      //  alert("AJAX Working");
+    //  alert($('#deletename').val()); 
+      $.ajax({
+          type:"POST",
+          url:"",
+          data:{
+              name:$('#deletename').val(),
+              csrfmiddlewaretoken: '{{ csrf_token }}'
+          },
+          success:function(res){
+              console.log(res);
+              if(res==200)
+              {
+                  alert("NGO succssfully Deleted");
+              }
+              else
+              {
+                  alert("Invalid Request");
+              }
+          }
+      })
+  })
+  </script>
 
 
 </body>

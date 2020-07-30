@@ -270,6 +270,20 @@ def GetLocationList(request):
 def GetAllRegisteredNGOs(request):
     # print("Here we Are")
     # Will Give Government the list of all registered NGOs
+    try:
+        print(request.POST)
+        if(request.POST.get("name")):
+            print(request.POST.get("name"))
+            try:
+                uid = request.POST.get("name")
+                user = User.objects.get(username=uid)
+                user.delete()
+                return HttpResponse(200)
+            except:
+                return HttpResponse(500)
+    except:
+        HttpResponse(500)
+
     if(request.method == "GET"):
         li = User.objects.filter(groups__name='NGO')
         print(li)
@@ -426,7 +440,7 @@ def compute_distance(x, y, u, v):
     return dist
 
 
-@csrf_exempt
+# @csrf_exempt
 @allowed_users(allowed_roles=['Government'])
 def UpdateRating(request):
     if(request.GET.get('mybtn2')):
@@ -491,8 +505,6 @@ def GetRatingHistory(request):
         model = UserContributionModel.objects.get(user=user)
         print(model.field_history)
         return HttpResponse(200)
-
-    # Get field history for particular ngo
 
 
 def RunDaily(request):
