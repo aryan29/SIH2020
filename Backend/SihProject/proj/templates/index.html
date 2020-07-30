@@ -17,6 +17,8 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAaGzlR9XHDGvdBHn2ZpHl7RU_tWMgil0&callback=initMap&libraries=visualization"
         defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{%static 'css/ast-notif.css' %}" />
+<script src="{%static 'js/ast-notif.js' %}"></script>
     <title>Vishudh | We are Here for India's Waste Problem</title>
     <style>
         #block-wrp {
@@ -570,6 +572,7 @@
     </footer>
 </body>
 <script>
+
     // alert("JS Working");
     $(document).on("submit","#query_form",function(e){
         // alert("AJAX Working");
@@ -587,11 +590,49 @@
                 console.log(res);
                 if(res==200)
                 {
-                    alert("We Will contact you soon");
+                    // alert("We Will contact you soon");
+                    AstNotif.notify('Message Sent', 'We Will contact you soon', {
+  // Background and text color
+  bgcolor:"white",
+  color: "white",
+  // Using icon?
+  icon: true,
+  // Custom icon image
+  imgIcon:"{% static 'img/error_putih_garis.png'%}",
+  // Font awesome, please strip the "fa-" from the argument
+  fa: "",
+  // Length the notify object, -1 for stay forever
+  length: 3000,
+  // Transparency
+  alpha: 0.8,
+  // Efek lebay *special effect
+  lebayify: 0,
+  // Position
+  position: "right"
+});
                 }
                 else
                 {
-                    alert("Invalid Form");
+                    // alert("Invalid Form");
+                    AstNotif.notify('Invalid Form', 'Please check form and submit again', {
+  // Background and text color
+  bgcolor:"white",
+  color: "white",
+  // Using icon?
+  icon: true,
+  // Custom icon image
+  imgIcon:"{% static 'img/error_putih_garis.png'%}",
+  // Font awesome, please strip the "fa-" from the argument
+  fa: "",
+  // Length the notify object, -1 for stay forever
+  length: 3000,
+  // Transparency
+  alpha: 0.8,
+  // Efek lebay *special effect
+  lebayify: 0,
+  // Position
+  position: "right"
+});
                 }
             }
         })
