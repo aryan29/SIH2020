@@ -80,10 +80,7 @@
               <td>{{i.address}}</td>
               <td>{{i.rating}}</td>
               <td><button><a href="/gov-update-rating?name={{i.name}}">Visit</a></button></td>
-              <form id="delete">
-              <input type="hidden" name="name" id="deletename" value="{{i.name}}">
-              <td><button type="submit">Delete</button></td>
-              </form>
+              <td><button type="submit" class="delete" data="{{i.name}}">Delete</button></td>
               <!-- redirects to update.html -->
               
             </tr>
@@ -97,8 +94,11 @@
 </div>
  
 <script>
-  $(document).on("submit","#delete",function(e){
+  $(".delete").on("click",function(e){
+    var x=$(this).attr("data");
+    console.log(x);
     e.preventDefault();
+    console.log()
     AstNotif.dialog('Delete', 'NGO successfullt delete', {
   // 'dark', 'success', 'danger', 'warning', 'primary', 'info', 'default'
   theme: 'default',
@@ -126,7 +126,7 @@
           url:"",
            async: false, //solution
           data:{
-              name:$('#deletename').val(),
+              name:x,
               csrfmiddlewaretoken: '{{ csrf_token }}'
           },
           success:function(res){

@@ -275,7 +275,7 @@ def GetAllRegisteredNGOs(request):
                         uid = request.POST.get("name")
                         user = User.objects.get(username=uid)
                         print(user)
-                        # user.delete()
+                        user.delete()
                         return HttpResponse(200)
                     except:
                         return HttpResponse(500)
@@ -293,15 +293,18 @@ def GetAllRegisteredNGOs(request):
                     y = UserContributionModel.objects.get(user=x)
                     l1.append({
                         "id": z.id,
-                        "name": z.user,
+                        "name": z.user.username,
                         "address": z.address,
                         "rating": y.contribution,
                         "workCompleted": y.workCompleted
                     })
                 print(l1)
+                print("Done")
                 return render(request, 'NGOList.html', {"list": l1})
-        return HttpResponse(500)
-    except:
+            else:
+                return HttpResponse(500)
+    except Exception as e:
+        print(e)
         return HttpResponse(500)
 
 
