@@ -260,16 +260,10 @@ def GetLocationList(request):
         # Show All Images that are not completed and atleast 1 month old
         obj = ActiveArea.objects.filter(
             Q(completed=False) & Q(timestamp__lte=datetime.now()-timedelta(days=days)))
-
-        # print(obj)
-
         return render(request, 'gov.html', {"list": obj})
 
 
-# @allowed_users(allowed_roles=['Government'])
 def GetAllRegisteredNGOs(request):
-    # print("Here we Are")
-    # Will Give Government the list of all registered NGOs
     try:
         print(request.POST)
         if(request.POST.get("name")):

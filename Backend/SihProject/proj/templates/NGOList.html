@@ -14,6 +14,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="{%static 'css/ast-notif.css' %}" />
+  <script src="{%static 'js/ast-notif.js' %}"></script>
 </head>
 
 <body>
@@ -96,26 +98,72 @@
  
 <script>
   $(document).on("submit","#delete",function(e){
+    e.preventDefault();
       $.ajax({
           type:"POST",
           url:"",
+          async: false, //solution
           data:{
               name:$('#deletename').val(),
               csrfmiddlewaretoken: '{{ csrf_token }}'
           },
           success:function(res){
-              console.log(res);
+
               if(res==200)
               {
-                  alert("NGO succssfully Deleted");
+                AstNotif.dialog('Delete', 'NGO successfullt delete', {
+  // 'dark', 'success', 'danger', 'warning', 'primary', 'info', 'default'
+  theme: 'default',
+  bgheadcolor: "white",
+  bgbodycolor: "white",
+  bgfootercolor: "white",
+  color: "red",
+  // Has icons?
+  icon: true,
+  // Custom icon image
+  imgIcon: "{% static 'img/error_putih_garis.png'%}",
+  // Icon size
+  iconSize: "48px",
+  // OK button text
+  positive: "OK",
+  // Cancel button text
+  negative: "Cancel",
+  // Font awesome class without "fa-"
+  fa: "",
+  // Efek lebay *special effect
+  lebayify: 0
+});
               }
               else
               {
-                  alert("Invalid Request");
+                AstNotif.dialog('Error', 'This ngo does not exist', {
+  // 'dark', 'success', 'danger', 'warning', 'primary', 'info', 'default'
+  theme: 'default',
+  bgheadcolor: "white",
+  bgbodycolor: "white",
+  bgfootercolor: "white",
+  color: "red",
+  // Has icons?
+  icon: true,
+  // Custom icon image
+  imgIcon: "{% static 'img/error_putih_garis.png'%}",
+  // Icon size
+  iconSize: "48px",
+  // OK button text
+  positive: "OK",
+  // Cancel button text
+  negative: "Cancel",
+  // Font awesome class without "fa-"
+  fa: "",
+  // Efek lebay *special effect
+  lebayify: 0
+});
               }
+              window.location.reload();
           }
       })
   })
+
   </script>
 
 
