@@ -16,6 +16,7 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAaGzlR9XHDGvdBHn2ZpHl7RU_tWMgil0&callback=initMap&libraries=visualization"
         defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Vishudh | We are Here for India's Waste Problem</title>
     <style>
         #block-wrp {
@@ -61,16 +62,16 @@
         <div class="navigation__background">&nbsp;</div>
         <nav class="navigation__nav">
             <ul class="navigation__list">
-                <li class="navigation__item"><a href="/home/" class="navigation__link"><span>01</span>Home</a></li>
+                <li class="navigation__item"><a href="/" class="navigation__link"><span>01</span>Home</a></li>
                 <li class="navigation__item"><a href="/login/" class="navigation__link"><span>02</span>
                         Login</a>
                 </li>
-                <li class="navigation__item"><a href="./home.html" class="navigation__link"><span>03</span>Our
+                <li class="navigation__item"><a href="/home/" class="navigation__link"><span>03</span>Our
                         Project</a>
                 </li>
                 <li class="navigation__item"><a href="#trending-news" class="navigation__link"><span>04</span>Trending
                         News</a></li>
-                <li class="navigation__item"><a href="./aboutUs.html" class="navigation__link"><span>05</span>Contact
+                <li class="navigation__item"><a href="#query_form" class="navigation__link"><span>05</span>Contact
                         Us</a>
                 </li>
             </ul>
@@ -449,7 +450,7 @@
             <div class="row">
                 <div class="book">
                     <div class="book__form">
-                        <form action="http://http://0.0.0.0:8000/query/" class="form" method="post">
+                        <form class="form" id="query_form">
                             <div class="u-margin-bottom-medium">
                                 <h2 class="heading-secondary">
                                     Contact Us
@@ -567,5 +568,32 @@
         </div>
     </footer>
 </body>
-
+<script>
+    // alert("JS Working");
+    $(document).on("submit","#query_form",function(e){
+        // alert("AJAX Working");
+        e.preventDefault();
+        $.ajax({
+            type:"POST",
+            url:"/query/",
+            data:{
+                name:$('#name').val(),
+                email:$('#email').val(),
+                message:$('#message').val()
+    
+            },
+            success:function(res){
+                console.log(res);
+                if(res==200)
+                {
+                    alert("We Will contact you soon");
+                }
+                else
+                {
+                    alert("Invalid Form");
+                }
+            }
+        })
+    })
+    </script>
 </html>
