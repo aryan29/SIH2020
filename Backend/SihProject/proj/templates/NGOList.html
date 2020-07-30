@@ -99,70 +99,90 @@
 <script>
   $(document).on("submit","#delete",function(e){
     e.preventDefault();
+    AstNotif.dialog('Delete', 'NGO successfullt delete', {
+  // 'dark', 'success', 'danger', 'warning', 'primary', 'info', 'default'
+  theme: 'default',
+  bgheadcolor: "white",
+  bgbodycolor: "white",
+  bgfootercolor: "white",
+  color: "red",
+  // Has icons?
+  icon: true,
+  // Custom icon image
+  imgIcon: "{% static 'img/error_putih_garis.png'%}",
+  // Icon size
+  iconSize: "48px",
+  // OK button text
+  positive: "OK",
+  // Cancel button text
+  negative: "Cancel",
+  // Font awesome class without "fa-"
+  fa: "",
+  // Efek lebay *special effect
+  lebayify: 0
+},()=>{
       $.ajax({
           type:"POST",
           url:"",
-          async: false, //solution
+           async: false, //solution
           data:{
               name:$('#deletename').val(),
               csrfmiddlewaretoken: '{{ csrf_token }}'
           },
           success:function(res){
+            
+if(res==200)
+{
+  setTimeout(function(){// wait for 5 secs(2)
+           location.reload(); // then reload the page.(3)
+      }, 3000); 
+  AstNotif.notify('Deleted', 'NGO Successfully Deleted', {
+  // Background and text color
+  bgcolor:"white",
+  color: "white",
+  // Using icon?
+  icon: true,
+  // Custom icon image
+  imgIcon:"{% static 'img/error_putih_garis.png'%}",
+  // Font awesome, please strip the "fa-" from the argument
+  fa: "",
+  // Length the notify object, -1 for stay forever
+  length: 3000,
+  // Transparency
+  alpha: 0.8,
+  // Efek lebay *special effect
+  lebayify: 0,
+  // Position
+  position: "right"
+});
 
-              if(res==200)
-              {
-                AstNotif.dialog('Delete', 'NGO successfullt delete', {
-  // 'dark', 'success', 'danger', 'warning', 'primary', 'info', 'default'
-  theme: 'default',
-  bgheadcolor: "white",
-  bgbodycolor: "white",
-  bgfootercolor: "white",
-  color: "red",
-  // Has icons?
+}
+else
+  {
+    AstNotif.notify('Error', 'This NGO does not exist', {
+  // Background and text color
+  bgcolor:"white",
+  color: "white",
+  // Using icon?
   icon: true,
   // Custom icon image
-  imgIcon: "{% static 'img/error_putih_garis.png'%}",
-  // Icon size
-  iconSize: "48px",
-  // OK button text
-  positive: "OK",
-  // Cancel button text
-  negative: "Cancel",
-  // Font awesome class without "fa-"
+  imgIcon:"{% static 'img/error_putih_garis.png'%}",
+  // Font awesome, please strip the "fa-" from the argument
   fa: "",
+  // Length the notify object, -1 for stay forever
+  length: 3000,
+  // Transparency
+  alpha: 0.8,
   // Efek lebay *special effect
-  lebayify: 0
+  lebayify: 0,
+  // Position
+  position: "right"
 });
               }
-              else
-              {
-                AstNotif.dialog('Error', 'This ngo does not exist', {
-  // 'dark', 'success', 'danger', 'warning', 'primary', 'info', 'default'
-  theme: 'default',
-  bgheadcolor: "white",
-  bgbodycolor: "white",
-  bgfootercolor: "white",
-  color: "red",
-  // Has icons?
-  icon: true,
-  // Custom icon image
-  imgIcon: "{% static 'img/error_putih_garis.png'%}",
-  // Icon size
-  iconSize: "48px",
-  // OK button text
-  positive: "OK",
-  // Cancel button text
-  negative: "Cancel",
-  // Font awesome class without "fa-"
-  fa: "",
-  // Efek lebay *special effect
-  lebayify: 0
-});
-              }
-              window.location.reload();
           }
       })
-  })
+});
+})
 
   </script>
 

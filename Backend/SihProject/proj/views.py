@@ -38,7 +38,7 @@ def HomeView(request):
         if(x.user.groups.all()[0].name == "NGO"):
             l1.append(x)
             l2.append(x.user)
-            l3.append(AppUser(user=x.user))
+            l3.append(AppUser.objects.get(user=x.user))
             c += 1
             if(c == 3):
                 break
@@ -55,7 +55,7 @@ def HomeView(request):
         x2 = x2[0]
     if(len(l1) > 2):
         x3 = {"name": l2[2].username, "contribution": l1[2].contribution,
-              "address": l3[2].address, "mobile": l3[2].mob}
+              "address": l3[2].address, "mobile": l3[2].mob},
         x3 = x3[0]
     return render(request, 'index.html', {"li": {"one": x1, "two": x2, "three": x3}})
 
@@ -256,7 +256,7 @@ def activate(request, uidb64, token):
 @allowed_users(allowed_roles=['Government'])
 def GetLocationList(request):
     if(request.method == "GET"):
-        days = 1
+        days = 15
         # Show All Images that are not completed and atleast 1 month old
         obj = ActiveArea.objects.filter(
             Q(completed=False) & Q(timestamp__lte=datetime.now()-timedelta(days=days)))
@@ -265,36 +265,44 @@ def GetLocationList(request):
 
 def GetAllRegisteredNGOs(request):
     try:
-        print(request.POST)
-        if(request.POST.get("name")):
-            print(request.POST.get("name"))
+        print(request.user.groups.all()[0].name)
+        if(request.user.groups.all()[0].name == "Government"):
             try:
-                uid = request.POST.get("name")
-                user = User.objects.get(username=uid)
-                user.delete()
-                return HttpResponse(200)
+                print(request.POST)
+                if(request.POST.get("name")):
+                    print(request.POST.get("name"))
+                    try:
+                        uid = request.POST.get("name")
+                        user = User.objects.get(username=uid)
+                        print(user)
+                        # user.delete()
+                        return HttpResponse(200)
+                    except:
+                        return HttpResponse(500)
             except:
-                return HttpResponse(500)
+                HttpResponse(500)
+
+            if(request.method == "GET"):
+                print("Inside Get Request")
+                li = User.objects.filter(groups__name='NGO')
+                print(li)
+
+                l1 = []
+                for x in li:
+                    z = AppUser.objects.get(user=x)
+                    y = UserContributionModel.objects.get(user=x)
+                    l1.append({
+                        "id": z.id,
+                        "name": z.user,
+                        "address": z.address,
+                        "rating": y.contribution,
+                        "workCompleted": y.workCompleted
+                    })
+                print(l1)
+                return render(request, 'NGOList.html', {"list": l1})
+        return HttpResponse(500)
     except:
-        HttpResponse(500)
-
-    if(request.method == "GET"):
-        li = User.objects.filter(groups__name='NGO')
-        print(li)
-
-        l1 = []
-        for x in li:
-            z = AppUser.objects.get(user=x)
-            y = UserContributionModel.objects.get(user=x)
-            l1.append({
-                "id": z.id,
-                "name": z.user,
-                "address": z.address,
-                "rating": y.contribution,
-                "workCompleted": y.workCompleted
-            })
-        print(l1)
-        return render(request, 'NGOList.html', {"list": l1})
+        return HttpResponse(500)
 
 
 @allowed_users(allowed_roles=['NGO'])
@@ -314,7 +322,7 @@ def NGOsHomePage(request):
         print(len(li))
         return render(request, "view-area.html", {"args": li})
     review_not_comp = ActiveArea.objects.filter(
-        Q(completed=False) & Q(reviewed=False))
+        Q(completed=False) & Q(reviewed=False)).order_by("-index")
     return render(request, 'ngo.html', {"list": review_not_comp})
 
 
@@ -348,16 +356,10 @@ def NGOProfilePage(request):
         obj2.save()
     if(request.GET.get('mybtn2')):
         i = request.GET.get('id')
-        # Which Area Object is clicked
-        # Get all Active Images linked to this one
-        # And show them
         obj = ActiveArea.objects.get(pk=i)
         li = obj.activeimages_set.all()
         print(len(li))
         return render(request, "view-area.html", {"args": li})
-
-    # args1 = ActiveArea.objects.filter(
-    #     Q(ngoName=request.user))
     args1 = request.user.activearea_set.all()
     args2 = AppUser.objects.get(user=request.user)
     args3 = UserContributionModel.objects.get(user=request.user)
@@ -389,8 +391,6 @@ def NGOProfilePage(request):
 
     args["imagesActive"] = li
     args["imagesCompleted"] = li2
-    # print(args)
-
     return render(request, 'NGOProfile.html', {"list": args})
 
 
@@ -420,12 +420,10 @@ def NGOLeaderboard(request):
 
 
 def compute_distance(x, y, u, v):
-
     slat = radians(float(x))
     slon = radians(float(y))
     elat = radians(float(u))
     elon = radians(float(v))
-
     dist = 1000 * 6371.01 * \
         acos(sin(slat)*sin(elat) + cos(slat)*cos(elat)*cos(slon - elon))
     return dist
@@ -499,49 +497,54 @@ def GetRatingHistory(request):
 
 
 def RunDaily(request):
+    try:
+        if(request.user.is_superuser == True):
+            #########################################
+            # The images which dont have parents assign them parent if they belongs
+            # to some active area
+            li = ActiveImages.objects.filter(area=None)
+            for obj in li:
+                print(obj.pk)
+                # If there is
+                err = 0.1
+                l = ActiveArea.objects.filter(Q(completed=False) &
+                                              Q(lat__lte=(obj.lat+err)) & Q(lat__gte=(obj.lat-err)) & Q(lon__lte=(obj.lon+err)) & Q(lon__gte=(obj.lon-err)))
+                if(len(l) > 0):
+                    print(obj.pk, "Assigned to Some Area")
+                    elem = l[0]
+                    # Modify This object
+                    elem.index = elem.index+35+10*obj.animals
+                    elem.save()
+                    obj.area = elem
+                    obj.save()
 
-    #########################################
-    # The images which dont have parents assign them parent if they belongs
-    # to some active area
+                # elem.
+            print("1st part done\n")
+            lat, lon, ind, keys = GetUnAssignedIndexes()
+            print("2nd part done\n")
 
-    li = ActiveImages.objects.filter(area=None)
-    for obj in li:
-        print(obj.pk)
-        # If there is
-        err = 0.1
-        l = ActiveArea.objects.filter(Q(completed=False) &
-                                      Q(lat__lte=(obj.lat+err)) & Q(lat__gte=(obj.lat-err)) & Q(lon__lte=(obj.lon+err)) & Q(lon__gte=(obj.lon-err)))
-        if(len(l) > 0):
-            print(obj.pk, "Assigned to Some Area")
-            elem = l[0]
-            # Modify This object
-            elem.index = elem.index+35+10*obj.animals
-            elem.save()
-            obj.area = elem
-            obj.save()
-
-        # elem.
-    print("1st part done\n")
-    lat, lon, ind, keys = GetUnAssignedIndexes()
-    print("2nd part done\n")
-
-    #########################################
-    for i in range(len(lat)):
-        try:
-            o1 = ActiveArea.objects.create(
-                lat=lat[i],
-                lon=lon[i],
-                index=ind[i],
-            )
-            for j in range(len(keys[i])):
-                obj = ActiveImages.objects.get(pk=keys[i][j])
-                obj.area = o1
-                obj.save()
-            print(o1.activeimages_set.all())
-            print("Work Completed\n")
-        except Exception as e:
-            print("Some Error Occured")
-            print(e)
+            #########################################
+            for i in range(len(lat)):
+                try:
+                    o1 = ActiveArea.objects.create(
+                        lat=lat[i],
+                        lon=lon[i],
+                        index=ind[i],
+                    )
+                    for j in range(len(keys[i])):
+                        obj = ActiveImages.objects.get(pk=keys[i][j])
+                        obj.area = o1
+                        obj.save()
+                    print(o1.activeimages_set.all())
+                    print("Work Completed\n")
+                except Exception as e:
+                    print("Some Error Occured")
+                    print(e)
+            return HttpResponse(200)
+        else:
+            return HttpResponse(500)
+    except:
+        HttpResponse(500)
 
     #####################################################
 
