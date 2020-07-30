@@ -315,9 +315,6 @@ def NGOsHomePage(request):
         z.save()
     if(request.GET.get('mybtn2')):
         i = request.GET.get('id')
-        # Which Area Object is clicked
-        # Get all Active Images linked to this one
-        # And show them
         obj = ActiveArea.objects.get(pk=i)
         li = obj.activeimages_set.all()
         print(len(li))
