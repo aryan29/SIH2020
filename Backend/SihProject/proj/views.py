@@ -486,9 +486,11 @@ def UpdateRating(request):
 
 def GetRatingHistory(request):
     if(request.method == "GET"):
-        id = request.GET.get("id")
-        model = UserContributionModel.objects.get(pk=id)
-        return model.field_history
+        uid = request.GET.get("name")
+        user = User.objects.get(username=uid)
+        model = UserContributionModel.objects.get(user=user)
+        print(model.field_history)
+        return HttpResponse(200)
 
     # Get field history for particular ngo
 
