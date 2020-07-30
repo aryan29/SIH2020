@@ -44,7 +44,14 @@ The App Also Allows user to view Nearby NGO Registered as well as non registered
 Add Website ScreenShots here
 
 ## Implementation
-Database Schema Here
+![](ReadmeAssets/ProductDesign.jpeg)
+This is how the database schema looks like for now   
+For Now We have same User Model for Users,NGOs and Government with
+different permission for everyone by seperating them with different group   
+But We are ready to seperate it in future if the demand arrives  
+
+ML Model Implementation
+
 
 ### So How Everything Works
 So everything starts when we get Images at server either from Drones or Users using our app 
