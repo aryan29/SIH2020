@@ -43,7 +43,7 @@ urlpatterns = [
          getActiveImagesData.as_view(), name='admin-data'),
     path('api/admin/getPlottingData',
          getDataPlotting.as_view(), name='admin-plot-data'),
-    path('api/gov-update-rating', UpdateRating, name='update-rating'),
+    path('gov-update-rating', UpdateRating, name='update-rating'),
     path('get-rating-history/', GetRatingHistory, name='rating history'),
     path('api/register/', UserRegisterMobile, name='mobile-register'),
     path('gov-reviewed/', GetLocationList, name='reviewed'),

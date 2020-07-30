@@ -426,16 +426,62 @@ def compute_distance(x, y, u, v):
     return dist
 
 
+@csrf_exempt
 @allowed_users(allowed_roles=['Government'])
 def UpdateRating(request):
-    if(request.method == "POST"):
-        id = request.POST.get("id")
-        rating = request.POST.get("rating")
-        obj = User.objects.get(pk=id)
-        uc = UserContributionModel(user=obj)
-        uc += rating
-        uc.save()
-        return HttpResponse(200)
+    if(request.GET.get('mybtn2')):
+        i = request.GET.get('id')
+        obj = ActiveArea.objects.get(pk=i)
+        li = obj.activeimages_set.all()
+        return render(request, "view-area.html", {"args": li})
+
+    if(request.POST.get('Rating')):
+        rating = request.POST.get('Rating')
+        uid = request.POST.get('name')
+        print(rating)
+        print(uid)
+        myuser = User.objects.get(username=uid)
+        args3 = UserContributionModel.objects.get(user=myuser)
+        args3.contribution = rating
+        args3.save()
+
+    if(request.GET.get('name')):
+        uid = request.GET.get('name')
+        myuser = User.objects.get(username=uid)
+        args1 = myuser.activearea_set.all()
+        args2 = AppUser.objects.get(user=myuser)
+        args3 = UserContributionModel.objects.get(user=myuser)
+        args = {
+            "name": args2.user,
+            "address": args2.address,
+            "mob": args2.mob,
+            "email": request.user.email,
+            "rating": args3.contribution,
+            "workCompleted": args3.workCompleted,
+        }
+        li = []
+        li2 = []
+        for x in args1:
+            if(x.completed == False):
+                li.append({
+                    "lat": x.lat,
+                    "lon": x.lon,
+                    "timestamp": x.timestamp,
+                    "id": x.pk,
+                })
+            else:
+                li2.append({
+                    "lat": x.lat,
+                    "lon": x.lon,
+                    "timestamp": x.timestamp,
+                    "id": x.pk
+                })
+
+        args["imagesActive"] = li
+        args["imagesCompleted"] = li2
+    # print(args)
+
+    return render(request, 'UpdateRating.html', {"list": args})
 
 
 def GetRatingHistory(request):
