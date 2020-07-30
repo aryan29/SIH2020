@@ -4,13 +4,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color:black!important;
+  color:black;
   
 }
 body {
  
   background: #15151E;
-  color: rgba(85, 119, 88, 0.9)!important;
+  color: rgba(85, 119, 88, 0.9);
   font-family: 'Rubik', sans-serif;
   /* center the table horizontally */
   display: flex;
@@ -27,8 +27,8 @@ body {
   
 }
 
-thead {
- background-color: #eee;
+THEAD {
+ background-color: rgb(10, 8, 8);
 }
 
 table {
