@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,472 +11,561 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAaGzlR9XHDGvdBHn2ZpHl7RU_tWMgil0&callback=initMap&libraries=visualization"
+        defer></script>
     <title>Vishudh | We are Here for India's Waste Problem</title>
+    <style>
+        #block-wrp {
+            width: 784px;
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        #block-wrp .block-item {
+            height: 400px;
+            width: 48%;
+            position: relative;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            -webkit-flex-direction: column
+        }
+
+        #block-wrp .block-item .map-item {
+            height: 90%
+        }
+
+        #block-wrp .block-item span.city-name {
+            text-align: center;
+            color: #000;
+            text-transform: uppercase;
+            font-weight: bold;
+            background: #a2ccff;
+            height: 10%;
+            line-height: 2em;
+        }
+    </style>
 </head>
 
 <body>
-<div class="navigation">
-    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-    <label for="navi-toggle" class="navigation__button">
-        <span class="navigation__icon">&nbsp;</span>
-    </label>
-    <div class="navigation__background">&nbsp;</div>
-    <nav class="navigation__nav">
-        <ul class="navigation__list">
-            <li class="navigation__item"><a href="/home/" class="navigation__link"><span>01</span>Home</a></li>
-            <li class="navigation__item"><a href="/login/" class="navigation__link"><span>02</span>
-                Login</a>
-            </li>
-            <li class="navigation__item"><a href="./home.html" class="navigation__link"><span>03</span>Our Service in
-                Detail</a>
-            </li>
-            <li class="navigation__item"><a href="#trending-news" class="navigation__link"><span>04</span>Trending
-                News</a></li>
-            <li class="navigation__item"><a href="./aboutUs.html" class="navigation__link"><span>05</span>About Us</a>
-            </li>
-        </ul>
-    </nav>
-</div>
-
-<header class="header">
-    <div class="header__logo-box">
-        <img src="{%static 'img/logo-white.png'%}" alt="Logo" class="header__logo">
+    <div class="navigation">
+        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+        <label for="navi-toggle" class="navigation__button">
+            <span class="navigation__icon">&nbsp;</span>
+        </label>
+        <div class="navigation__background">&nbsp;</div>
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="/home/" class="navigation__link"><span>01</span>Home</a></li>
+                <li class="navigation__item"><a href="/login/" class="navigation__link"><span>02</span>
+                        Login</a>
+                </li>
+                <li class="navigation__item"><a href="./home.html" class="navigation__link"><span>03</span>Our
+                        Project</a>
+                </li>
+                <li class="navigation__item"><a href="#trending-news" class="navigation__link"><span>04</span>Trending
+                        News</a></li>
+                <li class="navigation__item"><a href="./aboutUs.html" class="navigation__link"><span>05</span>Contact
+                        Us</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
-    <div class="header__text-box">
-        <h1 class="heading-primary">
-            <span class="heading-primary--main">Vishudh</span>
-            <span class="heading-primary--sub">Tackling India's Waste Problem</span>
-        </h1>
-
-        <a href="#section-tours" class="btn btn--white btn--animated">For Government/NGOs</a>
-    </div>
-</header>
-
-<main>
-    <section class="section-about">
-        <div class="u-center-text u-margin-bottom-big">
-            <h2 class="heading-secondary">
-                Our Project in a Glance
-            </h2>
+    <header class="header">
+        <div class="header__logo-box">
+            <img src="{%static 'img/logo-white.png'%}" alt="Logo" class="header__logo">
         </div>
 
-        <div class="row">
-            <div class="col-1-of-2">
-                <h3 class="heading-tertiary u-margin-bottom-small">We are Here for India's Waste Problem</h3>
-                <p class="paragraph">
-                    India collects 50-60% of its 56 million solid waste generated, creating a huge junk of unnoticed
-                    waste and making it one of the largest waste contributors of the world. Our main aim is to bring
-                    the unnoticed waste to the notice of Government officials and interested NGOs, using drone
-                    and vehicular surveillance and even to general public’s intervention.
-                </p>
+        <div class="header__text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary--main">Vishudh</span>
+                <span class="heading-primary--sub">Tackling India's Waste Problem</span>
+            </h1>
 
-                <h3 class="heading-tertiary u-margin-bottom-small">Immediate Collection of Waste</h3>
-                <p class="paragraph">
-                    We aim at providing a solution for efficient waste collection by incorporating in it the innovative
-                    technologies of Machine learning and Geo-tagging. Our project sends notifications to nearest
-                    concerned Government officials and NGOs through a Website and an App, giving higher priority to
-                    areas with more dense and dangerous level of waste accumulation.
-                </p>
+            <a href="#section-tours" class="btn btn--white btn--animated">For Government/NGOs</a>
+        </div>
+    </header>
 
-                <a href="#" class="btn-text">Learn more &rarr;</a>
+    <main>
+        <section class="section-about">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    Our Project in a Glance
+                </h2>
             </div>
-            <div class="col-1-of-2">
-                <div class="composition">
 
-                    <img srcset="{% static 'img/nat-1.jpg' 300w, 'img/nat-1-large.jpg' 1000w %}"
-                         sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
-                         alt="Photo 1"
-                         class="composition__photo composition__photo--p1"
-                         src="{% static 'img/nat-1-large.jpg' %}">
+            <div class="row">
+                <div class="col-1-of-2">
+                    <h3 class="heading-tertiary u-margin-bottom-small">We are Here for India's Waste Problem</h3>
+                    <p class="paragraph">
+                        India collects 50-60% of its 56 million solid waste generated, creating a huge junk of unnoticed
+                        waste and making it one of the largest waste contributors of the world. Our main aim is to bring
+                        the unnoticed waste to the notice of Government officials and interested NGOs, using drone
+                        and vehicular surveillance and even to general public’s intervention.
+                    </p>
 
-                    <img srcset="{% static 'img/nat-2.jpg' 300w, 'img/nat-2-large.jpg' 1000w %}"
-                         sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
-                         alt="Photo 2"
-                         class="composition__photo composition__photo--p2"
-                         src="{% static 'img/nat-2-large.jpg' %}">
+                    <h3 class="heading-tertiary u-margin-bottom-small">Immediate Collection of Waste</h3>
+                    <p class="paragraph">
+                        We aim at providing a solution for efficient waste collection by incorporating in it the
+                        innovative
+                        technologies of Machine learning and Geo-tagging. Our project sends notifications to nearest
+                        concerned Government officials and NGOs through a Website and an App, giving higher priority to
+                        areas with more dense and dangerous level of waste accumulation.
+                    </p>
 
-                    <img srcset="{% static 'img/nat-3.jpg' 300w, 'img/nat-3-large.jpg' 1000w %}"
-                         sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
-                         alt="Photo 3"
-                         class="composition__photo composition__photo--p3"
-                         src="{% static 'img/nat-3-large.jpg' %}">
+                    <a href="#" class="btn-text">Learn more &rarr;</a>
+                </div>
+                <div class="col-1-of-2">
+                    <div class="composition">
 
-                    <!--
+                        <img srcset="{% static 'img/nat-1.jpg' 300w, 'img/nat-1-large.jpg' 1000w %}"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 1"
+                            class="composition__photo composition__photo--p1" src="{% static 'img/nat-1-large.jpg' %}">
+
+                        <img srcset="{% static 'img/nat-2.jpg' 300w, 'img/nat-2-large.jpg' 1000w %}"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 2"
+                            class="composition__photo composition__photo--p2" src="{% static 'img/nat-2-large.jpg' %}">
+
+                        <img srcset="{% static 'img/nat-3.jpg' 300w, 'img/nat-3-large.jpg' 1000w %}"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 3"
+                            class="composition__photo composition__photo--p3" src="{% static 'img/nat-3-large.jpg' %}">
+
+                        <!--
                     <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
                     <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
                     <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
                     -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-features">
-        <div class="u-center-text u-margin-bottom-big">
-            <h2 class="heading-secondary" style="color: #eeeeee">
-                Problems We Have Tackled So Far with our Project
-            </h2>
-        </div>
-        <div class="row">
-            <div class="col-1-of-4">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-world"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Accumulated Unattended Garbage Dumps</h3>
-                    <p class="feature-box__text">
-                        The drones and cameras on Government vehicles, on regular rounds of the cities, will capture
-                        videos, along with automatic location, date and time and directly send it to our main server.
-                        The interested citizens can also capture the images of waste in their nearby locality and send
-                        it through an App.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-1-of-4">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-compass"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Water Pollution from Garbage Dumps</h3>
-                    <p class="feature-box__text">
-                        By looking for water bodies near the garbage dumps, we can monitor for the spread of these
-                        wastes into the water bodies and prevent a great deal of water pollution.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-1-of-4">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-map"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Illegal Transport of Waste through Traffic</h3>
-                    <p class="feature-box__text">
-                        Cameras and Servers, fitted at Highway Toll Booths and other Traffic areas and equipped with
-                        our software can detect waste being transported through trucks, and if it is not permitted or
-                        legalised, can prevent from illegal transport and dumping of wastes.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-1-of-4">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-heart"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Decreasing Involvement of Animals with the Waste
-                        Materials</h3>
-                    <p class="feature-box__text">
-                        Our product automatically counts the number of animals around a garbage dump, therefore alerting
-                        the Government officials of their presence near hazardous wastes, and, so preventing them from
-                        consuming those wastes as well spreading them to other places.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-tours" id="section-tours">
-        <div class="u-center-text u-margin-bottom-big">
-            <h2 class="heading-secondary">
-                Best Performing NGOs
-            </h2>
-        </div>
-
-        <div class="row">
-            <div class="col-1-of-3">
-                <div class="card">
-                    <div class="card__side card__side--front">
-                        <div class="card__picture card__picture--1">
-                            &nbsp;
-                        </div>
-                        <h4 class="card__heading">
-                            <span class="card__heading-span card__heading-span--1">Bhartiya Janta Party</span>
-                        </h4>
-                        <div class="card__details">
-                            <ul>
-                                <li>{{li.one.name}}</li>
-                                <li>{{li.one.address}}</li>
-                                <li>{{li.one.mobile}}</li>
-                            </ul>
-                        </div>
                     </div>
-                    <div class="card__side card__side--back card__side--back-1">
-                        <div class="card__cta">
-                            <div class="card__price-box">
-                                <p class="card__price-only">Ratings:</p>
-                                <p class="card__price-value">{{li.one.contribution}}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-features">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary" style="color: #eeeeee">
+                    Problems We Have Tackled So Far with our Project
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-world"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">Accumulated Unattended Garbage Dumps</h3>
+                        <p class="feature-box__text">
+                            The drones and cameras on Government vehicles, on regular rounds of the cities, will capture
+                            videos, along with automatic location, date and time and directly send it to our main
+                            server.
+                            The interested citizens can also capture the images of waste in their nearby locality and
+                            send
+                            it through an App.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-compass"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">Water Pollution from Garbage Dumps</h3>
+                        <p class="feature-box__text">
+                            By looking for water bodies near the garbage dumps, we can monitor for the spread of these
+                            wastes into the water bodies and prevent a great deal of water pollution.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-map"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">Illegal Transport of Waste through Traffic
+                        </h3>
+                        <p class="feature-box__text">
+                            Cameras and Servers, fitted at Highway Toll Booths and other Traffic areas and equipped with
+                            our software can detect waste being transported through trucks, and if it is not permitted
+                            or
+                            legalised, can prevent from illegal transport and dumping of wastes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-heart"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">Decreasing Involvement of Animals with the
+                            Waste
+                            Materials</h3>
+                        <p class="feature-box__text">
+                            Our product automatically counts the number of animals around a garbage dump, therefore
+                            alerting
+                            the Government officials of their presence near hazardous wastes, and, so preventing them
+                            from
+                            consuming those wastes as well spreading them to other places.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-tours" id="section-tours">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    Best Performing NGOs
+                </h2>
+            </div>
+
+            <div class="row">
+                <div class="col-1-of-3">
+                    <div class="card">
+                        <div class="card__side card__side--front">
+                            <div class="card__picture card__picture--1">
+                                &nbsp;
                             </div>
-                            <a href="#popup" class="btn btn--white">View Profile!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-1-of-3">
-                <div class="card">
-                    <div class="card__side card__side--front">
-                        <div class="card__picture card__picture--2">
-                            &nbsp;
-                        </div>
-                        <h4 class="card__heading">
-                            <span class="card__heading-span card__heading-span--2">The Forest Hiker</span>
-                        </h4>
-                        <div class="card__details">
-                            <ul>
-                                <li>{{ li.two.name }}</li>
-                                <li>{{ li.two.address }}</li>
-                                <li>{{ li.two.mobile }}</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="card__side card__side--back card__side--back-2">
-                        <div class="card__cta">
-                            <div class="card__price-box">
-                                <p class="card__price-only">Ratings: </p>
-                                <p class="card__price-value">{{li.two.contribution}}</p>
+                            <h4 class="card__heading">
+                                <span class="card__heading-span card__heading-span--1">Rank One</span>
+                            </h4>
+                            <div class="card__details">
+                                <ul>
+                                    <li>{{li.one.name}}</li>
+                                    <li>{{li.one.address}}</li>
+                                    <li>{{li.one.mobile}}</li>
+                                </ul>
                             </div>
-                            <a href="#popup" class="btn btn--white">Book now!</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-1-of-3">
-                <div class="card">
-                    <div class="card__side card__side--front">
-                        <div class="card__picture card__picture--3">
-                            &nbsp;
-                        </div>
-                        <h4 class="card__heading">
-                            <span class="card__heading-span card__heading-span--3">The Snow Adventurer</span>
-                        </h4>
-                        <div class="card__details">
-                            <ul>
-                                <li>{{ li.three.name }}</li>
-                                <li>{{ li.three.address }}</li>
-                                <li>{{ li.three.mobile }}</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="card__side card__side--back card__side--back-3">
-                        <div class="card__cta">
-                            <div class="card__price-box">
-                                <p class="card__price-only">Rating:</p>
-                                <p class="card__price-value">{{li.three.contribution}}</p>
+                        <div class="card__side card__side--back card__side--back-1">
+                            <div class="card__cta">
+                                <div class="card__price-box">
+                                    <p class="card__price-only">Ratings:</p>
+                                    <p class="card__price-value">{{li.one.contribution}}</p>
+                                </div>
+                                <a href="#popup" class="btn btn--white">View Profile!</a>
                             </div>
-                            <a href="#popup" class="btn btn--white">Book now!</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-1-of-3">
+                    <div class="card">
+                        <div class="card__side card__side--front">
+                            <div class="card__picture card__picture--2">
+                                &nbsp;
+                            </div>
+                            <h4 class="card__heading">
+                                <span class="card__heading-span card__heading-span--2">Rank Two</span>
+                            </h4>
+                            <div class="card__details">
+                                <ul>
+                                    <li>{{ li.two.name }}</li>
+                                    <li>{{ li.two.address }}</li>
+                                    <li>{{ li.two.mobile }}</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="card__side card__side--back card__side--back-2">
+                            <div class="card__cta">
+                                <div class="card__price-box">
+                                    <p class="card__price-only">Ratings: </p>
+                                    <p class="card__price-value">{{li.two.contribution}}</p>
+                                </div>
+                                <a href="#popup" class="btn btn--white">View Profile!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-1-of-3">
+                    <div class="card">
+                        <div class="card__side card__side--front">
+                            <div class="card__picture card__picture--3">
+                                &nbsp;
+                            </div>
+                            <h4 class="card__heading">
+                                <span class="card__heading-span card__heading-span--3">Rank Three</span>
+                            </h4>
+                            <div class="card__details">
+                                <ul>
+                                    <li>{{ li.three.name }}</li>
+                                    <li>{{ li.three.address }}</li>
+                                    <li>{{ li.three.mobile }}</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="card__side card__side--back card__side--back-3">
+                            <div class="card__cta">
+                                <div class="card__price-box">
+                                    <p class="card__price-only">Rating:</p>
+                                    <p class="card__price-value">{{li.three.contribution}}</p>
+                                </div>
+                                <a href="#popup" class="btn btn--white">View Profile!</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="u-center-text u-margin-top-huge">
-            <a href="#" class="btn btn--green">Discover all tours</a>
-        </div>
-    </section>
+            <div class="u-center-text u-margin-top-huge">
+                <a href="#" class="btn btn--green">Discover all NGOs around You</a>
+            </div>
+        </section>
 
-    <section class="section-stories">
-        <!--        <div class="bg-video">-->
-        <!--            <video class="bg-video__content" autoplay muted loop>-->
-        <!--                <source src="img/video.mp4" type="video/mp4">-->
-        <!--                <source src="img/video.webm" type="video/webm">-->
-        <!--                Your browser is not supported!-->
-        <!--            </video>-->
-        <!--        </div>-->
+        <section class="section-stories">
+            <div class="bg-video">
+                <video class="bg-video__content" autoplay muted loop>
+                    <source src="{% static 'img/video.mp4' %}" type="video/mp4">
+                    <source src="{% static 'img/video.webm' %}" type="video/webm">
+                    Your browser is not supported!
+                </video>
+            </div>
 
-        <div class="u-center-text u-margin-bottom-big" id="trending-news">
-            <h2 class="heading-secondary">
-                Some Trending News around You!!
-            </h2>
-        </div>
+            <div class="u-center-text u-margin-bottom-big" id="trending-news">
+                <h2 class="heading-secondary">
+                    Some Trending News around You!!
+                </h2>
+            </div>
 
+            <div class="row">
+                <div class="story">
+                    <figure class="story__shape">
+                        <img src="{% static 'img/nat-8.jpg' %}" alt="Person on a tour" class="story__img">
+                        <figcaption class="story__caption">by IndiaTV</figcaption>
+                    </figure>
+                    <div class="story__text">
+                        <h3 class="heading-tertiary u-margin-bottom-small">Jamshedpur tops in Waste Management</h3>
+                        <p>
+                            Jamshedpur is the best and the cleanest city, no arguments. So, it tops in the waste
+                            management
+                            category all over India. Proud to be a Jamshedpurian.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="story">
+                    <figure class="story__shape">
+                        <img src="{% static 'img/nat-9.jpg' %}" alt="Person on a tour" class="story__img">
+                        <figcaption class="story__caption">by Dainik Jaagran</figcaption>
+                    </figure>
+                    <div class="story__text">
+                        <h3 class="heading-tertiary u-margin-bottom-small">Once again, Jamshedpur tops in Waste
+                            Management</h3>
+                        <p>
+                            Jamshedpur is the best and the cleanest city, no arguments. So, it tops in the waste
+                            management
+                            category all over India. Proud to be a Jamshedpurian.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="u-center-text u-margin-top-huge">
+                <a href="#" class="btn-text">Read all stories &rarr;</a>
+            </div>
+        </section>
+        <section class="section-stories">
+            <div id="block-wrp">
+                <div class="block-item">
+                    <div id="map" class="map-item"> </div>
+                </div>
+                <div class="block-item" style="float: right;">
+                    <div id="map1" class="map-item"> </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var map, map1;
+                function initMap() {
+                    var heatMapData = [];
+                    var data = [{ "index": 2, "latitude": 80.0, "longitude": 50.0 }, { "index": 35, "latitude": 27.0, "longitude": 90.0 }, { "index": 80, "latitude": 31.14, "longitude": 75.54 }, { "index": 35, "latitude": 31.0, "longitude": 75.5 }, { "index": 7, "latitude": 31.14, "longitude": 72.54 }, { "index": 40, "latitude": 31.0, "longitude": 70.5 }];
+                    for (var i = 0; i < data.length; i++) {
+                        heatMapData[i] = ({ location: new google.maps.LatLng(data[i].latitude, data[i].longitude), weight: data[i].index });
+
+                    }
+
+                    var sanFrancisco = new google.maps.LatLng(30, 75);
+
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: sanFrancisco,
+                        zoom: 5,
+                        //mapTypeId: 'satellite'
+                    });
+
+                    var heatmap = new google.maps.visualization.HeatmapLayer({
+                        data: heatMapData
+                    });
+                    heatmap.setMap(map);
+
+                    var mapOptions = {
+                        zoom: 5,
+                        center: { lat: 30.2856, lng: 70.3059 }
+                    };
+                    map1 = new google.maps.Map(document.getElementById("map1"), mapOptions);
+
+                    var data = [{ "index": 2, "latitude": 80.0, "longitude": 50.0 }, { "index": 3, "latitude": 27.0, "longitude": 90.0 }, { "index": 8, "latitude": 31.14, "longitude": 75.54 }, { "index": 3.5, "latitude": 31.0, "longitude": 75.5 }, { "index": 7, "latitude": 31.14, "longitude": 72.54 }, { "index": 10, "latitude": 31.0, "longitude": 70.5 }];
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        var col = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+                        if (data[i].index >= 0 & data[i].index <= 3.3) {
+                            col = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+                        }
+                        else if (data[i].index > 3.3 & data[i].index <= 7.3) {
+                            col = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+                        }
+
+                        var marker = new google.maps.Marker({
+                            position: { lat: data[i].latitude, lng: data[i].longitude },
+                            map1: map1,
+                            icon: col,
+
+                        });
+
+
+                        var infowindow = new google.maps.InfoWindow({
+                            content: "<p>Marker Location:" + marker.getPosition() + "</p>"
+                        });
+
+
+                        google.maps.event.addListener(marker, "click", function () {
+                            infowindow.open(map1, marker);
+                        });
+                    }
+
+                }
+            </script>
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAaGzlR9XHDGvdBHn2ZpHl7RU_tWMgil0&callback=initMap&libraries=&v=weekly"
+                defer></script>
+        </section>
+        <section class="section-book">
+            <div class="row">
+                <div class="book">
+                    <div class="book__form">
+                        <form action="http://http://0.0.0.0:8000/query/" class="form" method="post">
+                            <div class="u-margin-bottom-medium">
+                                <h2 class="heading-secondary">
+                                    Contact Us
+                                </h2>
+                            </div>
+                            <div class="form__group">
+                                <input type="text" class="form__input" placeholder="Name" id="name" name="name"
+                                    required>
+                                <label for="name" class="form__label">Full name</label>
+                            </div>
+                            <div class="form__group">
+                                <input type="email" class="form__input" placeholder="Email address" id="email"
+                                    name="email" required>
+                                <label for="email" class="form__label">Email address</label>
+                            </div>
+                            <div class="form__group">
+                                <input type="text" class="form__input" placeholder="Message" id="message" name="message"
+                                    required>
+                                <label for="message" class="form__label">Message</label>
+                            </div>
+
+                            <div class="form__group">
+                                <button class="btn btn--green">Notify us to Contact You &rarr;</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
         <div class="row">
-            <div class="story">
-                <figure class="story__shape">
-                    <img src="{%static 'img/nat-8.jpg' %}" alt="Person on a tour" class="story__img">
-                    <figcaption class="story__caption">by IndiaTV</figcaption>
-                </figure>
-                <div class="story__text">
-                    <h3 class="heading-tertiary u-margin-bottom-small">Jamshedpur tops in Waste Management</h3>
-                    <p>
-                        Jamshedpur is the best and the cleanest city, no arguments. So, it tops in the waste management
-                        category all over India. Proud to be a Jamshedpurian.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="story">
-                <figure class="story__shape">
-                    <img src="{%static 'img/nat-9.jpg' %}" alt="Person on a tour" class="story__img">
-                    <figcaption class="story__caption">by Dainik Jaagran</figcaption>
-                </figure>
-                <div class="story__text">
-                    <h3 class="heading-tertiary u-margin-bottom-small">Once again, Jamshedpur tops in Waste
-                        Management</h3>
-                    <p>
-                        Jamshedpur is the best and the cleanest city, no arguments. So, it tops in the waste management
-                        category all over India. Proud to be a Jamshedpurian.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="u-center-text u-margin-top-huge">
-            <a href="#" class="btn-text">Read all stories &rarr;</a>
-        </div>
-    </section>
-
-    <section class="section-book">
-        <div class="row">
-            <div class="book">
-                <div class="book__form">
-                    <form class="form"  id="query_form">
-                        <div class="u-margin-bottom-medium">
-                            <h2 class="heading-secondary">
-                                Contact Us
-                            </h2>
-                        </div>
-                        <div class="form__group">
-                            <input type="text" class="form__input" placeholder="Name" id="name" name="name" required>
-                            <label for="name" class="form__label">Full name</label>
-                        </div>
-
-                        <div class="form__group">
-                            <input type="email" class="form__input" placeholder="Email address" id="email" name="email" required>
-                            <label for="email" class="form__label">Email address</label>
-                        </div>
-                        <div class="form__group">
-                            <input type="text" class="form__input" placeholder="Message" id="message" name="message" required>
-                            <label for="message" class="form__label">Message</label>
-                        </div>
-
-                        <div class="form__group">
-                            <button class="btn btn--green">Notify us to Contact You &rarr;</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer class="footer">
-    <div class="row">
-        <div class="col-1-of-2">
-            <a class="mast-icon" href="https://www.youtube.com/channel/UCAepkrKRuWbiW37R9UxK6pQ?view_as=subscriber"
-               target="_blank">
-                <div class="container">
-                    <div class="cube">
-                        <div class="side back black">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                        <div class="side left grey">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                        <div class="side front grey">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                        <div class="side right grey">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                        <div class="side top grey">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                        <div class="side bottom grey">
-                            <i class="fab fa-youtube"></i>
+            <div class="col-1-of-2">
+                <a class="mast-icon" href="https://www.youtube.com/channel/UCAepkrKRuWbiW37R9UxK6pQ?view_as=subscriber"
+                    target="_blank">
+                    <div class="container">
+                        <div class="cube">
+                            <div class="side back black">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="side left grey">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="side front grey">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="side right grey">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="side top grey">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="side bottom grey">
+                                <i class="fab fa-youtube"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-            <a class="mast-icon" href="https://twitter.com/RohanNishant2" target="_blank">
-                <div class="container">
-                    <div class="cube">
-                        <div class="side back twitter">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                        <div class="side left grey">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                        <div class="side front grey">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                        <div class="side right grey">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                        <div class="side top grey">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                        <div class="side bottom grey">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a class="mast-icon" href="https://www.facebook.com/rohan.nishant.56" target="_blank">
-                <div class="container">
-                    <div class="cube">
-                        <div class="side back facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </div>
-                        <div class="side left grey">
-                            <i class="fab fa-facebook-f"></i>
-                        </div>
-                        <div class="side front grey">
-                            <i class="fab fa-facebook-f"></i>
-                        </div>
-                        <div class="side right grey">
-                            <i class="fab fa-facebook-f"></i>
-                        </div>
-                        <div class="side top grey">
-                            <i class="fab fa-facebook-f"></i>
-                        </div>
-                        <div class="side bottom grey">
-                            <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="mast-icon" href="https://twitter.com/RohanNishant2" target="_blank">
+                    <div class="container">
+                        <div class="cube">
+                            <div class="side back twitter">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="side left grey">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="side front grey">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="side right grey">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="side top grey">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="side bottom grey">
+                                <i class="fab fa-twitter"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+                <a class="mast-icon" href="https://www.facebook.com/rohan.nishant.56" target="_blank">
+                    <div class="container">
+                        <div class="cube">
+                            <div class="side back facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="side left grey">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="side front grey">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="side right grey">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="side top grey">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="side bottom grey">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-1-of-2">
+                <p class="footer__copyright">
+                    Made with <i class="fas fa-heart" style="color: red"></i> by Team "Ctrl Alt Elite". <br>
+                    Design Inspired by Jonas Schmedtmann.
+                </p>
+            </div>
         </div>
-        <div class="col-1-of-2">
-            <p class="footer__copyright">
-                Made with <i class="fas fa-heart" style="color: red"></i> by Team "Ctrl Alt Elite". <br>
-                Design Inspired by Jonas Schmedtmann used for his online course.
-            </p>
-        </div>
-    </div>
-</footer>
-
+    </footer>
 </body>
-<script>
-// alert("JS Working");
-$(document).on("submit","#query_form",function(e){
-    // alert("AJAX Working");
-    e.preventDefault();
-    $.ajax({
-        type:"POST",
-        url:"http://0.0.0.0:8000/query/",
-        data:{
-            name:$('#name').val(),
-            email:$('#email').val(),
-            message:$('#message').val()
 
-        },
-        success:function(res){
-            console.log(res);
-            if(res==200)
-            {
-                alert("We Will contact you soon");
-            }
-            else
-            {
-                alert("Invalid Form");
-            }
-        }
-    })
-})
-</script>
 </html>
