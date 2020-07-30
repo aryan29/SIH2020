@@ -84,18 +84,24 @@ Also have a look at our app
 
 ## Build With
 
-* HTML5
-* CSS(SCSS)
-* JS(Jquey)
-* Django
+* Python
+* Keras
+* TensorFlow
+* OpenCV
 * Flutter
+* Django
+* Google Maps API
+* HTML5
+* SCSS(CSS) 
+* JavaScript(jQuery)
+
 
 ## Authors
 
 [Aryan Khandelwal]()   
 [Abhilasha Sinha]()  
 [Amit Dutta]()  
-[Rohan Nishant]()
+[Rohan Nishant]()    
 [Rashi Gupta]()    
 [Shrey Rai]()  
 
