@@ -14,6 +14,7 @@ from proj.models import UserContributionModel, ActiveImages, AppUser, ActiveArea
 from proj.maps_api import nearbyngo
 from django.db.models import Q
 import threading
+from django.http import JsonResponse
 
 # Token Authentication for Our Mobile App
 # Session Authentication for Our Website
