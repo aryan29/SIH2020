@@ -10,15 +10,15 @@ from django.core.validators import validate_email
 
 class ExtendedUserForm(UserCreationForm):
     email = forms.EmailField(
-        required=True, widget=forms.TextInput(attrs={"class": "input"}))
+        required=True, widget=forms.TextInput(attrs={"class": "input", "placeholder": "Ex:- ak21@gmail.com"}))
     first_name = forms.CharField(
-        max_length=30, required=False, widget=forms.TextInput(attrs={"class": "input"}))
+        max_length=30, required=False, widget=forms.TextInput(attrs={"class": "input", "placeholder": "First Name"}))
     last_name = forms.CharField(
-        max_length=50, required=False, widget=forms.TextInput(attrs={"class": "input"}))
+        max_length=50, required=False, widget=forms.TextInput(attrs={"class": "input", "placeholder": "Last Name"}))
     password1 = forms.CharField(
-        label="Password", widget=forms.PasswordInput(attrs={"class": "input"}))
+        label="Password", widget=forms.PasswordInput(attrs={"class": "input", "placeholder": "Password"}))
     password2 = forms.CharField(
-        label="Confirm Password", widget=forms.PasswordInput(attrs={"class": "input"}))
+        label="Confirm Password", widget=forms.PasswordInput(attrs={"class": "input", "placeholder": "Confirm Password"}))
 
     class Meta:
         model = User
@@ -31,7 +31,7 @@ class ExtendedUserForm(UserCreationForm):
             'password2'
         ]
         widgets = {
-            'username': forms.TextInput(attrs={"class": "input"}),
+            'username': forms.TextInput(attrs={"class": "input", "placeholder": "Username"}),
         }
 
     def clean(self):
@@ -59,8 +59,8 @@ class AppUserForm(ModelForm):
         model = AppUser
         fields = ['mob', 'address']
         widgets = {
-            'mob': forms.TextInput(attrs={"class": "input"}),
-            'address': forms.TextInput(attrs={"class": "input"})
+            'mob': forms.TextInput(attrs={"class": "input", "placeholder": "Ex:- +917906224093"}),
+            'address': forms.TextInput(attrs={"class": "input", "placeholder": "Address"})
         }
 
 
@@ -68,6 +68,6 @@ class MyForm1(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(MyForm1, self).__init__(*args, **kwargs)
     username = forms.CharField(
-        required=True, widget=forms.TextInput(attrs={"class": "input"}))
+        required=True, widget=forms.TextInput(attrs={"class": "input", "placeholder": "Unique Username"}))
     password = forms.CharField(
-        label="Password", widget=forms.PasswordInput(attrs={"class": "input"}))
+        label="Password", widget=forms.PasswordInput(attrs={"class": "input", "placeholder": "Password"}))
