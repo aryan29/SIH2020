@@ -15,7 +15,7 @@ from proj.maps_api import nearbyngo
 from django.db.models import Q
 import threading
 import json
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 
 # Token Authentication for Our Mobile App
 # Session Authentication for Our Website
@@ -125,9 +125,9 @@ class getDataPlotting(APIView):
                 li.append(di)
             l = json.dumps(li)
             print(l)
-            return Response(l, content_type='application/json')
+            return Response(l)
         else:
-            Response("Invalid Password", content_type='application/json')
+            Response("Invalid Password")
 
 
 class CheckImage(APIView):
