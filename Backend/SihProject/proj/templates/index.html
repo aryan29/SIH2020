@@ -6,30 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" -->
+        <!-- integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-
-
     <link rel="stylesheet" href="{% static 'css/icon-font.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-        <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAaGzlR9XHDGvdBHn2ZpHl7RU_tWMgil0&callback=initMap&libraries=&v=weekly"
-        defer
-      ></script>
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAaGzlR9XHDGvdBHn2ZpHl7RU_tWMgil0&callback=initMap&libraries=&v=weekly"
+        defer></script>
+
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAaGzlR9XHDGvdBHn2ZpHl7RU_tWMgil0&callback=initMap&libraries=visualization"
         defer></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="{%static 'css/ast-notif.css' %}" />
-<script src="{%static 'js/ast-notif.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Vishudh | We are Here for India's Waste Problem</title>
     <style>
         #block-wrp {
             width: auto;
-            display: flex;
+            display: flex !important;
             display: -webkit-flex;
             justify-content: space-around;
             flex-wrap: wrap;
@@ -63,7 +62,7 @@
 
 <body>
     <div class="navigation">
-        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+        <input type="checkbox" class="navigation__checkbox" id="navi-toggle" data-toggle="dropdown">
         <label for="navi-toggle" class="navigation__button">
             <span class="navigation__icon">&nbsp;</span>
         </label>
@@ -79,10 +78,11 @@
                 </li>
                 <li class="navigation__item"><a href="#trending-news" class="navigation__link"><span>04</span>Trending
                         News</a></li>
-                <li class="navigation__item"><a href="#query_form" class="navigation__link"><span>05</span>Contact
+                <li class="navigation__item"><a href="#contact" class="navigation__link"><span>05</span>Contact
                         Us</a>
                 </li>
-                <li class="navigation__item"><a href="/ngos-leaderboard/" class="navigation__link"><span>06</span>LeaderBoard</a></li>
+                <li class="navigation__item"><a href="/ngos-leaderboard/"
+                        class="navigation__link"><span>06</span>LeaderBoard</a></li>
             </ul>
         </nav>
     </div>
@@ -252,7 +252,7 @@
                                     <p class="card__price-only">Ratings:</p>
                                     <p class="card__price-value">{{li.one.contribution}}</p>
                                 </div>
-                                <a href="#popup" class="btn btn--white">View Profile!</a>
+                               <!-- <a href="#popup" class="btn btn--white">View Profile!</a>-->
                             </div>
                         </div>
                     </div>
@@ -283,7 +283,7 @@
                                     <p class="card__price-only">Ratings: </p>
                                     <p class="card__price-value">{{li.two.contribution}}</p>
                                 </div>
-                                <a href="#popup" class="btn btn--white">View Profile!</a>
+                                <!--<a href="#popup" class="btn btn--white">View Profile!</a>-->
                             </div>
                         </div>
                     </div>
@@ -314,16 +314,14 @@
                                     <p class="card__price-only">Rating:</p>
                                     <p class="card__price-value">{{li.three.contribution}}</p>
                                 </div>
-                                <a href="#popup" class="btn btn--white">View Profile!</a>
+                               <!-- <a href="#popup" class="btn btn--white">View Profile!</a>-->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="u-center-text u-margin-top-huge">
-                <a href="#" class="btn btn--green">Discover all NGOs around You</a>
-            </div>
+           
         </section>
 
         <section class="section-stories">
@@ -336,9 +334,11 @@
             </div>
 
             <div class="u-center-text u-margin-bottom-big" id="trending-news">
-                <h2 class="heading-secondary" style="font-weight: bold; color: darkgreen;">
-                    Some Trending News around You!!
-                </h2>
+                <span>
+                    <h2 class="heading-secondary" style="font-weight: bold; color: darkgreen;">
+                        Some Trending News around You!!
+                    </h2>
+                </span>
             </div>
 
             <div class="row">
@@ -347,9 +347,10 @@
                         <img src="{% static 'img/nat-8.jpg' %}" alt="Person on a tour" class="story__img">
                         <figcaption class="story__caption">by IndiaTV</figcaption>
                     </figure>
-                    <div class="story__text" style="font-weight: bold; color: darkgreen;">
-                        <h3 class="heading-tertiary u-margin-bottom-small">Jamshedpur tops in Waste Management</h3>
-                        <p>
+                    <div class="story__text">
+                        <h3 class="heading-tertiary u-margin-bottom-small" style="font-weight: bold; color: darkgreen;">
+                            Jamshedpur tops in Waste Management</h3>
+                        <p style="font-weight: bold; color: black;">
                             Jamshedpur is the best and the cleanest city, no arguments. So, it tops in the waste
                             management
                             category all over India. Proud to be a Jamshedpurian.
@@ -364,10 +365,10 @@
                         <img src="{% static 'img/nat-9.jpg' %}" alt="Person on a tour" class="story__img">
                         <figcaption class="story__caption">by Dainik Jaagran</figcaption>
                     </figure>
-                    <div class="story__text" style="font-weight: bold; color: darkgreen;">
-                        <h3 class="heading-tertiary u-margin-bottom-small">Once again, Jamshedpur tops in Waste
-                            Management</h3>
-                        <p>
+                    <div class="story__text">
+                        <h3 class="heading-tertiary u-margin-bottom-small" style="font-weight: bold; color: darkgreen;">
+                            Once again, Jamshedpur tops in Waste Management</h3>
+                        <p style="font-weight: bold; color: black;">
                             Jamshedpur is the best and the cleanest city, no arguments. So, it tops in the waste
                             management
                             category all over India. Proud to be a Jamshedpurian.
@@ -376,21 +377,60 @@
                 </div>
             </div>
 
-            <div class="u-center-text u-margin-top-huge">
+            <div class="u-center-text u-margin-top-huge" style="color: darkblue;">
                 <a href="#" class="btn-text">Read all stories &rarr;</a>
             </div>
         </section>
+        <div>
+            <div class="ju">
+                <div>
+            <div style="text-align: center; font-size: 3rem;">
+                <h3 style="color: lime;">
+                    A Heat Map
+                </h3>
+                <h6>
+                    for a General Overview of the current Waste Mismanagement index in the Country.
+                </h6>
+            </div>
             <div id="block-wrp">
                 <div class="block-item">
                     <div id="map" class="map-item"> </div>
                 </div>
+            </div>
+        </div>
+        <div>
+            <div style="text-align: center; font-size: 3rem;">
+                <h3 style="color: lime;">
+                    A Pin Map
+                </h3>
+                <h6>
+                    for a more Precise Overview of the current index Waste Mismanagement near your Neighbourhood.
+                </h6>
             </div>
             <div id="block-wrp">
                 <div class="block-item" style="float: right;">
                     <div id="map1" class="map-item"> </div>
                 </div>
             </div>
-            <script type="text/javascript">
+        </div>
+        <div>
+            <div style="text-align: center; margin-bottom: 2vh;">
+                <h3 style="color: blue; font-size: 3rem;">
+                    Legends for the Maps
+                </h3>
+                <h6 style="color: red; font-size: 1.5rem;">
+                    Danger - need Immediate Attention!
+                </h6>
+                <h6 style="color: yellow; font-size: 1.5rem;">
+                    Careful - need Attention but not immediately!
+                </h6>
+                <h6 style="color: green; font-size: 1.5rem;">
+                    Clean - the Workers did a Commendable Job..
+                </h6>
+            </div>
+        </div>
+                </div>
+                <script type="text/javascript">
                 var map, marker_center0, map1, marker_center;
                 function initMap() {
                     //heat map
@@ -486,20 +526,19 @@
 
                         });
 
-
                         var infowindow = new google.maps.InfoWindow({
                             content: "<p>Marker Location:" + marker.getPosition() + "</p>"
                         });
-
 
                         google.maps.event.addListener(marker, "click", function () {
                             infowindow.open(map1, marker);
                         });
                     }
-
-
                 }   
             </script>
+                
+                </div>
+
             
         <section class="section-book">
             <div class="row">
@@ -527,14 +566,40 @@
                                 <label for="message" class="form__label">Message</label>
                             </div>
 
-                            <div class="form__group">
-                                <button class="btn btn--green">Notify us to Contact You &rarr;</button>
+                <section class="section-book" id="contact">
+                    <div class="row">
+                        <div class="book">
+                            <div class="book__form">
+                                <form class="form" id="query_form">
+                                    <div class="u-margin-bottom-medium">
+                                        <h2 class="heading-secondary">
+                                            Contact Us
+                                        </h2>
+                                    </div>
+                                    <div class="form__group">
+                                        <input type="text" class="form__input" placeholder="Name" id="name" name="name"
+                                            required>
+                                        <label for="name" class="form__label">Full name</label>
+                                    </div>
+                                    <div class="form__group">
+                                        <input type="email" class="form__input" placeholder="Email address" id="email"
+                                            name="email" required>
+                                        <label for="email" class="form__label">Email address</label>
+                                    </div>
+                                    <div class="form__group">
+                                        <input type="text" class="form__input" placeholder="Message" id="message"
+                                            name="message" required>
+                                        <label for="message" class="form__label">Message</label>
+                                    </div>
+
+                                    <div class="form__group">
+                                        <button class="btn btn--green">Notify us to Contact You &rarr;</button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
     </main>
 
     <footer class="footer">
@@ -626,68 +691,32 @@
 <script>
 
     // alert("JS Working");
-    $(document).on("submit","#query_form",function(e){
+    $(document).on("submit", "#query_form", function (e) {
         // alert("AJAX Working");
         e.preventDefault();
         $.ajax({
-            type:"POST",
-            url:"/query/",
-            data:{
-                name:$('#name').val(),
-                email:$('#email').val(),
-                message:$('#message').val()
-    
+            type: "POST",
+            url: "/query/",
+            data: {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                message: $('#message').val()
+
             },
-            success:function(res){
+            success: function (res) {
                 console.log(res);
-                if(res==200)
-                {
-                    // alert("We Will contact you soon");
-                    AstNotif.notify('Message Sent', 'We Will contact you soon', {
-  // Background and text color
-  bgcolor:"white",
-  color: "white",
-  // Using icon?
-  icon: true,
-  // Custom icon image
-  imgIcon:"{% static 'img/error_putih_garis.png'%}",
-  // Font awesome, please strip the "fa-" from the argument
-  fa: "",
-  // Length the notify object, -1 for stay forever
-  length: 3000,
-  // Transparency
-  alpha: 0.8,
-  // Efek lebay *special effect
-  lebayify: 0,
-  // Position
-  position: "right"
-});
-}
-else
-{
-                    // alert("Invalid Form");
-AstNotif.notify('Invalid Form', 'Please check form and submit again', {
-  // Background and text color
-  bgcolor:"white",
-  color: "white",
-  // Using icon?
-  icon: true,
-  // Custom icon image
-  imgIcon:"{% static 'img/error_putih_garis.png'%}",
-  // Font awesome, please strip the "fa-" from the argument
-  fa: "",
-  // Length the notify object, -1 for stay forever
-  length: 3000,
-  // Transparency
-  alpha: 0.8,
-  // Efek lebay *special effect
-  lebayify: 0,
-  // Position
-  position: "right"
-});
+                if (res == 200) {
+                    alert("We Will contact you soon");
+                }
+                else {
+                    alert("Invalid Form");
                 }
             }
         })
     })
+    
+</script>
+
+</html>
     </script>
 </html>
