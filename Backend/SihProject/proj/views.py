@@ -491,7 +491,7 @@ def UpdateRating(request):
 
 
 def GetRatingHistory(request):
-    if(request.method == "GET"):
+    if(request.method == "POST"):
         uid = request.GET.get("name")
         user = User.objects.get(username=uid)
         model = UserContributionModel.objects.get(user=user)
