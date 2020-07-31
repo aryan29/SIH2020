@@ -3,10 +3,12 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>NGOProfile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/styleHeading.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -15,208 +17,234 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
     <script type="text/javascript">
-      window.onload = function () {
-        var chart = new CanvasJS.Chart("chartContainer",
-        {
-    
-          title:{
-          text: "NGO's Previous Ratings Chart"
-          },
-          axisX: {
-            valueFormatString: "MMM",
-            interval:1,
-            intervalType: "month"
-          },
-          axisY:{
-            includeZero: false
-    
-          },
-          data: [
-          {
-            type: "line",
-    
-            dataPoints: [
-            { x: new Date(2012, 00, 1), y: 3.5 },
-            { x: new Date(2012, 01, 1), y: 3.8},
-              { x: new Date(2012, 02, 1), y: 4.5, indexLabel: "highest",markerColor: "red", markerType: "triangle"},
-            { x: new Date(2012, 03, 1), y: 4.2 },
-            { x: new Date(2012, 04, 1), y: 4.0 },
-            { x: new Date(2012, 05, 1), y: 3.9 },
-            { x: new Date(2012, 06, 1), y: 4.1 },
-            { x: new Date(2012, 07, 1), y: 3.5 },
-            { x: new Date(2012, 08, 1), y: 3.1 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross"},
-            { x: new Date(2012, 09, 1), y: 4.3 },
-            { x: new Date(2012, 10, 1), y: 4.4 },
-            { x: new Date(2012, 11, 1), y: 3.8 }
-            ]
-          }
-          ]
-        });
-    
-        chart.render();
-      }
-      </script>
-     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>  
-  </head>
-  <body>
-   <div class="c">
-   
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-     
-       
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/home/">Our Project<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a href="#p" class="nav-link">
-               Profile</a>
-          </li>
-          <li class="nav-item">
-            <a href="#t1" class="nav-link">
-            Work Undertaken</a>
-          </li>
-           <li class="nav-item">
-            <a href="#t2" class="nav-link">
-             Work completed</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-           
-          <li class="nav-item">
-            <a href="/logout/" class="nav-link">
-              <!-- logout -->
-              <i class="fas fa-sign-out-alt"></i> Logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <header class="header" style="background-color: transparent">
-      <div class="header__text-box" style="background-color: transparent">
-          <h1 class="heading-primary" style="background-color: transparent">
-              <span class="heading-primary--main" style="text-transform: none; font-size: 12rem;">{{list.name}}</span>
-              <span class="heading-primary--sub" style="text-transform: none; font-size: 4rem;">{{list.address}}</span>
-              <span class="heading-primary--sub" style="text-transform: none; font-size: 4rem;">{{list.mob}}</span>
-              <span class="heading-primary--sub" style="text-transform: none; font-size: 4rem;">{{list.email}}</span>
-          </h1>
-      </div>
-  </header>
-  <div id="chartContainer" style="height: 80vh; width: 100%;">
-  </div>
+        window.onload = function() {
+            var chart = new CanvasJS.Chart("chartContainer", {
+
+                title: {
+                    text: "NGO's Previous Ratings Chart"
+                },
+                axisX: {
+                    valueFormatString: "MMM",
+                    interval: 1,
+                    intervalType: "month"
+                },
+                axisY: {
+                    includeZero: false
+
+                },
+                data: [{
+                    type: "line",
+
+                    dataPoints: [{
+                        x: new Date(2012, 00, 1),
+                        y: 3.5
+                    }, {
+                        x: new Date(2012, 01, 1),
+                        y: 3.8
+                    }, {
+                        x: new Date(2012, 02, 1),
+                        y: 4.5,
+                        indexLabel: "highest",
+                        markerColor: "red",
+                        markerType: "triangle"
+                    }, {
+                        x: new Date(2012, 03, 1),
+                        y: 4.2
+                    }, {
+                        x: new Date(2012, 04, 1),
+                        y: 4.0
+                    }, {
+                        x: new Date(2012, 05, 1),
+                        y: 3.9
+                    }, {
+                        x: new Date(2012, 06, 1),
+                        y: 4.1
+                    }, {
+                        x: new Date(2012, 07, 1),
+                        y: 3.5
+                    }, {
+                        x: new Date(2012, 08, 1),
+                        y: 3.1,
+                        indexLabel: "lowest",
+                        markerColor: "DarkSlateGrey",
+                        markerType: "cross"
+                    }, {
+                        x: new Date(2012, 09, 1),
+                        y: 4.3
+                    }, {
+                        x: new Date(2012, 10, 1),
+                        y: 4.4
+                    }, {
+                        x: new Date(2012, 11, 1),
+                        y: 3.8
+                    }]
+                }]
+            });
+
+            chart.render();
+        }
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+
+<body>
+    <div class="c">
+
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/">Our Project<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#p" class="nav-link">
+              Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#t1" class="nav-link">
+              Work Undertaken</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#t2" class="nav-link">
+              Work completed</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a href="/logout/" class="nav-link">
+                            <!-- logout -->
+                            <i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <header class="header" style="background-color: transparent">
+            <div class="header__text-box" style="background-color: transparent">
+                <h1 class="heading-primary" style="background-color: transparent">
+                    <span class="heading-primary--main" style="text-transform: none; font-size: 6vw;">{{list.name}}</span>
+                    <span class="heading-primary--sub" style="text-transform: none; font-size: 2.8vw;">{{list.address}}</span>
+                    <span class="heading-primary--sub" style="text-transform: none; font-size: 2.8vw;">{{list.mob}}</span>
+                    <span class="heading-primary--sub" style="text-transform: none; font-size: 2.8vw;">{{list.email}}</span>
+                </h1>
+            </div>
+        </header>
+        <div id="chartContainer" style="height: 80vh; width: 100%;">
+        </div>
     </div>
-    
-    </div>
-    <h3 style="color: black; text-align: center; margin-top: 18px; margin-bottom: 18px; font-weight: bold;">Kindly mark Completed On The Same Day you completed the work, <br>
-      False Marks could lead to permanent banning of NGO License or Even Worse.
-  </h3>
-  <div class="container-fluid">
-
-      <div class="row" style="margin-left: 10vh"> 
-      <div class="col-8" style="    margin-left: 0 !important;">
-        <h2 style="width: 100vh!important; font-size: 4rem;" class="text-white p-2 "  id="t1"> Work UnderTaken</h2>
-        <div class="container"  style="margin-left:0px!important">
-        <!-- display location of uncleaned areas-->
-        <table class="table mt-3">
-          <thead class="table-dark">
-            <tr>
-              <th style="font-size: 2rem;">SNo.</th>
-              <th style="font-size: 2rem;">Location</th>
-              <th style="font-size: 2rem;">Time</th>
-              <th style="font-size: 2rem;">IsCompleted</th>
-              <th style="font-size: 2rem;">Images</th>
-
-            </tr>
-          </thead>
-          <tbody class="tbdy">
-            {% for x in list.imagesActive %}
-            <tr>
-
-
-              <td style="font-size: 2rem;">{{forloop.counter}}</td>
-              <td style="font-size: 2rem;">{{x.lat}},{{x.lon}}</td>
-              <td style="font-size: 2rem;">{{x.timestamp}}</td>
-              <td style="font-size: 2rem;">
-                <form action="" method="get">
-                  <input type="hidden" name="id" value="{{x.id}}">
-                  <input type="submit" class="btn" value="Completed" name="mybtn">
-                </form>
-              </td>
-              <td style="font-size: 2rem;">
-                <form action="" method="get">
-                  <input type="hidden" name="id" value="{{x.id}}">
-                  <input type="submit" class="btn" value="View Image" name="mybtn2">
-                </form>
-              </td>
-
-              
-
-            
-              <!-- <td></td>            -->
-            </tr>
-            {% endfor %}
-            
-          </tbody>
-        </table>
-            
-
-      </div>
-    </div>
-     
-  
-  </div>
-  <div class="container-fluid">
-
-    <div class="row" style="margin-left: 10vh"> 
-    <div class="col-8" style="margin-left: 0 !important;">
-      <h2 style="width: 100vh!important; font-size: 4rem; " class="text-white p-2 " id="t2"> Work Completed</h2>
-      <div class="container"  style="margin-left:0px!important">
-      <!-- display location of uncleaned areas-->
-      <table class="table mt-3" >
-        <thead class="table-dark">
-          <tr>
-            <th style="font-size: 2rem;">SNo.</th>
-            <th style="font-size: 2rem;">Location</th>
-            <th style="font-size: 2rem;">Completion Time</th>
-            <th style="font-size: 2rem;">Images</th>
-
-          </tr>
-        </thead>
-        <tbody class="tbdy">
-          {% for x in list.imagesCompleted %}
-          <tr>
-
-
-            <td style="font-size: 2rem;">{{forloop.counter}}</td>
-            <td style="font-size: 2rem;">{{x.lat}},{{x.lon}}</td>
-            <td style="font-size: 2rem;">{{x.timestamp}}</td>
-            <td style="font-size: 2rem;">
-              <form action="" method="get">
-                <input type="hidden" name="id" value="{{x.id}}">
-                <input type="submit" class="btn" value="View Image" name="mybtn2">
-              </form>
-            </td>
-   
-          </tr>
-          {% endfor %}
-          
-        </tbody>
-      </table>
-          
 
     </div>
-  </div>
-   
+    <h3 style="color: black; text-align: center; margin-top: 18px; margin-bottom: 18px; font-weight: bold;">Kindly mark Completed On The Same Day you completed the work,
+        <br> False Marks could lead to permanent banning of NGO License or Even Worse.
+    </h3>
+    <div class="container-fluid">
 
-</div>
-  <div>
-  </div>
+        <div class="row" style="margin: auto">
+            <div class="demo demo4" style="margin-bottom: 5rem;">
+                <div id="t1" class="heading" style="font-size: 3vw;">Work Undertaken</div>
+            </div>
+            <div class="container" style="margin-left:0px!important">
+                <!-- display location of uncleaned areas-->
+                <table class="table mt-3">
+                    <thead class="table-dark">
+                        <tr>
+                            <th style="font-size:2vw">SNo.</th>
+                            <th style="font-size:2vw">Location</th>
+                            <th style="font-size:2vw">Time</th>
+                            <th style="font-size:2vw">IsCompleted</th>
+                            <th style="font-size:2vw">Images</th>
 
+                        </tr>
+                    </thead>
+                    <tbody class="tbdy">
+                        {% for x in list.imagesActive %}
+                        <tr>
+
+
+                            <td style="font-size:2vw">{{forloop.counter}}</td>
+                            <td style="font-size:2vw">{{x.lat}},{{x.lon}}</td>
+                            <td style="font-size:2vw">{{x.timestamp}}</td>
+                            <td style="font-size:2vw">
+                                <form action="" method="get">
+                                    <input type="hidden" name="id" value="{{x.id}}">
+                                    <input type="submit" class="btn" value="Completed" name="mybtn">
+                                </form>
+                            </td>
+                            <td style="font-size:2vw">
+                                <form action="" method="get">
+                                    <input type="hidden" name="id" value="{{x.id}}">
+                                    <input type="submit" class="btn" value="View Image" name="mybtn2">
+                                </form>
+                            </td>
+
+
+
+
+                            <!-- <td></td>            -->
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="container-fluid" style="margin-top: 5rem;">
+
+        <div class="row" style="margin: auto">
+            <div id="t2" class="demo demo4" style="margin-bottom: 5rem;">
+                <div class="heading" style="font-size: 3vw;">Work Completed</div>
+            </div>
+            <div class="container" style="margin-left:0px!important">
+                <!-- display location of uncleaned areas-->
+                <table class="table mt-3">
+                    <thead class="table-dark">
+                        <tr>
+                            <th style="font-size:2vw">SNo.</th>
+                            <th style="font-size:2vw">Location</th>
+                            <th style="font-size:2vw">Completion Time</th>
+                            <th style="font-size:2vw">Images</th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="tbdy">
+                        {% for x in list.imagesCompleted %}
+                        <tr>
+
+
+                            <td style="font-size:2vw">{{forloop.counter}}</td>
+                            <td style="font-size:2vw">{{x.lat}},{{x.lon}}</td>
+                            <td style="font-size:2vw">{{x.timestamp}}</td>
+                            <td style="font-size:2vw">
+                                <form action="" method="get">
+                                    <input type="hidden" name="id" value="{{x.id}}">
+                                    <input type="submit" class="btn" value="View Image" name="mybtn2">
+                                </form>
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+    </div>
 </body>
-  
 
-  
+
+
 </html>
