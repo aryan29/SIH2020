@@ -123,9 +123,9 @@ class getDataPlotting(APIView):
                     "longitude": x.lon,
                 }
                 li.append(di)
-                x = json.dumps(di)
-                print(type(x))
-            return HttpResponse(x, content_type='application/json')
+            l = json.dumps(li)
+            print(l)
+            return HttpResponse(l, content_type='application/json')
         else:
             HttpResponse("Invalid Password")
 
