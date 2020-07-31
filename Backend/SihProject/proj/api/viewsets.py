@@ -125,9 +125,9 @@ class getDataPlotting(APIView):
                 li.append(di)
             l = json.dumps(li)
             print(l)
-            return HttpResponse(l, content_type='application/json')
+            return Response(l, content_type='application/json')
         else:
-            HttpResponse("Invalid Password")
+            Response("Invalid Password", content_type='application/json')
 
 
 class CheckImage(APIView):
