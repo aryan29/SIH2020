@@ -7,7 +7,7 @@ body {
   height: -webkit-fill-available!important;
   -o-background-size: cover!important;
   -moz-background-size: cover!important;
-  background-repeat: no-repeat!important;
+  /* background-repeat: no-repeat!important; */
 	background-position: bottom!important;
   flex-direction: column!important;
   align-items: center;
