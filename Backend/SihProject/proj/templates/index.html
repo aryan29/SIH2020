@@ -396,9 +396,24 @@
                     //heat map
                     /* Data points defined as a mixture of WeightedLocation and LatLng objects */
                     var heatMapData = [];
-                    var data = [{ "index": 2, "latitude": 80.0, "longitude": 50.0 }, { "index": 3.5, "latitude": 27.0, "longitude": 90.0 }, { "index": 8, "latitude": 31.14, "longitude": 75.54 }, { "index": 1, "latitude": 31.0, "longitude": 75.5 }, { "index": 7, "latitude": 31.14, "longitude": 72.54 }, { "index": 4, "latitude": 31.0, "longitude": 70.5 }];
-                    for (var i = 0; i < data.length; i++) {
-                        heatMapData[i] = ({ location: new google.maps.LatLng(data[i].latitude, data[i].longitude), weight: data[i].index });
+                    var st;
+                    $.ajax({
+                        type:"POST",
+                        url:"/api/admin/getPlottingData",
+                        data:{
+                            password:"letitbeanything",
+                            csrfmiddlewaretoken:"{{ csrf_token }}"
+                        },
+                        async: false,
+                        success:function(res){
+                            console.log(res);
+                            st = res;
+                        }
+                    })
+                    console.log(st)
+                    x = JSON.parse(st)
+                    for (var i = 0; i < x.length; i++) {
+                        heatMapData[i] = ({ location: new google.maps.LatLng(x[i].latitude, x[i].longitude), weight: x[i].index });
 
                     }
 
@@ -408,13 +423,11 @@
                     });
 
 
-
-
-
                     var heatmap = new google.maps.visualization.HeatmapLayer({
                         data: heatMapData
                     });
                     heatmap.setMap(map);
+
 
                     //pin points
 
@@ -455,20 +468,19 @@
                         infoWindow.open(map1);
                     }
 
-                    var data = [{ "index": 2, "latitude": 23.0, "longitude": 85.0 }, { "index": 3, "latitude": 24.0, "longitude": 84.0 }, { "index": 8, "latitude": 23.5, "longitude": 85.54 }, { "index": 3.5, "latitude": 24.0, "longitude": 85.56 }, { "index": 7, "latitude": 25.14, "longitude": 82.54 }, { "index": 10, "latitude": 25.0, "longitude": 83.5 }];
-
-                    for (var i = 0; i < data.length; i++) {
+                    
+                    for (var i = 0; i < x.length; i++) {
 
                         var col = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
-                        if (data[i].index >= 0 & data[i].index <= 3.3) {
+                        if (x[i].index >= 0 & x[i].index <= 3.3) {
                             col = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
                         }
-                        else if (data[i].index > 3.3 & data[i].index <= 7.3) {
+                        else if (x[i].index > 3.3 & x[i].index <= 7.3) {
                             col = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
                         }
 
                         var marker = new google.maps.Marker({
-                            position: { lat: data[i].latitude, lng: data[i].longitude },
+                            position: { lat: x[i].latitude, lng: x[i].longitude },
                             map: map1,
                             icon: col,
 
@@ -488,7 +500,7 @@
 
                 }   
             </script>
-
+            
         <section class="section-book">
             <div class="row">
                 <div class="book">
