@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 body{
-	background: url('../img/i1.jpg')  no-repeat center center fixed!important ;
+	background-image : linear-gradient(to right, rgba(3, 252, 140, 0.3), rgba(11, 224, 129, 0.3)) , url(../img/login-bg.jpg);
 	font-family: "lato", sans-serif!important;
 	background-size: cover!important;
 	-webkit-background-size: cover!important;
@@ -37,7 +37,7 @@ a{color:inherit;text-decoration:none}
 	height:100%;
 	position:absolute;
 	padding:40px 70px 50px 70px;
-	background:rgba(85, 119, 88, 0.9);
+	background:rgba(85, 119, 88, 0.2);
 	color:rgba(26, 37, 27, 0.9);
 }
 .login-html .sign-in-htm,

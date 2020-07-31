@@ -1,5 +1,6 @@
 body { 
-  background: url('../img/i1.jpg')  no-repeat center center fixed!important ;
+  /* background: url('../img/i1.jpg')  no-repeat center center fixed!important ; */
+  background-image : linear-gradient(to right, rgba(3, 252, 140, 0.7), rgba(11, 224, 129, 0.7)) , url(../img/login-bg.jpg);
   font-family: "lato", sans-serif!important;
   background-size: cover!important;
   -webkit-background-size: cover!important;
@@ -7,7 +8,7 @@ body {
   -o-background-size: cover!important;
   -moz-background-size: cover!important;
   background-repeat: no-repeat!important;
-	background-position: center!important;
+	background-position: bottom!important;
   flex-direction: column!important;
   align-items: center;
   
