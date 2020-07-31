@@ -121,9 +121,9 @@ class getDataPlotting(APIView):
                     "longitude": x.lon,
                 }
                 li.append(di)
-            return Response(li)
+            return JsonResponse(li)
         else:
-            Response("Invalid Password")
+            JsonResponse("Invalid Password")
 
 
 class CheckImage(APIView):
