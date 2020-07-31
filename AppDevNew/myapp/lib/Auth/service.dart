@@ -8,7 +8,7 @@ getAuthToken(String username, String password) async {
   final storage = new FlutterSecureStorage();
   var dio = Dio();
   try {
-    var res = await dio.post("http://192.168.0.107:8000/api-token-auth/",
+    var res = await dio.post("https://ctrlaltelite.cf/api-token-auth/",
         data: {"username": username, "password": password});
     print(res.data);
     print(res.data['token']);
@@ -38,8 +38,8 @@ registerUser(String username, String fn, String ln, String password1,
     "choice": "AppUsers"
   });
   try {
-    var res = await dio.post("http://192.168.0.107:8000/api/register/",
-        data: formData);
+    var res =
+        await dio.post("https://ctrlaltelite.cf/api/register/", data: formData);
     print("working");
     print(res.data.runtimeType);
     print(res.statusCode);
