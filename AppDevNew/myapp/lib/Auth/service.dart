@@ -38,17 +38,17 @@ registerUser(String username, String fn, String ln, String password1,
     "choice": "AppUsers"
   });
   try {
-    var res =
-        await dio.post("https://ctrlaltelite.cf/api/register/", data: formData);
-    print("working");
-    print(res.data.runtimeType);
-    print(res.statusCode);
+    var res = await dio.post("https://ctrlaltelite.cf/api/register/",
+        data: formData);
+    // print("working");
+    // print(res.data.runtimeType);
+    // print(res.statusCode);
     Map data = json.decode(res.data);
     if (data["status"] == 1) {
-      print("Returning right thing");
+      // print("Returning right thing");
       return 1;
     } else {
-      print("here I am");
+      // print("here I am");
       return data["errors"];
     }
   } on DioError catch (e) {

@@ -16,7 +16,12 @@ class _UploadState extends State<Upload> {
   final picker = ImagePicker();
   Future<void> captureImage(ImageSource imageSource) async {
     try {
-      final imageFile = await picker.getImage(source: imageSource);
+      final imageFile = await picker.getImage(
+        source: imageSource,
+        imageQuality: 70,
+        maxHeight: 800,
+        maxWidth: 800,
+      );
       print(imageFile.path);
       setState(() {
         _imageFile = File(imageFile.path);
@@ -80,8 +85,8 @@ class _UploadState extends State<Upload> {
                 children: <Widget>[
                   InkWell(
                       onTap: () => captureImage(ImageSource.camera),
-                      child: Icon(Icons.camera,
-                          size: 120, color: Colors.green)),
+                      child:
+                          Icon(Icons.camera, size: 120, color: Colors.green)),
                   Text(
                     "Upload from Camera",
                     style: TextStyle(fontWeight: FontWeight.w400),
@@ -97,8 +102,7 @@ class _UploadState extends State<Upload> {
                 children: <Widget>[
                   InkWell(
                       onTap: () => captureImage(ImageSource.gallery),
-                      child: Icon(Icons.image,
-                          size: 120, color: Colors.green)),
+                      child: Icon(Icons.image, size: 120, color: Colors.green)),
                   Text("Upload from Gallery",
                       style: TextStyle(fontWeight: FontWeight.w400))
                 ],
@@ -119,8 +123,7 @@ class _UploadState extends State<Upload> {
                               color: Colors.green,
                               fontWeight: FontWeight.bold,
                               fontSize: 20)),
-                      Icon(Icons.chevron_right,
-                          color: Colors.green)
+                      Icon(Icons.chevron_right, color: Colors.green)
                     ],
                   ),
                   onPressed: () {
@@ -147,8 +150,7 @@ class _UploadState extends State<Upload> {
                                 color: Colors.green[600],
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20)),
-                        Icon(Icons.chevron_right,
-                            color: Colors.green[600])
+                        Icon(Icons.chevron_right, color: Colors.green[600])
                       ],
                     ),
               onPressed: () {
