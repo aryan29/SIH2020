@@ -15,8 +15,8 @@ from proj.maps_api import nearbyngo
 from django.db.models import Q
 import threading
 import json
-from django.http import HttpResponse,JsonResponse
-
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 # Token Authentication for Our Mobile App
 # Session Authentication for Our Website
 
@@ -94,6 +94,7 @@ class getNGOList(APIView):
 
 class getActiveImagesData(APIView):
     def post(self, request):
+
         if(request.data["password"] == "letitbeanything"):  # Save in ev variables later
             z = ActiveImages.objects.filter(completed=False).filter(area=None)
             print(z)
@@ -113,6 +114,7 @@ class getActiveImagesData(APIView):
 
 class getDataPlotting(APIView):
     def post(self, request):
+        print(request.data)
         if(request.data["password"] == "letitbeanything"):  # Save in ev variables later
             z = ActiveArea.objects.filter(completed=False)
             li = []

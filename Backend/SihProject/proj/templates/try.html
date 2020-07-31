@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Fetch API</title> 
+  </head> 
+  <body> 
+    <div> 
+      <h1>Fetch API GET REQUEST</h1> 
+      <h3>Fetching Users</h3> 
+  
+      <!-- Table to display fetched user data -->
+      <table id="users"></table> 
+    </div> 
+       
+    <!-- Link JavaScript file -->
+<script>
+
+$.ajax({
+    type:"POST",
+    url:"/api/admin/getPlottingData",
+    data:{
+        password:"letitbeanything",
+        csrfmiddlewaretoken:"{{ csrf_token }}"
+    },
+    success:function(res){
+        console.log(res);
+    }
+})
+</script> 
+  </body> 
+</html> 
