@@ -18,9 +18,9 @@
 
 $.ajax({
     type:"POST",
-    url:"/api/admin/getPlottingData",
+    url:"/get-rating-history/",
     data:{
-        password:"letitbeanything",
+        name:"CFSCC",
         csrfmiddlewaretoken:"{{ csrf_token }}"
     },
     success:function(res){

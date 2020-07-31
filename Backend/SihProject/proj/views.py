@@ -12,7 +12,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.models import User
 from django.utils.encoding import force_bytes, force_text
 from django.contrib.sites.shortcuts import get_current_site
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 import json
 from django.contrib.auth import authenticate, login, logout
 from .tokens import account_activation_token
@@ -492,11 +492,22 @@ def UpdateRating(request):
 
 def GetRatingHistory(request):
     if(request.method == "POST"):
-        uid = request.GET.get("name")
-        user = User.objects.get(username=uid)
-        model = UserContributionModel.objects.get(user=user)
-        print(model.field_history)
-        return HttpResponse(200)
+        try:
+            uid = request.POST.get("name")
+            user = User.objects.get(username=uid)
+            model = UserContributionModel.objects.get(user=user)
+            # print(model.field_history)
+            li = []
+            for x in model.field_history:
+                li.append({
+                    "value": str(x.field_value),
+                    "date": str(x.date_created),
+                })
+                # print(li)
+            return HttpResponse(json.dumps(li))
+        except Exception as e:
+            print(e)
+            return HttpResponse(500)
 
 
 def RunDaily(request):
