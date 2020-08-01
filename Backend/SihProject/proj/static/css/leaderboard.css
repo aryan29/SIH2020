@@ -17,7 +17,6 @@ body {
     font-family: "lato", sans-serif;
     background-size: cover;
     height: -webkit-fill-available;
-    ;
     background-repeat: no-repeat;
     background-position: center;
     flex-direction: column;
@@ -75,8 +74,7 @@ table tr>*:nth-child(2) {
 table th {
     font-weight: 300;
     letter-spacing: 0.04rem;
-    font: size 10px;
-    ;
+    font-size: 10px;
     color: #eee;
     text-transform: uppercase;
 }
