@@ -1,10 +1,10 @@
 # Details
 
-Date : 2020-07-30 16:47:26
+Date : 2020-08-01 04:24:34
 
-Directory /home/aryan/Documents/newsih2020/
+Directory /home/aryan/Documents/newsih2020/sih2020
 
-Total : 850 files,  168379 codes, 56790 comments, 24885 blanks, all 250054 lines
+Total : 855 files,  169908 codes, 56978 comments, 25127 blanks, all 252013 lines
 
 [summary](results.md)
 
@@ -85,7 +85,7 @@ Total : 850 files,  168379 codes, 56790 comments, 24885 blanks, all 250054 lines
 | [AppDevNew/myapp/ios/Runner/Base.lproj/Main.storyboard](/AppDevNew/myapp/ios/Runner/Base.lproj/Main.storyboard) | XML | 25 | 1 | 1 | 27 |
 | [AppDevNew/myapp/ios/Runner/Runner-Bridging-Header.h](/AppDevNew/myapp/ios/Runner/Runner-Bridging-Header.h) | C++ | 1 | 0 | 1 | 2 |
 | [AppDevNew/myapp/lib/Animations/FadeAnimation.dart](/AppDevNew/myapp/lib/Animations/FadeAnimation.dart) | Dart | 29 | 0 | 5 | 34 |
-| [AppDevNew/myapp/lib/Auth/service.dart](/AppDevNew/myapp/lib/Auth/service.dart) | Dart | 56 | 0 | 4 | 60 |
+| [AppDevNew/myapp/lib/Auth/service.dart](/AppDevNew/myapp/lib/Auth/service.dart) | Dart | 51 | 5 | 4 | 60 |
 | [AppDevNew/myapp/lib/GettingData/getUserInformation.dart](/AppDevNew/myapp/lib/GettingData/getUserInformation.dart) | Dart | 54 | 2 | 5 | 61 |
 | [AppDevNew/myapp/lib/GettingData/sendingImage.dart](/AppDevNew/myapp/lib/GettingData/sendingImage.dart) | Dart | 46 | 3 | 3 | 52 |
 | [AppDevNew/myapp/lib/Screens/LoginHome.dart](/AppDevNew/myapp/lib/Screens/LoginHome.dart) | Dart | 78 | 0 | 5 | 83 |
@@ -97,7 +97,7 @@ Total : 850 files,  168379 codes, 56790 comments, 24885 blanks, all 250054 lines
 | [AppDevNew/myapp/lib/Screens/homescreen.dart](/AppDevNew/myapp/lib/Screens/homescreen.dart) | Dart | 203 | 13 | 16 | 232 |
 | [AppDevNew/myapp/lib/Screens/news.dart](/AppDevNew/myapp/lib/Screens/news.dart) | Dart | 0 | 0 | 1 | 1 |
 | [AppDevNew/myapp/lib/Screens/signup.dart](/AppDevNew/myapp/lib/Screens/signup.dart) | Dart | 185 | 1 | 4 | 190 |
-| [AppDevNew/myapp/lib/Screens/uploadImage.dart](/AppDevNew/myapp/lib/Screens/uploadImage.dart) | Dart | 164 | 0 | 6 | 170 |
+| [AppDevNew/myapp/lib/Screens/uploadImage.dart](/AppDevNew/myapp/lib/Screens/uploadImage.dart) | Dart | 166 | 0 | 6 | 172 |
 | [AppDevNew/myapp/lib/blocs/bloc1.dart](/AppDevNew/myapp/lib/blocs/bloc1.dart) | Dart | 8 | 0 | 4 | 12 |
 | [AppDevNew/myapp/lib/main.dart](/AppDevNew/myapp/lib/main.dart) | Dart | 15 | 0 | 4 | 19 |
 | [AppDevNew/myapp/lib/model/UserModel.dart](/AppDevNew/myapp/lib/model/UserModel.dart) | Dart | 15 | 0 | 2 | 17 |
@@ -131,7 +131,7 @@ Total : 850 files,  168379 codes, 56790 comments, 24885 blanks, all 250054 lines
 | [Backend/SihProject/proj/__init__.py](/Backend/SihProject/proj/__init__.py) | Python | 0 | 0 | 1 | 1 |
 | [Backend/SihProject/proj/admin.py](/Backend/SihProject/proj/admin.py) | Python | 7 | 2 | 2 | 11 |
 | [Backend/SihProject/proj/api/serializer.py](/Backend/SihProject/proj/api/serializer.py) | Python | 19 | 0 | 9 | 28 |
-| [Backend/SihProject/proj/api/viewsets.py](/Backend/SihProject/proj/api/viewsets.py) | Python | 120 | 28 | 36 | 184 |
+| [Backend/SihProject/proj/api/viewsets.py](/Backend/SihProject/proj/api/viewsets.py) | Python | 126 | 28 | 36 | 190 |
 | [Backend/SihProject/proj/apps.py](/Backend/SihProject/proj/apps.py) | Python | 3 | 0 | 3 | 6 |
 | [Backend/SihProject/proj/decorators.py](/Backend/SihProject/proj/decorators.py) | Python | 14 | 0 | 3 | 17 |
 | [Backend/SihProject/proj/forms.py](/Backend/SihProject/proj/forms.py) | Python | 64 | 0 | 10 | 74 |
@@ -144,6 +144,7 @@ Total : 850 files,  168379 codes, 56790 comments, 24885 blanks, all 250054 lines
 | [Backend/SihProject/proj/migrations/0005_activearea_ngo.py](/Backend/SihProject/proj/migrations/0005_activearea_ngo.py) | Python | 15 | 1 | 6 | 22 |
 | [Backend/SihProject/proj/migrations/__init__.py](/Backend/SihProject/proj/migrations/__init__.py) | Python | 0 | 0 | 1 | 1 |
 | [Backend/SihProject/proj/models.py](/Backend/SihProject/proj/models.py) | Python | 55 | 5 | 16 | 76 |
+| [Backend/SihProject/proj/static/css/ast-notif.css](/Backend/SihProject/proj/static/css/ast-notif.css) | CSS | 269 | 5 | 51 | 325 |
 | [Backend/SihProject/proj/static/css/fonts/linea-basic-10.svg](/Backend/SihProject/proj/static/css/fonts/linea-basic-10.svg) | XML | 144 | 0 | 2 | 146 |
 | [Backend/SihProject/proj/static/css/icon-font.css](/Backend/SihProject/proj/static/css/icon-font.css) | CSS | 440 | 0 | 6 | 446 |
 | [Backend/SihProject/proj/static/css/leaderboard.css](/Backend/SihProject/proj/static/css/leaderboard.css) | CSS | 91 | 12 | 15 | 118 |
@@ -151,29 +152,33 @@ Total : 850 files,  168379 codes, 56790 comments, 24885 blanks, all 250054 lines
 | [Backend/SihProject/proj/static/css/style.comp.css](/Backend/SihProject/proj/static/css/style.comp.css) | CSS | 892 | 21 | 68 | 981 |
 | [Backend/SihProject/proj/static/css/style.concat.css](/Backend/SihProject/proj/static/css/style.concat.css) | CSS | 1,332 | 21 | 74 | 1,427 |
 | [Backend/SihProject/proj/static/css/style.css](/Backend/SihProject/proj/static/css/style.css) | CSS | 1,847 | 1 | 370 | 2,218 |
-| [Backend/SihProject/proj/static/css/style1.css](/Backend/SihProject/proj/static/css/style1.css) | CSS | 194 | 2 | 35 | 231 |
+| [Backend/SihProject/proj/static/css/style1.css](/Backend/SihProject/proj/static/css/style1.css) | CSS | 193 | 4 | 35 | 232 |
 | [Backend/SihProject/proj/static/css/style2.css](/Backend/SihProject/proj/static/css/style2.css) | CSS | 143 | 0 | 32 | 175 |
 | [Backend/SihProject/proj/static/css/style3.css](/Backend/SihProject/proj/static/css/style3.css) | CSS | 102 | 1 | 20 | 123 |
 | [Backend/SihProject/proj/static/css/styleRohan.css](/Backend/SihProject/proj/static/css/styleRohan.css) | CSS | 405 | 8 | 31 | 444 |
 | [Backend/SihProject/proj/static/img/sprite.svg](/Backend/SihProject/proj/static/img/sprite.svg) | XML | 44 | 0 | 1 | 45 |
+| [Backend/SihProject/proj/static/js/ast-notif.js](/Backend/SihProject/proj/static/js/ast-notif.js) | JavaScript | 732 | 171 | 138 | 1,041 |
 | [Backend/SihProject/proj/static/js/script.js](/Backend/SihProject/proj/static/js/script.js) | JavaScript | 0 | 1 | 0 | 1 |
 | [Backend/SihProject/proj/templates/LeaderBoard.html](/Backend/SihProject/proj/templates/LeaderBoard.html) | HTML | 88 | 2 | 11 | 101 |
-| [Backend/SihProject/proj/templates/NGOList.html](/Backend/SihProject/proj/templates/NGOList.html) | HTML | 67 | 3 | 29 | 99 |
-| [Backend/SihProject/proj/templates/NGOProfile.html](/Backend/SihProject/proj/templates/NGOProfile.html) | HTML | 150 | 4 | 45 | 199 |
+| [Backend/SihProject/proj/templates/NGOList.html](/Backend/SihProject/proj/templates/NGOList.html) | HTML | 161 | 3 | 28 | 192 |
+| [Backend/SihProject/proj/templates/NGOProfile.html](/Backend/SihProject/proj/templates/NGOProfile.html) | HTML | 207 | 4 | 39 | 250 |
+| [Backend/SihProject/proj/templates/UpdateRating.html](/Backend/SihProject/proj/templates/UpdateRating.html) | HTML | 235 | 7 | 59 | 301 |
 | [Backend/SihProject/proj/templates/checkEmail.html](/Backend/SihProject/proj/templates/checkEmail.html) | HTML | 18 | 1 | 3 | 22 |
 | [Backend/SihProject/proj/templates/error.html](/Backend/SihProject/proj/templates/error.html) | HTML | 0 | 0 | 1 | 1 |
-| [Backend/SihProject/proj/templates/gov.html](/Backend/SihProject/proj/templates/gov.html) | HTML | 114 | 3 | 45 | 162 |
+| [Backend/SihProject/proj/templates/gov.html](/Backend/SihProject/proj/templates/gov.html) | HTML | 78 | 2 | 30 | 110 |
 | [Backend/SihProject/proj/templates/home.html](/Backend/SihProject/proj/templates/home.html) | HTML | 169 | 2 | 44 | 215 |
-| [Backend/SihProject/proj/templates/index.html](/Backend/SihProject/proj/templates/index.html) | HTML | 543 | 5 | 52 | 600 |
+| [Backend/SihProject/proj/templates/index.html](/Backend/SihProject/proj/templates/index.html) | HTML | 593 | 10 | 66 | 669 |
 | [Backend/SihProject/proj/templates/ngo.html](/Backend/SihProject/proj/templates/ngo.html) | HTML | 95 | 3 | 34 | 132 |
 | [Backend/SihProject/proj/templates/registration/activate.html](/Backend/SihProject/proj/templates/registration/activate.html) | HTML | 3 | 0 | 1 | 4 |
 | [Backend/SihProject/proj/templates/registration/login.html](/Backend/SihProject/proj/templates/registration/login.html) | HTML | 114 | 0 | 15 | 129 |
 | [Backend/SihProject/proj/templates/registration/register.html](/Backend/SihProject/proj/templates/registration/register.html) | HTML | 112 | 0 | 14 | 126 |
+| [Backend/SihProject/proj/templates/try.html](/Backend/SihProject/proj/templates/try.html) | HTML | 27 | 2 | 4 | 33 |
 | [Backend/SihProject/proj/templates/view-area.html](/Backend/SihProject/proj/templates/view-area.html) | HTML | 24 | 0 | 3 | 27 |
 | [Backend/SihProject/proj/tests.py](/Backend/SihProject/proj/tests.py) | Python | 1 | 1 | 2 | 4 |
 | [Backend/SihProject/proj/tokens.py](/Backend/SihProject/proj/tokens.py) | Python | 6 | 0 | 4 | 10 |
-| [Backend/SihProject/proj/try.py](/Backend/SihProject/proj/try.py) | Python | 6 | 0 | 2 | 8 |
-| [Backend/SihProject/proj/views.py](/Backend/SihProject/proj/views.py) | Python | 399 | 37 | 62 | 498 |
+| [Backend/SihProject/proj/try.js](/Backend/SihProject/proj/try.js) | JavaScript | 16 | 2 | 3 | 21 |
+| [Backend/SihProject/proj/try.py](/Backend/SihProject/proj/try.py) | Python | 7 | 0 | 1 | 8 |
+| [Backend/SihProject/proj/views.py](/Backend/SihProject/proj/views.py) | Python | 481 | 27 | 58 | 566 |
 | [Backend/not_in_pip/object_detection/CONTRIBUTING.md](/Backend/not_in_pip/object_detection/CONTRIBUTING.md) | Markdown | 9 | 0 | 5 | 14 |
 | [Backend/not_in_pip/object_detection/README.md](/Backend/not_in_pip/object_detection/README.md) | Markdown | 300 | 0 | 100 | 400 |
 | [Backend/not_in_pip/object_detection/__init__.py](/Backend/not_in_pip/object_detection/__init__.py) | Python | 0 | 0 | 1 | 1 |
