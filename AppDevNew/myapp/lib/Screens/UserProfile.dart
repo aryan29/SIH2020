@@ -68,7 +68,7 @@ class _UserProfile1State extends State<UserProfile1> {
                                       ),
                                       height: 70,
                                       minWidth: 200,
-                                      color: Colors.amber[100],
+                                      color: Colors.green[100],
                                       hoverColor: Colors.yellow,
                                       focusColor: Colors.yellow,
                                       child: Row(
@@ -77,11 +77,11 @@ class _UserProfile1State extends State<UserProfile1> {
                                         children: <Widget>[
                                           Text("Check your contributions",
                                               style: TextStyle(
-                                                  color: Colors.amber[700],
+                                                  color: Colors.green[700],
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 20)),
                                           Icon(Icons.chevron_right,
-                                              color: Colors.amber[700])
+                                              color: Colors.green[700])
                                         ],
                                       ),
                                       onPressed: () async {
@@ -112,18 +112,18 @@ class _UserProfile1State extends State<UserProfile1> {
                                       ),
                                       height: 70,
                                       minWidth: 200,
-                                      color: Colors.amber[100],
+                                      color: Colors.green[100],
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text("Edit Your Profile",
                                               style: TextStyle(
-                                                  color: Colors.amber[700],
+                                                  color: Colors.green[700],
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 20)),
                                           Icon(Icons.chevron_right,
-                                              color: Colors.amber[700])
+                                              color: Colors.green[700])
                                         ],
                                       ),
                                       onPressed: () async {}),

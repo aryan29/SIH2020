@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                             padding: EdgeInsets.all(15),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                color: Colors.green[800]),
+                                color: Colors.green[300]),
                             child: (loggingIn)
                                 ? Center(child: CircularProgressIndicator())
                                 : Center(

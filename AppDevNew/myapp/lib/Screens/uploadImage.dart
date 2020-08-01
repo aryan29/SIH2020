@@ -81,32 +81,27 @@ class _UploadState extends State<Upload> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         (_imageFile == null)
-            ? Column(
-                children: <Widget>[
-                  InkWell(
-                      onTap: () => captureImage(ImageSource.camera),
-                      child:
-                          Icon(Icons.camera, size: 120, color: Colors.green)),
-                  Text(
-                    "Upload from Camera",
-                    style: TextStyle(fontWeight: FontWeight.w400),
-                  )
-                ],
+            ? Container(
+                margin: EdgeInsets.only(top: 100),
+                child: Column(
+                  children: <Widget>[
+                    InkWell(
+                        onTap: () => captureImage(ImageSource.camera),
+                        child:
+                            Icon(Icons.camera, size: 120, color: Colors.green)),
+                    Text(
+                      "Upload from Camera",
+                      style: TextStyle(fontWeight: FontWeight.w400),
+                    )
+                  ],
+                ),
               )
             : Container(
                 height: 300,
                 width: 300,
                 child: Image.file(_imageFile, fit: BoxFit.cover)),
         (_imageFile == null)
-            ? Column(
-                children: <Widget>[
-                  InkWell(
-                      onTap: () => captureImage(ImageSource.gallery),
-                      child: Icon(Icons.image, size: 120, color: Colors.green)),
-                  Text("Upload from Gallery",
-                      style: TextStyle(fontWeight: FontWeight.w400))
-                ],
-              )
+            ? Container()
             : Container(
                 width: MediaQuery.of(context).size.width * .6,
                 height: 50,
@@ -141,7 +136,10 @@ class _UploadState extends State<Upload> {
               ),
               color: Colors.green[200],
               child: (sending)
-                  ? Center(child: CircularProgressIndicator())
+                  ? Center(
+                      child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation(Colors.green[700]),
+                    ))
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[

@@ -51,7 +51,7 @@ class _LoginHomeState extends State<LoginHome> {
                         iconColor: Colors.grey[500]),
                     GButton(
                         icon: Icons.contacts,
-                        text: "Contacts",
+                        text: "Contact",
                         iconColor: Colors.grey[500]),
                   ],
                   onTabChange: (index) {

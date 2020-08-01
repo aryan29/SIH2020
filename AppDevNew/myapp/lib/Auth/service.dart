@@ -38,8 +38,8 @@ registerUser(String username, String fn, String ln, String password1,
     "choice": "AppUsers"
   });
   try {
-    var res = await dio.post("https://ctrlaltelite.cf/api/register/",
-        data: formData);
+    var res =
+        await dio.post("https://ctrlaltelite.cf/api/register/", data: formData);
     // print("working");
     // print(res.data.runtimeType);
     // print(res.statusCode);

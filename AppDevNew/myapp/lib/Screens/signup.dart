@@ -139,7 +139,7 @@ class _SignupPageState extends State<SignupPage> {
                           padding: EdgeInsets.all(15),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
-                              color: Colors.green[800]),
+                              color: Colors.green[300]),
                           child: (registering)
                               ? Center(child: CircularProgressIndicator())
                               : Center(

@@ -46,7 +46,7 @@ class _ShowContributionsState extends State<ShowContributions> {
                                 child: CircularProgressIndicator(
                                     value: progress.progress)),
                         imageUrl:
-                            "http://192.168.0.107:8000/download/${widget.data[index]}"));
+                            "https://ctrlaltelite.cf/download/${widget.data[index]}"));
               }),
         ],
       )),
