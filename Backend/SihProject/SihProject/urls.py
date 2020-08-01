@@ -18,7 +18,7 @@ from django.urls import path, include
 from .router import router
 from rest_framework.authtoken import views
 from django.contrib.auth.views import LoginView
-from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile, GetLocationList, GetAllRegisteredNGOs, NGOsHomePage, CustomRedirect, NGOProfilePage, UsersLeaderboard, NGOLeaderboard, RunDaily, LogoutView, HomeView, SubmitQuery, Home2, UpdateRating, GetRatingHistory
+from proj.views import UserRegister, CheckOnlyGovernMentView, CheckOnlyNgoView, activate, UserRegisterMobile, GetLocationList, GetAllRegisteredNGOs, NGOsHomePage, CustomRedirect, NGOProfilePage, UsersLeaderboard, NGOLeaderboard, RunDaily, LogoutView, HomeView, SubmitQuery, Home2, UpdateRating, GetRatingHistory, tryview
 from proj.api.viewsets import getNGOList, CheckImage, GetContributions, GetMyContribution, getActiveImagesData, getDataPlotting, SubmitQueryAPI
 from django.conf import settings
 from proj.forms import MyForm1
@@ -26,6 +26,7 @@ from proj.forms import MyForm1
 from django.conf.urls.static import static
 urlpatterns = [
     path('', HomeView),
+    path('any/', tryview),
     path('home/', Home2),
     path('query/', SubmitQuery, name="submit-queries"),
     path('api/query/', SubmitQueryAPI.as_view(), name="submit-queries-api"),

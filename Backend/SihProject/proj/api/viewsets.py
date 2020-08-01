@@ -17,6 +17,7 @@ import threading
 import json
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.gis.geos import Point
 # Token Authentication for Our Mobile App
 # Session Authentication for Our Website
 
@@ -159,7 +160,7 @@ class CheckImage(APIView):
             # Can be done in a seperate thread
             animals = AnimalDetector().get_number_of_animals(upfile.name)
             imgModel = ActiveImages(
-                name=upfile.name, lat=lat, lon=lon, animals=animals, contributinguser=self.request.user)
+                name=upfile.name, lat=lat, lon=lon, animals=animals, contributinguser=self.request.user, point=Point(x=lon, y=lat, srid=4326))
             imgModel.save()
             obj = UserContributionModel.objects.get(user=self.request.user)
             obj.contribution = obj.contribution + 1

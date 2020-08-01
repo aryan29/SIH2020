@@ -6,6 +6,8 @@ from django.dispatch import receiver
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.forms import UserCreationForm
 from field_history.tracker import FieldHistoryTracker
+from django.contrib.gis.db import models
+from django.contrib.gis.geos import Point
 
 
 class AppUser(models.Model):
@@ -41,6 +43,7 @@ class ActiveArea(models.Model):
     index = models.PositiveIntegerField(default=0)
     lat = models.FloatField(default=80.0)  # latitude
     lon = models.FloatField(default=50.0)  # longitude
+    point = models.PointField(srid=4326, geography=True, default=Point(78, 22))
     timestamp = models.DateTimeField(auto_now_add=True)
     completed = models.BooleanField(default=False)
     reviewed = models.BooleanField(default=False)
@@ -55,9 +58,10 @@ class ActiveImages(models.Model):
         ActiveArea, null=True, blank=True, on_delete=models.CASCADE)
     contributinguser = models.ForeignKey(
         User, null=True, blank=True, on_delete=models.CASCADE)
-    name = models.CharField(default="13232", max_length=50)
+    name = models.CharField(default="13232", max_length=100)
     lat = models.FloatField(default=80.0)  # latitude
     lon = models.FloatField(default=50.0)  # longitude
+    point = models.PointField(srid=4326, geography=True, default=Point(78, 22))
     timestamp = models.DateTimeField(auto_now_add=True)
     animals = models.PositiveSmallIntegerField(default=0)
     # If completed we will remove entry from this DB as this will be queried everyday and store it somewhere else

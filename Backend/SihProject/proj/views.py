@@ -25,6 +25,9 @@ from rest_framework.authtoken.models import Token
 from field_history.models import FieldHistory
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from django.contrib.gis.measure import D
+from django.contrib.gis.geos import GEOSGeometry
+from django.contrib.gis.geos import Point
 
 
 def HomeView(request):
@@ -563,3 +566,11 @@ def RunDaily(request):
     #####################################################
 
     # After Working with area grouping Update leaderboards
+# def trial(request):
+#     qs=
+
+
+def tryview(request):
+    for l in ActiveImages.objects.all():
+        l.point = Point(x=l.lon, y=l.lat, srid=4326)
+        l.save()
