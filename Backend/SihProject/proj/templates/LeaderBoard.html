@@ -13,10 +13,13 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse" style="width: max-content;">
+    <nav class="navbar" style="width: max-content;">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/" style="font-size: 2vw;">Home
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/ngos-leaderboard/" style="font-size: 2vw;">NGOs
                         <span class="sr-only">(current)</span>
@@ -37,14 +40,14 @@
         <div class="table-responsive">
             <table class="table">
                 <thead>
-                    <tr style="color: azure; background-color: black !important">
-                        <th style="font-size: 2.9vw;">
+                    <tr style="color: azure; background-color: transparent!important">
+                        <th style="font-size: 1.9vw; background-color: transparent!important">
                             Pos
                         </th>
-                        <th style="font-size: 2.9vw;">
+                        <th style="font-size: 1.9vw; background-color: transparent!important">
                             User
                         </th>
-                        <th style="font-size: 2.9vw;">
+                        <th style="font-size: 1.9vw; background-color: transparent!important">
                             Points
                         </th>
                     </tr>
@@ -52,7 +55,7 @@
                 <tbody>
                     {% for x in list %}
                     <tr>
-                        <td style="font-size: 2.9vw;">{{forloop.counter}}</td>
+                        <td style="font-size: 1vw;">{{forloop.counter}}</td>
                         <td class="name" style="font-size: 2.9vw;">{{x.user}}</td>
                         <td class="contributions" style="font-size: 2.9vw;">{{x.contribution}}</td>
                     </tr>

@@ -15,9 +15,8 @@ body {
     /* font-size: xx-large; */
     background: url('../img/login-bg.jpg');
     font-family: "lato", sans-serif;
-    background-size: cover;
     height: -webkit-fill-available;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
     flex-direction: column;
     align-items: center;
