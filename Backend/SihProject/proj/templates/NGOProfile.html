@@ -160,16 +160,16 @@
                     <tbody class="tbdy">
                         {% for x in list.imagesActive %}
                         <tr>
-                            <td style="font-size:1vw;">{{forloop.counter}}</td>
-                            <td style="font-size:1vw;">{{x.lat}},{{x.lon}}</td>
-                            <td style="font-size:1vw;">{{x.timestamp}}</td>
-                            <td style="font-size:1vw;">
+                            <td style="font-size:1.2vw;">{{forloop.counter}}</td>
+                            <td style="font-size:1.2vw;">{{x.lat}},{{x.lon}}</td>
+                            <td style="font-size:1.2vw;">{{x.timestamp}}</td>
+                            <td style="font-size:1.2vw;">
                                 <form action="" method="get">
                                     <input type="hidden" name="id" value="{{x.id}}">
                                     <input type="submit" class="btn" value="Completed" name="mybtn">
                                 </form>
                             </td>
-                            <td style="font-size:1vw;">
+                            <td style="font-size:1.2vw;">
                                 <form action="" method="get">
                                     <input type="hidden" name="id" value="{{x.id}}">
                                     <input type="submit" class="btn" value="View Image" name="mybtn2">
@@ -210,10 +210,10 @@
                         <tr>
 
 
-                            <td style="font-size:2vw">{{forloop.counter}}</td>
-                            <td style="font-size:2vw">{{x.lat}},{{x.lon}}</td>
-                            <td style="font-size:2vw">{{x.timestamp}}</td>
-                            <td style="font-size:2vw">
+                            <td style="font-size:1.2vw">{{forloop.counter}}</td>
+                            <td style="font-size:1.2vw">{{x.lat}},{{x.lon}}</td>
+                            <td style="font-size:1.2vw">{{x.timestamp}}</td>
+                            <td style="font-size:1.2vw">
                                 <form action="" method="get">
                                     <input type="hidden" name="id" value="{{x.id}}">
                                     <input type="submit" class="btn" value="View Image" name="mybtn2">
