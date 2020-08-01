@@ -18,6 +18,8 @@ import json
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.gis.geos import Point
+from django.contrib.gis.measure import D
+from django.contrib.gis.geos import GEOSGeometry
 # Token Authentication for Our Mobile App
 # Session Authentication for Our Website
 
