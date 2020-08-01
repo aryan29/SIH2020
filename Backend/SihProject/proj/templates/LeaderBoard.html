@@ -40,14 +40,14 @@
         <div class="table-responsive">
             <table class="table">
                 <thead>
-                    <tr style="color: azure; background-color: black !important">
-                        <th style="font-size: 2.9vw;">
+                    <tr style="color: azure; background-color: transparent!important">
+                        <th style="font-size: 1.9vw; background-color: transparent!important">
                             Pos
                         </th>
-                        <th style="font-size: 2.9vw;">
+                        <th style="font-size: 1.9vw; background-color: transparent!important">
                             User
                         </th>
-                        <th style="font-size: 2.9vw;">
+                        <th style="font-size: 1.9vw; background-color: transparent!important">
                             Points
                         </th>
                     </tr>
@@ -55,7 +55,7 @@
                 <tbody>
                     {% for x in list %}
                     <tr>
-                        <td style="font-size: 2.9vw;">{{forloop.counter}}</td>
+                        <td style="font-size: 1vw;">{{forloop.counter}}</td>
                         <td class="name" style="font-size: 2.9vw;">{{x.user}}</td>
                         <td class="contributions" style="font-size: 2.9vw;">{{x.contribution}}</td>
                     </tr>

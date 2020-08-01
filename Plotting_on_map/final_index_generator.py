@@ -181,4 +181,4 @@ def GetUnAssignedIndexes():
     
     return final_latitude, final_longitude, final_index, final_pks
 
-GetUnAssignedIndexes()
+# GetUnAssignedIndexes()
