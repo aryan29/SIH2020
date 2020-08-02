@@ -328,9 +328,11 @@ def NGOsHomePage(request):
         li = obj.activeimages_set.all()
         print(len(li))
         return render(request, "view-area.html", {"args": li})
-    pnt = Point(71, 30, srid=4326)
+    lat = random.uniform(10, 30)
+    lon = random.uniform(70, 90)
+    pnt = Point(lon, lat, srid=4326)
     review_not_comp = ActiveArea.objects.filter(
-        Q(completed=False) & Q(reviewed=False)).filter(point__distance_lte=(pnt, D(km=1000))).order_by('-index')
+        Q(completed=False) & Q(reviewed=False)).filter(point__distance_lte=(pnt, D(km=500))).order_by('-index')
     return render(request, 'ngo.html', {"list": review_not_comp})
 
 
