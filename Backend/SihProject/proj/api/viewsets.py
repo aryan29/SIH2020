@@ -123,7 +123,7 @@ class getDataPlotting(APIView):
             li = []
             for x in z:
                 di = {
-                    "index": x.index,
+                    "index": x.index/10.0,
                     "latitude": x.lat,
                     "longitude": x.lon,
                 }
