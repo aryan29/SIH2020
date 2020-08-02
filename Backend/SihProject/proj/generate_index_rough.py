@@ -2,15 +2,18 @@ import requests
 import json
 from math import radians, sin, cos, acos
 import time
+import random
 
 
 def normalize(inp):
-    if min(inp) == max(inp):
+    if(min(inp) == max(inp) and max(inp) == 0):
+        return inp
 
+    elif(min(inp) == max(inp)):
         for i in range(0, len(inp)):
             inp[i] = inp[i]/min(inp)
-    else:
 
+    else:
         for i in range(0, len(inp)):
             inp[i] = inp[i] - min(inp)
             inp[i] = inp[i]/(max(inp) - min(inp))
@@ -94,7 +97,7 @@ def GetUnAssignedIndexes():
         "password": "letitbeanything"
     }
     x = requests.post(
-        "/api/admin/getActiveImagesData", data=di)
+        "http://127.0.0.1:8000/api/admin/getActiveImagesData", data=di)
     data = x.json()
     print(data)
     #data = json.dumps(x.json())
@@ -160,24 +163,41 @@ def GetUnAssignedIndexes():
         final_animals.append(a)
         final_pks.append(temp)
         locations.append(loc)
+        print("Location Done")
         # print("here")
 
     for i in range(0, len(final_latitude)):
+        try:
+            water_cnt = get_water_bodies(final_latitude[i], final_longitude[i])
+            # water_cnt = random.randint(0, 5)
+            water_body.append(water_cnt)
+        except:
+            water_cnt = 0
+            water_body.append(water_cnt)
+        print(i, "WaterBody")
+        try:
+            # pop = random.randint(10000, 5000000)
+            pop = get_pop_density(final_latitude[i], final_longitude[i])
+            pop_den.append(pop)
+        except:
+            pop = 0
+            pop_den.append(pop)
+        print(i, "Pop Density")
 
-        water_cnt = get_water_bodies(final_latitude[i], final_longitude[i])
-        water_body.append(water_cnt)
-        pop = get_pop_density(final_latitude[i], final_longitude[i])
-        pop_den.append(pop)
+    try:
 
-    [float(i) for i in locations]
-    [float(i) for i in water_body]
-    [float(i) for i in final_animals]
-    [float(i) for i in pop_den]
+        [float(i) for i in locations]
+        [float(i) for i in water_body]
+        [float(i) for i in final_animals]
+        [float(i) for i in pop_den]
 
-    locations = normalize(locations)
-    water_body = normalize(water_body)
-    final_animals = normalize(final_animals)
-    pop_den = normalize(pop_den)
+        locations = normalize(locations)
+        water_body = normalize(water_body)
+        final_animals = normalize(final_animals)
+        pop_den = normalize(pop_den)
+    except Exception as e:
+        print(e)
+        pass
 
     for i in range(len(final_latitude)):
         final_index.append(int(

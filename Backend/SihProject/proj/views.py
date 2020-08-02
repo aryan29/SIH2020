@@ -28,6 +28,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.gis.measure import D
 from django.contrib.gis.geos import GEOSGeometry
 from django.contrib.gis.geos import Point
+import random
 
 
 def HomeView(request):
@@ -525,7 +526,7 @@ def RunDaily(request):
                 pnt = Point(obj.lon, obj.lat)
                 l = ActiveArea.objects.filter(
                     point__distance_lte=(pnt, D(km=10)))
-                print(l)
+                # print(l)
                 if(len(l) > 0):
                     print(obj.pk, "Assigned to Some Area")
                     elem = l[0]
@@ -576,12 +577,20 @@ def tryview(request):
     for x in l:
         pt = Point(x.lon, x.lat, srid=4326)
         x.point = pt
+        x.index = random.uniform(0, 90)
         x.save()
-    l1 = ActiveImages.objects.all()
-    # print(len(l1))
-    for x in l1:
-        pt = Point(x.lon, x.lat, srid=4326)
-        # print(pt)
-        x.point = pt
-        x.save()
-    return HttpResponse(200)
+    # l1 = ActiveImages.objects.all()
+    # # # print(len(l1))
+    # for x in l1:
+    #     pt = Point(x.lon, x.lat, srid=4326)
+    #     # print(pt)
+    #     x.point = pt
+    #     x.save()
+    # for i in range(10):
+    #     # return HttpResponse(200)
+    #     lat = random.uniform(10, 30)
+    #     lon = random.uniform(70, 90)
+
+    #     animals = random.randint(0, 5)
+    #     ActiveImages.objects.create(lat=lat, lon=lon, point=Point(
+    #         lon, lat, srid=4326), contributinguser=request.user, name="image_picker2084710479888518441.jpg")
