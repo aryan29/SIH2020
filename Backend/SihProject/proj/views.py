@@ -576,8 +576,10 @@ def tryview(request):
         x.point = pt
         x.save()
     l1 = ActiveImages.objects.all()
+    # print(len(l1))
     for x in l1:
         pt = Point(x.lon, x.lat, srid=4326)
+        # print(pt)
         x.point = pt
         x.save()
-        return HttpResponse(200)
+    return HttpResponse(200)
