@@ -327,8 +327,9 @@ def NGOsHomePage(request):
         li = obj.activeimages_set.all()
         print(len(li))
         return render(request, "view-area.html", {"args": li})
+    pnt = Point(71, 30, srid=4326)
     review_not_comp = ActiveArea.objects.filter(
-        Q(completed=False) & Q(reviewed=False)).order_by("-index")
+        Q(completed=False) & Q(reviewed=False)).filter(point__distance_lte=(pnt, D(km=1000))).order_by('-index')
     return render(request, 'ngo.html', {"list": review_not_comp})
 
 
@@ -546,6 +547,7 @@ def RunDaily(request):
                         lat=lat[i],
                         lon=lon[i],
                         index=ind[i],
+                        point=Point(lon[i], lat[i], srid=4326)
                     )
                     for j in range(len(keys[i])):
                         obj = ActiveImages.objects.get(pk=keys[i][j])

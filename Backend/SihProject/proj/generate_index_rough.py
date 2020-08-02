@@ -94,7 +94,7 @@ def GetUnAssignedIndexes():
         "password": "letitbeanything"
     }
     x = requests.post(
-        "http://127.0.0.1:8000/api/admin/getActiveImagesData", data=di)
+        "/api/admin/getActiveImagesData", data=di)
     data = x.json()
     print(data)
     #data = json.dumps(x.json())
