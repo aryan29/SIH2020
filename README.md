@@ -2,7 +2,7 @@
 > Tacking India'a Waste Problem
 
 
-![http://ctrlaltelite.cf/home/](https://img.shields.io/website?down_color=%23ff0000&down_message=offline&style=flat-square&up_color=%2300ff0f&up_message=online&url=http%3A%2F%2Fctrlaltelite.cf%2Fhome%2F)    
+![](https://img.shields.io/website?down_color=%23ff0000&down_message=offline&style=flat-square&up_color=%2300ff0f&up_message=online&url=http%3A%2F%2Fctrlaltelite.cf%2Fhome%2F)    
 ![](ReadmeAssets/1.png)
 
 ## Project Description
